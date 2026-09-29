@@ -1,0 +1,79 @@
+{% extends '_base.html' %}
+{% block extra_css %}<link rel="stylesheet" href="/assets/menu.css?v={{ V }}">{% endblock %}
+{% block body %}
+<section class="m-hero">
+  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <header class="m-head">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="{{ S.nombre }} — inicio"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
+      <a class="home" href="/" data-ev="home_nav">{BI:← Inicio|← Home}</a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="ring" aria-hidden="true">
+    <svg class="txt" viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#F7F0E3" stroke="#1E4029" stroke-width="2.5"/><text><textPath href="#circ">Good coffee ✺ good food ✺ same energy ✺</textPath></text></svg>
+    <img src="/img/logo-green.webp" alt="" width="46" height="49">
+  </div>
+  <div class="wrap hero-in">
+    <h1 class="sr">{BI:Menú de AM by Mu|AM by Mu menu}</h1>
+    <div class="mega" aria-hidden="true">
+      <span lang="es"><span class="l">M</span><span class="l">e</span><span class="l">n</span><span class="l">ú</span></span><span lang="en"><span class="l">M</span><span class="l">e</span><span class="l">n</span><span class="l">u</span></span>
+      <svg class="mega-glass" viewBox="0 0 200 250">
+        <defs><clipPath id="mg"><path d="M38 92h124l-10 118c-1 10-9 18-19 18H67c-10 0-18-8-19-18z"/></clipPath></defs>
+        <g clip-path="url(#mg)"><g class="slosh"><path d="M-60 100c15-8 30 8 45 0s30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0V260H-60z" fill="#A8C47F"/></g></g>
+        <path d="M128 12 148 4l4 8-18 8-20 84" fill="none" stroke="#1E4029" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 58h136l-14 152c-1 12-10 22-22 22H68c-12 0-21-10-22-22z" fill="none" stroke="#F7F0E3" stroke-width="12" stroke-linejoin="round"/>
+        <path d="M32 58h136l-14 152c-1 12-10 22-22 22H68c-12 0-21-10-22-22z" fill="none" stroke="#1E4029" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M52 186c10 20 20 20 30 0s20-20 30 0 20 20 30 0" fill="none" stroke="#F7F0E3" stroke-width="6" stroke-linecap="round"/>
+        <rect x="62" y="70" width="34" height="30" rx="6" transform="rotate(-12 79 85)" fill="none" stroke="#1E4029" stroke-width="5"/>
+        <rect x="104" y="66" width="32" height="30" rx="6" transform="rotate(10 120 81)" fill="none" stroke="#1E4029" stroke-width="5"/>
+      </svg>
+    </div>
+    <div class="sub-mega"><span class="groovy">{BI:con actitud|with attitude}</span></div>
+    <div class="facts">
+      <span class="chip">{{ m.bi(HORARIO_CHIP) }}</span>
+      <span class="chip">{BI:Precios en MXN, IVA incluido|Prices in MXN, tax included}</span>
+    </div>
+    <div class="m-bl rv">
+      <div class="burst"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}</b></div>
+      <div><strong>{BI:Café sin límite|Bottomless coffee}</strong><p>{{ m.bi({'es':'Con tu brunch. '+BL.incluye.es+' · '+BL.duracion.es+' por persona · leches vegetales +'+(BL.leche_vegetal_extra|string),'en':'With your brunch. '+BL.incluye.en+' · '+BL.duracion.en+' per person · plant milk +'+(BL.leche_vegetal_extra|string)}) }}</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="tilts" aria-hidden="true"><div class="tilt"><div class="ticker-track"><span>New signatures</span><span>Pink matcha</span><span>Matcha taro</span><span>Hojicha latte</span><span>Thai tea latte</span><span>Green energy only</span><span>New signatures</span><span>Pink matcha</span><span>Matcha taro</span><span>Hojicha latte</span><span>Thai tea latte</span><span>Green energy only</span></div></div>
+<div class="tilt rev"><div class="ticker-track"><span>Chilaquiles</span><span>Eggs &amp; steak</span><span>Pain perdu</span><span>Burrata toast</span><span>Mimosas</span><span>Chilaquiles</span><span>Eggs &amp; steak</span><span>Pain perdu</span><span>Burrata toast</span><span>Mimosas</span></div></div></div>
+
+<main>
+<section class="m-menu menu" id="menu" style="border-top:0">
+  <div class="wrap">
+    <p class="swipe-hint">{BI:desliza para cambiar de sección|swipe to change section}<svg viewBox="0 0 30 16"><path d="M2 8h24M18 2l7 6-7 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+    {{ m.menu_panels(MENU, POSTERS) }}
+    <div class="next-tab"><button class="btn btn-cream" type="button" id="nextTab">{BI:Siguiente sección →|Next section →}</button></div>
+    <p class="menu-note">{BI:Pregúntanos por opciones sin gluten, veganas y por alergias ♡|Ask us about gluten-free, vegan and allergy options ♡}</p>
+  </div>
+</section>
+</main>
+
+<footer class="m-foot">
+  <div class="wrap">
+    <div class="bigbye" aria-hidden="true">{BI:Buen provecho|Enjoy}</div>
+    <img src="/img/logo-pink.webp" alt="{{ S.nombre }}" width="78" height="84" loading="lazy">
+    <p class="tag-line">{BI:¿Te gustó? ♡|Loved it? ♡}</p>
+    <div class="row">
+      <a class="btn btn-pink" href="{{ BR.resenas_url }}" data-ev="review" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Déjanos tu reseña en Google|Leave us a Google review}</a>
+      <a class="btn btn-cream" href="/" data-ev="home_nav">{BI:Ir al inicio|Go to home}</a>
+      {% if R.instagram %}<a class="btn btn-cream" href="{{ R.instagram }}" data-ev="social_instagram" target="_blank" rel="noopener">@ambymu</a>{% endif %}
+      <a class="btn btn-cream" href="/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}">{BI:Horario y ubicación|Hours &amp; location}</a>
+    </div>
+    <small>{{ S.nombre }} · Calle 38, {{ BR.ciudad }} · {{ m.bi(HORARIO_RESUMEN) }}<br><a href="/" data-ev="home_nav">ambymu.mx</a></small>
+  </div>
+</footer>
+
+<a class="top" href="#" aria-label="Subir">↑</a>
+{{ m.wa_float(BR) }}
+{% endblock %}
+{% block extra_js %}<script src="/assets/menu.js?v={{ V }}" defer></script>{% endblock %}

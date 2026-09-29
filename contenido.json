@@ -1,0 +1,1043 @@
+{
+  "_nota": "Fuente única de verdad del sitio. Edita este archivo y corre ./build.sh. Campos null = no se muestran (no se inventa nada).",
+  "sitio": {
+    "dominio": "https://ambymu.mx",
+    "nombre": "AM by Mu",
+    "nombre_corto": "AM",
+    "grupo": "Mu Group",
+    "grupo_url": "https://muburgers.mx",
+    "idioma": "es-MX",
+    "ga4_id": null,
+    "search_console_meta": null,
+    "tema": "#1E4029"
+  },
+  "marca": {
+    "colores": {
+      "verde": "#1E4029",
+      "verde_2": "#2C5838",
+      "matcha": "#A8C47F",
+      "blush": "#F8D7DF",
+      "rosa": "#F6B0C8",
+      "rosa_fuerte": "#EC5A98",
+      "crema": "#F7F0E3",
+      "naranja": "#F29A5B"
+    },
+    "tipografias": {
+      "poster": "Anton",
+      "groovy": "Bagel Fat One",
+      "mano": "Caveat",
+      "texto": "Jost"
+    },
+    "lema": "Good coffee, good food, same energy."
+  },
+  "precios": {
+    "ajuste_pct": 0,
+    "redondeo": 5,
+    "moneda": "MXN",
+    "_ayuda": "ajuste_pct=15 sube todos los precios 15% redondeando al múltiplo de 'redondeo' más cercano."
+  },
+  "redes": {
+    "instagram": "https://www.instagram.com/ambymu/",
+    "facebook": null,
+    "tiktok": null
+  },
+  "sucursales": [
+    {
+      "slug": "playa-del-carmen",
+      "id": "calle-38",
+      "nombre": "AM by Mu · Calle 38",
+      "ciudad": "Playa del Carmen",
+      "direccion": {
+        "calle": "Calle 38 entre 5ta Avenida y Calle Flamingos",
+        "colonia": "Zazil-Ha",
+        "ciudad": "Playa del Carmen",
+        "estado": "Quintana Roo",
+        "cp": "77720",
+        "pais": "MX"
+      },
+      "geo": {
+        "lat": 20.6349375,
+        "lng": -87.0654887
+      },
+      "maps_cid": "2113530755142308697",
+      "maps_url": "https://www.google.com/maps?cid=2113530755142308697",
+      "resenas_url": "https://www.google.com/maps?cid=2113530755142308697",
+      "telefono": "+52 984 385 6781",
+      "whatsapp": "+52 984 385 6781",
+      "whatsapp_texto": "Hola AM by Mu",
+      "horario": {
+        "lun": [
+          "08:00",
+          "15:00"
+        ],
+        "mar": null,
+        "mie": [
+          "08:00",
+          "15:00"
+        ],
+        "jue": [
+          "08:00",
+          "15:00"
+        ],
+        "vie": [
+          "08:00",
+          "15:00"
+        ],
+        "sab": [
+          "08:00",
+          "15:00"
+        ],
+        "dom": [
+          "08:00",
+          "15:00"
+        ]
+      },
+      "pedidos": [],
+      "reservas": false,
+      "atributos": {
+        "es": [
+          "Café ilimitado",
+          "Matcha ceremonial",
+          "Opciones veganas",
+          "Sin gluten",
+          "Terraza",
+          "Sillas para bebé",
+          "Mimosas bottomless",
+          "Música en vivo",
+          "Run Club"
+        ],
+        "en": [
+          "Bottomless coffee",
+          "Ceremonial matcha",
+          "Vegan options",
+          "Gluten free",
+          "Outdoor seating",
+          "High chairs",
+          "Bottomless mimosas",
+          "Live music",
+          "Run Club"
+        ]
+      },
+      "referencia": {
+        "es": "A media cuadra de la 5ta Avenida, en Zazil-Ha.",
+        "en": "Half a block from 5th Avenue, in Zazil-Ha."
+      },
+      "calificacion_google": 4.8
+    }
+  ],
+  "barra_libre_cafe": {
+    "precio": 75,
+    "leche_vegetal_extra": 10,
+    "duracion": {
+      "es": "1:30 h",
+      "en": "1.5 h"
+    },
+    "incluye": {
+      "es": "Espresso, flat white, latte, cappuccino y americano",
+      "en": "Espresso, flat white, latte, cappuccino and americano"
+    }
+  },
+  "run_club": {
+    "activo": true,
+    "dia": {
+      "es": "sábados",
+      "en": "Saturdays"
+    },
+    "desayunos": [
+      {
+        "n": {
+          "es": "Burrata toast",
+          "en": "Burrata toast"
+        },
+        "d": {
+          "es": "Masa madre, tomate y ajo, aguacate, dos huevitos",
+          "en": "Sourdough, tomato & garlic, avocado, two eggs"
+        }
+      },
+      {
+        "n": {
+          "es": "Tacos volteados",
+          "en": "Upside-down tacos"
+        },
+        "d": {
+          "es": "Barbacoa de res, salsa verde, cebolla, cilantro",
+          "en": "Beef barbacoa, green sauce, onion, cilantro"
+        }
+      },
+      {
+        "n": {
+          "es": "Chilaquiles motuleños",
+          "en": "Motuleño chilaquiles"
+        },
+        "d": {
+          "es": "Plátano macho, jamón, chícharos, frijoles, quesillo, dos huevos",
+          "en": "Fried plantain, ham, peas, beans, quesillo, two eggs"
+        }
+      }
+    ],
+    "combos": [
+      {
+        "id": "light",
+        "nombre": "Run breakfast light",
+        "p": 285,
+        "incluye": {
+          "es": [
+            "Cualquiera de los 3 desayunos",
+            "Barra libre de americano, caliente o iced"
+          ],
+          "en": [
+            "Any of the 3 breakfasts",
+            "Bottomless americano, hot or iced"
+          ]
+        }
+      },
+      {
+        "id": "exp",
+        "nombre": "The AM experience",
+        "p": 325,
+        "destacado": true,
+        "incluye": {
+          "es": [
+            "Cualquiera de los 3 desayunos",
+            "Barra libre de café de especialidad",
+            "Fruta de temporada"
+          ],
+          "en": [
+            "Any of the 3 breakfasts",
+            "Bottomless specialty coffee",
+            "Seasonal fruit"
+          ]
+        }
+      }
+    ],
+    "extras": [
+      {
+        "n": {
+          "es": "Arrachera",
+          "en": "Skirt steak"
+        },
+        "p": 100
+      },
+      {
+        "n": {
+          "es": "Barbacoa",
+          "en": "Barbacoa"
+        },
+        "p": 55
+      },
+      {
+        "n": {
+          "es": "Huevo extra",
+          "en": "Extra egg"
+        },
+        "p": 55
+      }
+    ],
+    "barra": {
+      "texto": {
+        "es": "Barra libre de Aperol spritz, mimosas y affogato carajillo · 1:30 h por persona",
+        "en": "Bottomless Aperol spritz, mimosas & affogato carajillo · 1.5 h per person"
+      },
+      "p": 499
+    }
+  },
+  "seo": {
+    "inicio": {
+      "title": "AM by Mu | Brunch y barra de café en Playa del Carmen · Calle 38",
+      "description": "Brunch y barra de café en Calle 38, Playa del Carmen. Matcha ceremonial, café ilimitado con tu brunch, chilaquiles, eggs & steak y mimosas bottomless. 8:00–15:00, martes cerrado."
+    },
+    "menu": {
+      "title": "Menú AM by Mu | Brunch, café y matcha · Playa del Carmen",
+      "description": "Menú completo de AM by Mu con precios: brunch, chilaquiles, eggs & steak, lattes de matcha ceremonial, café de especialidad, jugos y mimosas bottomless."
+    },
+    "sucursal": {
+      "title": "AM by Mu Calle 38, Playa del Carmen | Horario, cómo llegar",
+      "description": "AM by Mu en Calle 38 entre 5ta Avenida y Calle Flamingos, Zazil-Ha, Playa del Carmen. Horario día por día, cómo llegar y preguntas frecuentes."
+    },
+    "og_imagen": "/og.jpg"
+  },
+  "textos": {
+    "hero_lead": {
+      "es": "Barra de café y brunch en Playa del Carmen. Café de especialidad, matcha ceremonial y porciones generosas — todos los días de 8 a 3 (menos martes).",
+      "en": "Brunch & coffee bar in Playa del Carmen. Specialty coffee, ceremonial matcha and generous plates — every day 8 am to 3 pm (except Tuesdays)."
+    },
+    "nosotros": {
+      "es": "AM by Mu es la barra de café y brunch de la calle 38, del mismo equipo detrás de Mu Burgerhouse y Papaya Slice. Café de calidad, porciones bastas y un espacio relajado para arrancar el día — solo, con tu crew o después de correr.",
+      "en": "AM by Mu is the brunch and coffee bar on Calle 38, from the team behind Mu Burgerhouse and Papaya Slice. Quality coffee, generous plates and a relaxed space to start the day — solo, with your crew or after a run."
+    },
+    "matcha": {
+      "es": "Matcha ceremonial de origen japonés, sin azúcar añadida. Capas, cold foams y toppings que se ven tan bien como saben.",
+      "en": "Ceremonial matcha of Japanese origin, no added sugar. Layers, cold foams and toppings that look as good as they taste."
+    }
+  },
+  "faq": [
+    {
+      "q": {
+        "es": "¿Cuál es el horario de AM by Mu?",
+        "en": "What are your opening hours?"
+      },
+      "a": {
+        "es": "Abrimos de 8:00 a 15:00 todos los días excepto martes, que cerramos.",
+        "en": "We're open 8 am to 3 pm every day except Tuesday."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen café ilimitado?",
+        "en": "Do you have bottomless coffee?"
+      },
+      "a": {
+        "es": "Sí. Con la compra de un brunch, la barra libre de café cuesta ${barra} por persona (máximo 1:30 h) e incluye espresso, flat white, latte, cappuccino y americano.",
+        "en": "Yes. With any brunch, bottomless coffee is ${barra} MXN per person (1.5 h max): espresso, flat white, latte, cappuccino and americano."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen opciones veganas o sin gluten?",
+        "en": "Do you have vegan or gluten-free options?"
+      },
+      "a": {
+        "es": "Sí: burrito vegano, hamburguesa con Beyond Meat, hotcake de elote sin gluten y leches vegetales para todos los cafés.",
+        "en": "Yes: vegan burrito, Beyond Meat burger, gluten-free sweet corn hotcake and plant-based milk for every coffee."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Dónde están?",
+        "en": "Where are you?"
+      },
+      "a": {
+        "es": "En Calle 38 entre 5ta Avenida y Calle Flamingos, colonia Zazil-Ha, Playa del Carmen.",
+        "en": "Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha, Playa del Carmen."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen mimosas bottomless?",
+        "en": "Do you have bottomless mimosas?"
+      },
+      "a": {
+        "es": "Sí, mimosas y Aperol spritz bottomless por ${bottomless}.",
+        "en": "Yes, bottomless mimosas and Aperol spritz for ${bottomless} MXN."
+      }
+    }
+  ],
+  "menu": {
+    "secciones": [
+      {
+        "id": "brunch",
+        "tab": {
+          "es": "Brunch",
+          "en": "Brunch"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Brunch",
+              "en": "Brunch"
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Bowl de fruta",
+                  "en": "Fruit bowl"
+                },
+                "p": 230,
+                "d": {
+                  "es": "Fruta de temporada, yogurt, granola",
+                  "en": "Seasonal fruit, yogurt, granola"
+                }
+              },
+              {
+                "n": {
+                  "es": "Hotcake de elote",
+                  "en": "Sweet corn hotcake"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Hotcake de elote amarillo, leche condensada, palomitas acarameladas, helado de vainilla",
+                  "en": "Condensed milk, caramel popcorn, vanilla ice cream"
+                },
+                "tags": [
+                  "new",
+                  "gf"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Pain perdu",
+                  "en": "Pain perdu"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Pan francés, caramelo salado, helado",
+                  "en": "French toast, salted caramel, ice cream"
+                }
+              },
+              {
+                "n": {
+                  "es": "Burrata toast",
+                  "en": "Burrata toast"
+                },
+                "p": 230,
+                "d": {
+                  "es": "Masa madre, tomate y ajo, aguacate",
+                  "en": "Sourdough, tomato & garlic, avocado"
+                },
+                "extra": {
+                  "es": "Dos huevitos +55",
+                  "en": "Two eggs +55"
+                }
+              },
+              {
+                "n": {
+                  "es": "El sándwich",
+                  "en": "The sandwich"
+                },
+                "p": 280,
+                "d": {
+                  "es": "Pan de masa madre, jamón ahumado, quesillo, aguacate, frijoles",
+                  "en": "Sourdough, smoked ham, quesillo, avocado, beans"
+                }
+              },
+              {
+                "n": {
+                  "es": "Burrito vegano",
+                  "en": "Vegan burrito"
+                },
+                "p": 280,
+                "d": {
+                  "es": "Tortilla de harina, carne vegana, setas, salsa de chile morita, cilantro",
+                  "en": "Flour tortilla, plant-based meat, mushrooms, morita chili sauce, cilantro"
+                },
+                "tags": [
+                  "new",
+                  "vegan"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Huevitos al gusto",
+                  "en": "Eggs your way"
+                },
+                "p": 200,
+                "d": {
+                  "es": "Acompañados de mini chilaquiles y frijoles",
+                  "en": "Served with mini chilaquiles and beans"
+                },
+                "extra": {
+                  "es": "Barbacoa, jamón ahumado, queso gratinado o tocino +55",
+                  "en": "Barbacoa, smoked ham, melted cheese or bacon +55"
+                }
+              },
+              {
+                "n": {
+                  "es": "Huevitos ahogados",
+                  "en": "Huevos ahogados"
+                },
+                "p": 250,
+                "d": {
+                  "es": "Salsa roja, salsa verde, cebolla, cilantro",
+                  "en": "Eggs in red & green Mexican salsa, onion, cilantro"
+                },
+                "extra": {
+                  "es": "Barbacoa, jamón ahumado, queso gratinado o tocino +55",
+                  "en": "Barbacoa, smoked ham, melted cheese or bacon +55"
+                }
+              },
+              {
+                "n": {
+                  "es": "Huevitos motuleños",
+                  "en": "Eggs motuleños"
+                },
+                "p": 265,
+                "d": {
+                  "es": "Al estilo yucateco",
+                  "en": "Yucatán style"
+                }
+              },
+              {
+                "n": {
+                  "es": "Eggs & Steak",
+                  "en": "Eggs & Steak"
+                },
+                "p": 320,
+                "d": {
+                  "es": "100 g de arrachera Angus, 3 huevos estrellados, mini chilaquiles, frijolitos",
+                  "en": "100 g Angus skirt steak, 3 fried eggs, mini chilaquiles, beans"
+                }
+              },
+              {
+                "n": {
+                  "es": "Omelette quesillo",
+                  "en": "Quesillo omelette"
+                },
+                "p": 270,
+                "d": {
+                  "es": "Jamón ahumado, salsa verde, parmesano, cebollín",
+                  "en": "Smoked ham, green sauce, parmesan, chives"
+                }
+              },
+              {
+                "n": {
+                  "es": "Omelette gouda",
+                  "en": "Gouda omelette"
+                },
+                "p": 270,
+                "d": {
+                  "es": "Jamón ahumado, crema de trufa",
+                  "en": "Smoked ham, truffle cream"
+                }
+              },
+              {
+                "n": {
+                  "es": "Roll de croissant",
+                  "en": "Croissant roll"
+                },
+                "p": 255,
+                "d": {
+                  "es": "Huevo, queso amarillo, tocino",
+                  "en": "Egg, American cheese, bacon"
+                }
+              },
+              {
+                "n": {
+                  "es": "Roll croque AMadame",
+                  "en": "Roll croque AMadame"
+                },
+                "p": 285,
+                "d": {
+                  "es": "Jamón, queso, huevo estrellado, salsa de trufa",
+                  "en": "Ham, cheese, fried egg, truffle sauce"
+                }
+              },
+              {
+                "n": {
+                  "es": "A.M. cheese burger",
+                  "en": "A.M. cheeseburger"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Doble carne Angus, tocino, huevo, queso cheddar fuerte, queso americano, mayo chipotle",
+                  "en": "Double Angus beef, bacon, egg, sharp cheddar, American cheese, chipotle mayo"
+                },
+                "extra": {
+                  "es": "En croissant +35 · Beyond Meat +70",
+                  "en": "On croissant +35 · Beyond Meat +70"
+                }
+              },
+              {
+                "n": {
+                  "es": "Chilaquiles",
+                  "en": "Chilaquiles"
+                },
+                "p": 225,
+                "d": {
+                  "es": "Verdes poblanos o rojos morita, frijoles, cebolla, cilantro, quesillo",
+                  "en": "Green poblano or red morita, beans, onion, cilantro, quesillo"
+                },
+                "extra": {
+                  "es": "Dos huevitos, barbacoa o queso gratinado +55",
+                  "en": "Two eggs, barbacoa or melted cheese +55"
+                }
+              },
+              {
+                "n": {
+                  "es": "Chilaquiles rancheros",
+                  "en": "Ranchero chilaquiles"
+                },
+                "p": 320,
+                "d": {
+                  "es": "Salsa tatemada, medio aguacate, dos huevitos estrellados, 100 g de arrachera Angus",
+                  "en": "Fire-roasted salsa, half an avocado, two fried eggs, 100 g Angus skirt steak"
+                }
+              },
+              {
+                "n": {
+                  "es": "Chilaquiles motuleños",
+                  "en": "Motuleño-style chilaquiles"
+                },
+                "p": 245,
+                "d": {
+                  "es": "Plátano macho, jamón, chícharos, frijoles, quesillo, dos huevos",
+                  "en": "Fried plantain, ham, peas, beans, quesillo, two eggs"
+                },
+                "tags": [
+                  "new"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Flautas de barbacoa",
+                  "en": "Barbacoa flautas"
+                },
+                "p": 270,
+                "d": {
+                  "es": "Salsa verde, crema ácida, quesillo, cilantro",
+                  "en": "Green sauce, sour cream, quesillo, cilantro"
+                },
+                "tags": [
+                  "new"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Tacos volteados",
+                  "en": "Upside-down barbacoa tacos"
+                },
+                "p": 250,
+                "d": {
+                  "es": "Barbacoa de res, salsa verde, cebolla, cilantro",
+                  "en": "Beef barbacoa, green sauce, onion, cilantro"
+                }
+              },
+              {
+                "n": {
+                  "es": "Par de quesadillotas",
+                  "en": "Two big quesadillas"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Adobo, barbacoa, quesillo",
+                  "en": "Adobo, barbacoa, quesillo"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "drinks",
+        "tab": {
+          "es": "Café y lattes",
+          "en": "Coffee & lattes"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Café",
+              "en": "Coffee"
+            },
+            "layout": "chips",
+            "items": [
+              {
+                "n": {
+                  "es": "Espresso",
+                  "en": "Espresso"
+                },
+                "p": 40
+              },
+              {
+                "n": {
+                  "es": "Americano",
+                  "en": "Americano"
+                },
+                "p": 40
+              },
+              {
+                "n": {
+                  "es": "Flat white",
+                  "en": "Flat white"
+                },
+                "p": 65
+              },
+              {
+                "n": {
+                  "es": "Cappuccino",
+                  "en": "Cappuccino"
+                },
+                "p": 75
+              },
+              {
+                "n": {
+                  "es": "Latte",
+                  "en": "Latte"
+                },
+                "p": 75
+              }
+            ],
+            "barra_libre": true
+          },
+          {
+            "titulo": {
+              "es": "Lattes am",
+              "en": "Lattes am"
+            },
+            "nota": {
+              "es": "Matcha ceremonial de origen japonés. Sin azúcar añadida.",
+              "en": "Ceremonial matcha of Japanese origin. No added sugar."
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Matcha latte AM",
+                  "en": "Matcha latte AM"
+                },
+                "p": 145,
+                "d": {
+                  "es": "Matcha ceremonial, leche tostada, banana cold foam y topping de corn flakes",
+                  "en": "Ceremonial matcha, toasted milk, banana cold foam, corn flakes topping"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#F3E6C8",
+                  "#6E9A45",
+                  "#6E9A45",
+                  "#EFE6D4"
+                ],
+                "corto": {
+                  "es": "Leche tostada, banana cold foam y corn flakes.",
+                  "en": "Toasted milk, banana cold foam, corn flakes."
+                }
+              },
+              {
+                "n": {
+                  "es": "Pink matcha",
+                  "en": "Pink matcha"
+                },
+                "p": 145,
+                "d": {
+                  "es": "Matcha ceremonial, leche de fresa y fondo de mermelada, coronado con cold foam de dulce de leche",
+                  "en": "Ceremonial matcha, strawberry milk, strawberry jam base, dulce de leche cold foam"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#E9C98B",
+                  "#6E9A45",
+                  "#F2A6B6",
+                  "#B6283F"
+                ],
+                "corto": {
+                  "es": "Leche de fresa, mermelada y cold foam de dulce de leche.",
+                  "en": "Strawberry milk, jam base, dulce de leche cold foam."
+                }
+              },
+              {
+                "n": {
+                  "es": "Matcha taro",
+                  "en": "Matcha taro"
+                },
+                "p": 135,
+                "d": {
+                  "es": "Matcha ceremonial, leche con cremosa cold foam de taro y lluvia de taro",
+                  "en": "Ceremonial matcha, milk, creamy taro cold foam, taro dust"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#B39AE0",
+                  "#6E9A45",
+                  "#6E9A45",
+                  "#EDE6DA"
+                ],
+                "corto": {
+                  "es": "Cremosa cold foam de taro y lluvia de taro.",
+                  "en": "Creamy taro cold foam and taro dust."
+                }
+              },
+              {
+                "n": {
+                  "es": "Hojicha latte",
+                  "en": "Hojicha latte"
+                },
+                "p": 135,
+                "d": {
+                  "es": "Té verde tostado japonés con leche y cold foam de dulce de leche",
+                  "en": "Japanese roasted green tea with milk & dulce de leche cold foam"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#E9C98B",
+                  "#8A5A2E",
+                  "#B98A5E",
+                  "#F1EADF"
+                ],
+                "corto": {
+                  "es": "Té verde tostado japonés y cold foam de dulce de leche.",
+                  "en": "Japanese roasted green tea, dulce de leche cold foam."
+                }
+              },
+              {
+                "n": {
+                  "es": "Thai tea latte",
+                  "en": "Thai tea latte"
+                },
+                "p": 125,
+                "d": {
+                  "es": "Té negro tailandés especiado, leche deslactosada y cold foam de dulce de leche",
+                  "en": "Spiced Thai black tea, lactose-free milk, dulce de leche cold foam"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#E9C98B",
+                  "#C9621F",
+                  "#D98A4E",
+                  "#F1E3CF"
+                ],
+                "corto": {
+                  "es": "Té negro tailandés especiado y cold foam de dulce de leche.",
+                  "en": "Spiced Thai black tea, dulce de leche cold foam."
+                }
+              },
+              {
+                "n": {
+                  "es": "Salty dulce de leche",
+                  "en": "Salty dulce de leche"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Espresso doble, foam de dulce de leche",
+                  "en": "Double espresso, dulce de leche foam"
+                }
+              },
+              {
+                "n": {
+                  "es": "Banana bread latte",
+                  "en": "Banana bread latte"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Jarabe de pan de plátano, espresso, foam de pan de plátano",
+                  "en": "Banana bread syrup, espresso, banana bread foam"
+                }
+              },
+              {
+                "n": {
+                  "es": "Aussie iced coffee",
+                  "en": "Aussie iced coffee"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Helado de vainilla, espresso doble, leche",
+                  "en": "Vanilla ice cream, double espresso, milk"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "frescos",
+        "tab": {
+          "es": "Frescos",
+          "en": "Refreshers"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Refreshers y jugos",
+              "en": "Refreshers & juices"
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Matcha limo fresa",
+                  "en": "Matcha strawberry lemonade"
+                },
+                "p": 120,
+                "tags": [
+                  "new"
+                ],
+                "tipo": {
+                  "es": "Refresher",
+                  "en": "Refresher"
+                }
+              },
+              {
+                "n": {
+                  "es": "Matcha orange",
+                  "en": "Matcha orange"
+                },
+                "p": 120,
+                "tags": [
+                  "new"
+                ],
+                "tipo": {
+                  "es": "Refresher",
+                  "en": "Refresher"
+                }
+              },
+              {
+                "n": {
+                  "es": "Espresso tonic",
+                  "en": "Espresso tonic"
+                },
+                "p": 100,
+                "tags": [
+                  "new"
+                ],
+                "tipo": {
+                  "es": "Refresher",
+                  "en": "Refresher"
+                }
+              },
+              {
+                "n": {
+                  "es": "Espresso ginger beer",
+                  "en": "Espresso ginger beer"
+                },
+                "p": 100,
+                "tags": [
+                  "new"
+                ],
+                "tipo": {
+                  "es": "Refresher",
+                  "en": "Refresher"
+                }
+              },
+              {
+                "n": {
+                  "es": "Fluffy orange",
+                  "en": "Fluffy orange"
+                },
+                "p": 65,
+                "tipo": {
+                  "es": "Jugo",
+                  "en": "Juice"
+                }
+              },
+              {
+                "n": {
+                  "es": "Fluffy toronja",
+                  "en": "Fluffy grapefruit"
+                },
+                "p": 65,
+                "tipo": {
+                  "es": "Jugo",
+                  "en": "Juice"
+                }
+              },
+              {
+                "n": {
+                  "es": "Fresh verde",
+                  "en": "Fresh green"
+                },
+                "p": 65,
+                "tipo": {
+                  "es": "Jugo",
+                  "en": "Juice"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "boozy",
+        "tab": {
+          "es": "Booozy",
+          "en": "Booozy"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Booozy",
+              "en": "Booozy"
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Mimosa",
+                  "en": "Mimosa"
+                },
+                "p": 90
+              },
+              {
+                "n": {
+                  "es": "Aperol spritz",
+                  "en": "Aperol spritz"
+                },
+                "p": 150
+              },
+              {
+                "n": {
+                  "es": "Affogato carajillo",
+                  "en": "Affogato carajillo"
+                },
+                "p": 150
+              },
+              {
+                "n": {
+                  "es": "Fluffy garibaldi",
+                  "en": "Fluffy garibaldi"
+                },
+                "p": 150
+              },
+              {
+                "n": {
+                  "es": "Mimosa & Spritz bottomless",
+                  "en": "Bottomless mimosa & spritz"
+                },
+                "p": 399
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pan",
+        "tab": {
+          "es": "Pan dulce",
+          "en": "Sweet bread"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Pan dulce",
+              "en": "Sweet bread"
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Croissant natural",
+                  "en": "Plain croissant"
+                },
+                "p": 50
+              },
+              {
+                "n": {
+                  "es": "Croissant brûlée",
+                  "en": "Croissant brûlée"
+                },
+                "p": 60
+              },
+              {
+                "n": {
+                  "es": "Croissant salty dulce de leche",
+                  "en": "Salty dulce de leche croissant"
+                },
+                "p": 60
+              },
+              {
+                "n": {
+                  "es": "Croissant miel, jamón y queso",
+                  "en": "Honey, ham & cheese croissant"
+                },
+                "p": 125
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

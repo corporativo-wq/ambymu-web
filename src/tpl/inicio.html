@@ -1,0 +1,194 @@
+{% extends '_base.html' %}
+{% block body %}
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="{{ S.nombre }}"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
+    <nav>
+      <a href="#menu">{BI:Menú|Menu}</a>
+      <a href="#matcha">Matcha</a>
+      {%- if RC.activo %}<a href="#runclub">Run Club</a>{% endif %}
+      <a href="#visitanos">{BI:Visítanos|Visit us}</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+    {%- if BR.whatsapp %}<a class="btn btn-pink" data-ev="whatsapp" data-branch="{{ BR.slug }}" href="https://wa.me/{{ BR.whatsapp|digits }}?text={{ BR.whatsapp_texto|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <svg class="star s1"><use href="#spark"/></svg><svg class="star s2"><use href="#spark"/></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Calle 38 · {{ BR.ciudad }}</p>
+      <h1>
+        <span class="sr">{BI:AM by Mu — Barra de café y brunch en Playa del Carmen|AM by Mu — Brunch &amp; coffee bar in Playa del Carmen}</span>
+        <span aria-hidden="true"><span class="h-poster">{BI:Buenas|Good}</span><span class="h-poster">{BI:mañanas|mornings}</span><span class="h-groovy">{BI:con actitud|only}</span></span>
+      </h1>
+      <p class="lead">{{ m.bi(TX.hero_lead) }}</p>
+      <div class="cta">
+        <a class="btn btn-green" href="#menu">{BI:Ver el menú|See the menu}</a>
+        <a class="btn btn-cream" href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Cómo llegar|Directions}</a>
+      </div>
+      <div class="facts">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{{ m.bi(HORARIO_RESUMEN) }}</span>
+        {%- if BR.calificacion_google %}<span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>{{ m.t(BR.calificacion_google|string+" en Google", BR.calificacion_google|string+" on Google") }}</span>{% endif %}
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="frame"><img src="/img/hero.webp" alt="{BI:Signature lattes de matcha de AM by Mu|AM by Mu signature matcha lattes}" width="720" height="1020" fetchpriority="high"></div>
+      <div class="burst spin-wrap"><svg class="spin"><use href="#burst"/></svg><b>{BI:Nuevos|New}<br>Signa-<br>tures</b></div>
+      <div class="bubble">{BI:Barra libre|Bottomless}<br>{BI:de café|coffee}<br>${{ BL.precio }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="energy" id="matcha">
+  <div class="wrap">
+    <p class="eyebrow">{BI:Nuevo · Matcha ceremonial|New · Ceremonial matcha}</p>
+    <div class="intro">
+      <h2>Green<br>energy<br>only</h2>
+      <svg class="glass" viewBox="0 0 200 250" aria-hidden="true">
+        <path d="M128 12 148 4l4 8-18 8-20 84" fill="none" stroke="#F7F0E3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M38 92h124l-10 118c-1 10-9 18-19 18H67c-10 0-18-8-19-18z" fill="#A8C47F"/>
+        <path d="M32 58h136l-14 152c-1 12-10 22-22 22H68c-12 0-21-10-22-22z" fill="none" stroke="#F7F0E3" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M52 186c10 20 20 20 30 0s20-20 30 0 20 20 30 0" fill="none" stroke="#F7F0E3" stroke-width="6" stroke-linecap="round"/>
+        <rect x="62" y="70" width="34" height="30" rx="6" transform="rotate(-12 79 85)" fill="none" stroke="#F7F0E3" stroke-width="6"/>
+        <rect x="104" y="66" width="32" height="30" rx="6" transform="rotate(10 120 81)" fill="none" stroke="#F7F0E3" stroke-width="6"/>
+        <g fill="#1E4029" opacity=".35"><circle cx="70" cy="140" r="3"/><circle cx="118" cy="160" r="2.5"/><circle cx="95" cy="125" r="2"/><circle cx="130" cy="130" r="3"/><circle cx="84" cy="168" r="2"/></g>
+      </svg>
+    </div>
+    <p class="sub">{{ m.bi(TX.matcha) }}</p>
+    <div class="drinks">
+    {%- for d in SIGNATURES %}
+      <article class="drink">{% if 'new' in (d.tags or []) %}<div class="burst new"><svg><use href="#burst"/></svg><b>NEW</b></div>{% endif %}<div class="layers">{% for c in d.capas %}<i style="background:{{ c }}"></i>{% endfor %}</div><h3>{{ m.bi(d.n) }}</h3><p>{{ m.bi(d.corto) }}</p><span class="p">${{ d.p }}</span></article>
+    {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="bottomless" aria-label="{BI:Barra libre de café|Bottomless coffee}">
+  <div class="wrap bl-inner">
+    <div>
+      <h2>{BI:Café sin límite|Bottomless coffee}<br>{BI:con tu brunch|with your brunch}</h2>
+      <p>{{ m.bi({'es': BL.incluye.es+'. Por persona, '+BL.duracion.es+' máx. Leches vegetales +'+(BL.leche_vegetal_extra|string)+'.', 'en': BL.incluye.en+'. Per person, '+BL.duracion.en+' max. Plant-based milk +'+(BL.leche_vegetal_extra|string)+'.'}) }}</p>
+    </div>
+    <div class="burst bl-price"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}<small>MXN</small></b></div>
+  </div>
+</section>
+
+{%- if RC.activo %}
+<section class="run" id="runclub">
+  <div class="wrap">
+    <div class="poster">
+      <div class="run-head">
+        <div>
+          <div class="run-title">Run Club</div>
+          <div class="run-sub">Post run brunch · {{ m.bi(RC.dia) }}</div>
+        </div>
+        <div class="bubble">Good coffee<br>good food<br>same energy ♡</div>
+      </div>
+      <div class="choose">
+        <p class="lbl">{BI:Elige tu desayuno|Choose your breakfast}</p>
+        {%- for d in RC.desayunos %}
+        <div><h4>{{ m.bi(d.n) }}</h4><p>{{ m.bi(d.d) }}</p></div>
+        {%- endfor %}
+      </div>
+      <div class="combos">
+      {%- for c in RC.combos %}
+        <article class="combo {{ c.id }}">
+          {%- if c.destacado %}<div class="burst pick"><svg><use href="#spiky"/></svg><b>Our<br>pick!</b></div>{% endif %}
+          <div class="burst"><svg><use href="#burst"/></svg><b>${{ c.p }}<small>MXN</small></b></div>
+          <h3>{{ c.nombre }}</h3>
+          <ul>{% for x in c.incluye.es %}<li>{{ m.t(x, c.incluye.en[loop.index0]) }}</li>{% endfor %}</ul>
+        </article>
+      {%- endfor %}
+      </div>
+      <div class="run-foot">
+        <div class="extras"><h4>Extras</h4><table>{% for x in RC.extras %}<tr><td>{{ m.bi(x.n) }}</td><td>+{{ x.p }}</td></tr>{% endfor %}</table></div>
+        <div class="extras"><h4>Keep the runner's high</h4><p style="font-weight:600;margin-top:6px">{{ m.bi(RC.barra.texto) }} — <strong style="font-family:var(--poster);font-size:22px;font-weight:400">${{ RC.barra.p }}</strong></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="menu-cta" aria-label="{BI:Menú|Menu}">
+  <div class="wrap mc-inner">
+    <div>
+      <p class="hand">{BI:¿Ya estás en la mesa?|Already at your table?}</p>
+      <h2>{BI:Solo el menú,|Just the menu,}<br>{BI:sin vueltas|no fuss}</h2>
+    </div>
+    <a class="btn btn-green mc-btn" href="/menu" data-ev="menu_nav">{BI:Ver solo el menú →|See just the menu →}</a>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <h2 class="big-title">{BI:Menú|Menu} <em>AM</em></h2>
+    <p class="sub">{BI:Precios en pesos mexicanos, IVA incluido.|Prices in Mexican pesos, tax included.}</p>
+    {{ m.menu_panels(MENU) }}
+    <p class="menu-note">{BI:Pregúntanos por opciones sin gluten, veganas y por alergias ♡|Ask us about gluten-free, vegan and allergy options ♡}</p>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <svg class="star"><use href="#spark"/></svg>
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">{BI:Un concepto A.M. por Mu|An A.M. concept by Mu}</p>
+      <h2>{BI:Mañanas con actitud|Mornings with attitude}</h2>
+      <p>{{ m.bi(TX.nosotros) }}</p>
+    </div>
+    <div class="stickers">
+      {%- for a in BR.atributos.es %}<span>{{ m.t(a, BR.atributos.en[loop.index0]) }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visitanos">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--hot);margin-bottom:14px">{BI:Visítanos|Visit us}</p>
+    <h2 class="big-title">Calle <span class="fill">38</span></h2>
+    <div class="visit-grid">
+      <div class="card">
+        <h3>{BI:Dirección|Address}</h3>
+        <address><a href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{{ DIR_TXT }}</a></address>
+        <h3>{BI:Horario|Hours}</h3>
+        {{ m.hours_table(BR) }}
+        {%- if BR.telefono %}
+        <h3>{BI:Contacto|Contact}</h3>
+        <p style="font-weight:700;font-size:18px"><a href="tel:{{ BR.telefono|tel }}" data-ev="phone" data-branch="{{ BR.slug }}">{{ BR.telefono }}</a></p>{% endif %}
+        {{ m.contact_ctas(BR) }}
+        <p style="margin-top:18px"><a href="/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}" style="font-weight:800">{BI:Ver página de la sucursal →|See branch page →}</a></p>
+      </div>
+      <div class="map"><iframe title="Mapa {{ S.nombre }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q={{ BR.geo.lat }},{{ BR.geo.lng }}&amp;z=17&amp;output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>{BI:Preguntas frecuentes|FAQ}</h2>
+    {%- for f in FAQ %}
+    <details><summary>{{ m.bi(f.q) }}</summary><p>{{ m.bi(f.a) }}</p></details>
+    {%- endfor %}
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="/img/logo-pink.webp" alt="{{ S.nombre }}" width="121" height="130" loading="lazy">
+    <div>
+      <p class="tag-line">Good coffee, good food,<br>same energy.</p>
+      <small>Calle 38 · {{ BR.ciudad }}{% if BR.telefono %} · <a href="tel:{{ BR.telefono|tel }}" data-ev="phone" data-branch="{{ BR.slug }}">{{ BR.telefono }}</a>{% endif %}<br>{BI:Un concepto de|A concept by} <a href="{{ S.grupo_url }}" target="_blank" rel="noopener">{{ S.grupo }}</a> · © <span id="y">2026</span></small>
+    </div>
+    {{ m.socials() }}
+  </div>
+</footer>
+{{ m.wa_float(BR) }}
+{% endblock %}
+{% block extra_js %}<script src="/assets/menu.js?v={{ V }}" defer></script>{% endblock %}

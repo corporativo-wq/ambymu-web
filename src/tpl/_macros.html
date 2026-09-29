@@ -1,0 +1,71 @@
+{#- Macros compartidos. Todo el contenido llega de contenido.json vía build.py -#}
+{%- macro bi(o, tag='span') -%}
+{%- if o is string -%}<{{tag}}>{{ o }}</{{tag}}>
+{%- elif o.es == o.en -%}<{{tag}}>{{ o.es }}</{{tag}}>
+{%- else -%}<{{tag}} lang="es">{{ o.es }}</{{tag}}><{{tag}} lang="en">{{ o.en }}</{{tag}}>{%- endif -%}
+{%- endmacro -%}
+
+{%- macro t(es, en) -%}{{ bi({'es':es,'en':en}) }}{%- endmacro -%}
+
+{%- macro items(lst) -%}
+{%- for i in lst %}
+<li class="item">
+  <div class="item-top"><h4>{{ bi(i.n) }}</h4><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
+  {%- if i.d %}<p class="desc">{{ bi(i.d) }}</p>{% elif i.tipo %}<p class="desc">{{ bi(i.tipo) }}</p>{% endif %}
+  {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}
+  {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}</div>{% endif %}
+</li>
+{%- endfor %}
+{%- endmacro -%}
+
+{%- macro menu_panels(menu, posters=None) -%}
+<div class="tabs" role="tablist">
+{%- for s in menu.secciones %}
+  <button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-tab="{{ s.id }}">{{ bi(s.tab) }}</button>
+{%- endfor %}
+</div>
+{%- for s in menu.secciones %}
+<section class="panel" data-panel="{{ s.id }}" id="menu-{{ s.id }}">
+{%- for b in s.bloques %}
+  {%- if loop.first and posters and posters[s.id] %}{{ posters[s.id] }}
+  {%- else %}<h3 class="panel-title">{{ bi(b.titulo) }}</h3>{% endif %}
+  {%- if b.nota %}<p class="panel-sub">{{ bi(b.nota) }}</p>{% endif %}
+  <ul class="items {{ b.layout }}">{{ items(b['items']) }}</ul>
+  {%- if b.barra_libre %}
+  <div class="bottomless-card"><strong>{{ t('Barra libre de café','Bottomless coffee') }} · ${{ BL.precio }}</strong>
+    <p>{{ bi({'es':'En la compra de brunch. Por persona, '+BL.duracion.es+' máx. '+BL.incluye.es+'. Leches vegetales +'+(BL.leche_vegetal_extra|string)+' por café.','en':'With any brunch purchase. Per person, '+BL.duracion.en+' max. '+BL.incluye.en+'. Plant-based milk +'+(BL.leche_vegetal_extra|string)+' per coffee.'}) }}</p></div>
+  {%- endif %}
+{%- endfor %}
+</section>
+{%- endfor %}
+{%- endmacro -%}
+
+{%- macro hours_table(br) -%}
+<table class="hours">
+{%- for k, dnum, es, en in DIAS %}
+  {%- set h = br.horario[k] %}
+  <tr data-d="{{ dnum }}"{% if not h %} class="closed"{% endif %}><td>{{ t(es,en) }}</td><td>{% if h %}{{ h[0] }} – {{ h[1] }}{% else %}{{ t('Cerrado','Closed') }}{% endif %}</td></tr>
+{%- endfor %}
+</table>
+{%- endmacro -%}
+
+{%- macro socials() -%}
+<div class="social">
+{%- if R.instagram %}<a href="{{ R.instagram }}" target="_blank" rel="noopener" aria-label="Instagram" data-ev="social_instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.3 5.5a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 3.8c2.7 0 3 0 4 .1 2.7.1 4 1.4 4.1 4.1.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 4-4.1 4.1-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.7-.1-4-1.4-4.1-4.1-.1-1-.1-1.3-.1-4s0-3 .1-4C3.9 5.3 5.3 4 8 3.9c1-.1 1.3-.1 4-.1zM12 2c-2.7 0-3.1 0-4.1.1C4.2 2.2 2.2 4.2 2.1 7.9 2 8.9 2 9.3 2 12s0 3.1.1 4.1c.2 3.6 2.1 5.6 5.8 5.8 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c3.6-.2 5.7-2.1 5.8-5.8.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.2-3.6-2.1-5.6-5.8-5.8C15.1 2 14.7 2 12 2z"/></svg></a>{% endif %}
+{%- if R.facebook %}<a href="{{ R.facebook }}" target="_blank" rel="noopener" aria-label="Facebook" data-ev="social_facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>{% endif %}
+{%- if R.tiktok %}<a href="{{ R.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok" data-ev="social_tiktok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0115.5 3h-3.1v12.4a2.6 2.6 0 11-1.8-2.5V9.8a5.7 5.7 0 104.9 5.6V9.1a7.3 7.3 0 004.3 1.4V7.4a4.3 4.3 0 01-3.2-1.6z"/></svg></a>{% endif %}
+</div>
+{%- endmacro -%}
+
+{%- macro wa_float(br) -%}
+{%- if br.whatsapp %}<a class="wa-float" data-ev="whatsapp" data-branch="{{ br.slug }}" href="https://wa.me/{{ br.whatsapp|digits }}?text={{ br.whatsapp_texto|urlencode }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>WhatsApp</a>{% endif %}
+{%- endmacro -%}
+
+{%- macro contact_ctas(br, cls='') -%}
+<div class="cta {{ cls }}">
+  {%- if br.whatsapp %}<a class="btn btn-pink" data-ev="whatsapp" data-branch="{{ br.slug }}" href="https://wa.me/{{ br.whatsapp|digits }}?text={{ br.whatsapp_texto|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
+  {%- if br.telefono %}<a class="btn btn-cream" data-ev="phone" data-branch="{{ br.slug }}" href="tel:{{ br.telefono|tel }}">{{ t('Llamar','Call') }}</a>{% endif %}
+  <a class="btn btn-green" data-ev="como_llegar" data-branch="{{ br.slug }}" href="{{ br.maps_url }}" target="_blank" rel="noopener">{{ t('Cómo llegar','Directions') }}</a>
+  {%- for o in br.pedidos %}<a class="btn btn-cream" data-ev="order_{{ o.id }}" data-branch="{{ br.slug }}" href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nombre }}</a>{% endfor %}
+</div>
+{%- endmacro -%}

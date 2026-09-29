@@ -1,0 +1,73 @@
+{% extends '_base.html' %}
+{% block body %}
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="{{ S.nombre }}" data-ev="home_nav"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
+    <nav>
+      <a href="/" data-ev="home_nav">{BI:Inicio|Home}</a>
+      <a href="/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Menú|Menu}</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="visit branch-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-ev="home_nav">{BI:Inicio|Home}</a> <span aria-hidden="true">›</span> <span aria-current="page">{{ BR.ciudad }}</span></nav>
+    <p class="eyebrow" style="color:var(--hot);margin:18px 0 14px">{{ S.nombre }} · {{ BR.ciudad }}</p>
+    <h1 class="big-title">Calle <span class="fill">38</span></h1>
+    <p class="lead" style="margin-top:18px;max-width:34em">{{ m.bi(TX.hero_lead) }}</p>
+    {{ m.contact_ctas(BR, 'branch-ctas') }}
+    <div class="visit-grid">
+      <div class="card">
+        <h2 class="card-h">{BI:Dirección|Address}</h2>
+        <address><a href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{{ DIR_TXT }}</a></address>
+        <p style="margin-top:6px">{{ m.bi(BR.referencia) }}</p>
+        <h2 class="card-h">{BI:Horario|Hours}</h2>
+        {{ m.hours_table(BR) }}
+        {%- if BR.telefono %}
+        <h2 class="card-h">{BI:Teléfono|Phone}</h2>
+        <p style="font-weight:700;font-size:18px"><a href="tel:{{ BR.telefono|tel }}" data-ev="phone" data-branch="{{ BR.slug }}">{{ BR.telefono }}</a></p>{% endif %}
+        {%- if BR.pedidos %}
+        <h2 class="card-h">{BI:Pedidos|Orders}</h2>
+        <div class="cta">{% for o in BR.pedidos %}<a class="btn btn-cream" data-ev="order_{{ o.id }}" data-branch="{{ BR.slug }}" href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nombre }}</a>{% endfor %}</div>{% endif %}
+        <div class="cta"><a class="btn btn-cream" href="/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Ver el menú|See the menu}</a></div>
+      </div>
+      <div class="map"><iframe title="Mapa {{ S.nombre }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q={{ BR.geo.lat }},{{ BR.geo.lng }}&amp;z=17&amp;output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+<section class="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">{BI:Qué vas a encontrar|What you'll find}</p>
+      <h2>{BI:Mañanas con actitud|Mornings with attitude}</h2>
+      <p>{{ m.bi(TX.nosotros) }}</p>
+    </div>
+    <div class="stickers">{% for a in BR.atributos.es %}<span>{{ m.t(a, BR.atributos.en[loop.index0]) }}</span>{% endfor %}</div>
+  </div>
+</section>
+<section class="faq" id="faq" style="padding-top:80px">
+  <div class="wrap">
+    <h2>{BI:Preguntas frecuentes|FAQ}</h2>
+    {%- for f in FAQ %}
+    <details><summary>{{ m.bi(f.q) }}</summary><p>{{ m.bi(f.a) }}</p></details>
+    {%- endfor %}
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <img src="/img/logo-pink.webp" alt="{{ S.nombre }}" width="121" height="130" loading="lazy">
+    <div>
+      <p class="tag-line">Good coffee, good food,<br>same energy.</p>
+      <small>{{ DIR_TXT }}<br>{BI:Un concepto de|A concept by} <a href="{{ S.grupo_url }}" target="_blank" rel="noopener">{{ S.grupo }}</a> · © <span id="y">2026</span></small>
+    </div>
+    {{ m.socials() }}
+  </div>
+</footer>
+{{ m.wa_float(BR) }}
+{% endblock %}
