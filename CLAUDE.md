@@ -1,4 +1,4 @@
-# ambymu.mx — sitio oficial de AM by Mu (brunch & coffee bar, Calle 38, Playa del Carmen) · Mu Group
+# ambymu.mx — sitio oficial de AM by Mu (brunch & coffee bar, Calle 38, Playa del Carmen)
 
 Publica con **GitHub Pages** desde `main` (raíz). Los HTML de la raíz se GENERAN: no los edites a mano.
 
@@ -13,6 +13,9 @@ Publica con **GitHub Pages** desde `main` (raíz). Los HTML de la raíz se GENER
 
 ## Estructura
 - `src/tpl/` plantillas Jinja (`inicio`, `menu`, `sucursal`, `404`, `_base`, `_macros`, `_posters`). `{BI:es|en}` = texto bilingüe.
+- Idiomas: el build genera español en la raíz (`/`, `/menu`, `/playa-del-carmen`) e inglés en `/en/` con hreflang y sitemap con alternates. El selector ES/EN son enlaces (sin redirección automática).
+- Fotos de platillos: campo `foto` del platillo en `contenido.json` (solo fotos reales; null = sin imagen). Destacados de la home: `destacado: true`.
+- Tipografías en `assets/fonts/` (Fontsource, OFL, subconjunto latino); no se generan, se editan ahí.
 - `src/css/` estilos (se escriben con los hex por defecto; el build los sustituye por los de `contenido.json`).
 - `src/site.js` (idioma, eventos, cursor) y `src/menu.js` (pestañas). `src/img/` originales → `img/*.webp`.
 
@@ -22,4 +25,6 @@ y `data-branch`. Un clic = `dataLayer.push({event:'cta_click',…})` + `gtag('ev
 
 ## Reglas
 - No cambiar nombre, horarios ni datos del Perfil de Google sin aprobación de Fernando.
-- Teléfono/WhatsApp actual: número de la capitana (temporal hasta tener Wati de AM). 984 179 2682 es de Mu: NO usar para AM.
+- Teléfono/WhatsApp actual: número de la capitana (temporal hasta tener Wati de AM). No usar números de otras marcas.
+- No mencionar otras marcas del grupo en el sitio.
+- GA4: eventos clave = como_llegar, whatsapp, phone, menu_nav (sin valor monetario).

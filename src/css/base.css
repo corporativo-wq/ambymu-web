@@ -15,7 +15,6 @@ body::after{content:"";position:fixed;inset:0;background-image:var(--grain);opac
 img{max-width:100%;display:block}
 a{color:inherit}
 svg{display:block}
-[data-lang="es"] [lang="en"],[data-lang="en"] [lang="es"]{display:none!important}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
@@ -173,7 +172,7 @@ header{position:sticky;top:0;z-index:40;background:var(--blush);border-bottom:2.
 .items.chips .item-top{flex-direction:column;gap:2px}
 .item{padding:16px 0;border-bottom:2px dashed rgba(30,64,41,.35)}
 .item-top{display:flex;align-items:baseline;gap:10px}
-.item h4{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.03em;line-height:1.2}
+.item h3,.item h4{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.03em;line-height:1.2}
 .dots{flex:1;border-bottom:2.5px dotted var(--green);opacity:.4;transform:translateY(-4px)}
 .price{font-family:var(--poster);font-size:22px;letter-spacing:.02em;white-space:nowrap}
 .desc{font-size:15.5px;margin-top:3px;font-weight:500;color:#34523D}
@@ -264,3 +263,22 @@ footer{background:var(--green);color:var(--cream);padding:70px 0 110px;position:
 .card-h{font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--hot);margin:22px 0 6px}
 .card-h:first-child{margin-top:0}
 .nf{min-height:70vh;display:flex;align-items:center;padding:80px 0}
+/* móvil: navegación mínima (Menú / Visítanos) visible */
+@media(max-width:900px){.nav nav{display:flex;gap:0;margin-left:auto}.nav nav a{padding:10px 8px;font-size:12px;letter-spacing:.04em}.nav nav a.hide-m{display:none}.nav .lang{margin-left:6px}}
+/* selector de idioma como enlaces */
+.lang a{display:block;padding:6px 11px;color:var(--green);text-decoration:none;font:inherit}
+.lang a[aria-current="true"]{background:var(--green);color:var(--pink)}
+/* áreas de toque de teléfono */
+a.tel{display:inline-block;padding:10px 0;min-height:44px}
+footer small a[href^="tel:"]{display:inline-block;padding:10px 0}
+/* fotos de platillos (solo si existen en contenido.json) */
+.dest-fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin:6px 0 26px}
+.dest-fotos figure{margin:0;border:2.5px solid var(--green);border-radius:22px;overflow:hidden;background:var(--cream);box-shadow:5px 5px 0 var(--green)}
+.dest-fotos img{display:block;width:100%;height:auto;aspect-ratio:1}
+.dest-fotos figcaption{font-weight:800;font-size:14px;padding:8px 12px}
+/* contraste: rosa más profundo SOLO en texto chico (títulos grandes y fondos siguen en el rosa de marca) */
+:root{--hot-ink:#B81F63}
+.card h3,.card-h,.hours tr.closed td:last-child,.extra,.hours tr.today td:first-child::after{color:var(--hot-ink)}
+.tag,.btn-pink,.wa-float{background:#C2226A}
+.combo.exp li{color:var(--green)}
+.tag-vegan,.tag-gf{background:var(--matcha)}

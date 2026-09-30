@@ -4,8 +4,6 @@
     "dominio": "https://ambymu.mx",
     "nombre": "AM by Mu",
     "nombre_corto": "AM",
-    "grupo": "Mu Group",
-    "grupo_url": "https://muburgers.mx",
     "idioma": "es-MX",
     "ga4_id": "G-N9Z8WR4GFJ",
     "search_console_meta": null,
@@ -103,7 +101,7 @@
           "Terraza",
           "Sillas para bebé",
           "Mimosas bottomless",
-          "Música en vivo",
+          "Música en vivo en eventos especiales",
           "Run Club"
         ],
         "en": [
@@ -114,7 +112,7 @@
           "Outdoor seating",
           "High chairs",
           "Bottomless mimosas",
-          "Live music",
+          "Live music at special events",
           "Run Club"
         ]
       },
@@ -243,16 +241,34 @@
   },
   "seo": {
     "inicio": {
-      "title": "AM by Mu | Brunch y barra de café en Playa del Carmen · Calle 38",
-      "description": "Brunch y barra de café en Calle 38, Playa del Carmen. Matcha ceremonial, café ilimitado con tu brunch, chilaquiles, eggs & steak y mimosas bottomless. 8:00–15:00, martes cerrado."
+      "title": {
+        "es": "AM by Mu | Brunch y barra de café en Playa del Carmen · Calle 38",
+        "en": "AM by Mu | Brunch & coffee bar in Playa del Carmen · Calle 38"
+      },
+      "description": {
+        "es": "Brunch y barra de café en Calle 38, Playa del Carmen: matcha ceremonial, café ilimitado con tu brunch, chilaquiles y mimosas. 8:00–15:00, martes cerrado.",
+        "en": "Brunch and coffee bar on Calle 38, Playa del Carmen: ceremonial matcha, bottomless coffee with brunch, chilaquiles and mimosas. 8 am–3 pm, closed Tue."
+      }
     },
     "menu": {
-      "title": "Menú AM by Mu | Brunch, café y matcha · Playa del Carmen",
-      "description": "Menú completo de AM by Mu con precios: brunch, chilaquiles, eggs & steak, lattes de matcha ceremonial, café de especialidad, jugos y mimosas bottomless."
+      "title": {
+        "es": "Menú AM by Mu | Brunch, café y matcha · Playa del Carmen",
+        "en": "AM by Mu menu | Brunch, coffee & matcha · Playa del Carmen"
+      },
+      "description": {
+        "es": "Menú completo de AM by Mu con precios: brunch, chilaquiles, eggs & steak, lattes de matcha ceremonial, café de especialidad, jugos y mimosas bottomless.",
+        "en": "Full AM by Mu menu with prices: brunch, chilaquiles, eggs & steak, ceremonial matcha lattes, specialty coffee, fresh drinks and bottomless mimosas."
+      }
     },
     "sucursal": {
-      "title": "AM by Mu Calle 38, Playa del Carmen | Horario, cómo llegar",
-      "description": "AM by Mu en Calle 38 entre 5ta Avenida y Calle Flamingos, Zazil-Ha, Playa del Carmen. Horario día por día, cómo llegar y preguntas frecuentes."
+      "title": {
+        "es": "AM by Mu Calle 38, Playa del Carmen | Horario, cómo llegar",
+        "en": "AM by Mu Calle 38, Playa del Carmen | Hours & directions"
+      },
+      "description": {
+        "es": "AM by Mu en Calle 38 entre 5ta Avenida y Calle Flamingos, Zazil-Ha, Playa del Carmen. Horario día por día, cómo llegar y preguntas frecuentes.",
+        "en": "AM by Mu on Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha, Playa del Carmen. Daily hours, directions and FAQ."
+      }
     },
     "og_imagen": "/og.jpg"
   },
@@ -262,8 +278,8 @@
       "en": "Brunch & coffee bar in Playa del Carmen. Specialty coffee, ceremonial matcha and generous plates — every day 8 am to 3 pm (except Tuesdays)."
     },
     "nosotros": {
-      "es": "AM by Mu es la barra de café y brunch de la calle 38, del mismo equipo detrás de Mu Burgerhouse y Papaya Slice. Café de calidad, porciones bastas y un espacio relajado para arrancar el día — solo, con tu crew o después de correr.",
-      "en": "AM by Mu is the brunch and coffee bar on Calle 38, from the team behind Mu Burgerhouse and Papaya Slice. Quality coffee, generous plates and a relaxed space to start the day — solo, with your crew or after a run."
+      "es": "AM by Mu es la barra de café y brunch de la calle 38. Café de calidad, porciones generosas y un espacio relajado para arrancar el día: solo, con tu crew o después de correr.",
+      "en": "AM by Mu is the brunch and coffee bar on Calle 38. Quality coffee, generous plates and a relaxed space to start the day: solo, with your crew or after a run."
     },
     "matcha": {
       "es": "Matcha ceremonial de origen japonés, sin azúcar añadida. Capas, cold foams y toppings que se ven tan bien como saben.",
@@ -362,7 +378,9 @@
                 "tags": [
                   "new",
                   "gf"
-                ]
+                ],
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -373,7 +391,9 @@
                 "d": {
                   "es": "Pan francés, caramelo salado, helado",
                   "en": "French toast, salted caramel, ice cream"
-                }
+                },
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -388,7 +408,9 @@
                 "extra": {
                   "es": "Dos huevitos +55",
                   "en": "Two eggs +55"
-                }
+                },
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -466,7 +488,9 @@
                 "d": {
                   "es": "100 g de arrachera Angus, 3 huevos estrellados, mini chilaquiles, frijolitos",
                   "en": "100 g Angus skirt steak, 3 fried eggs, mini chilaquiles, beans"
-                }
+                },
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -540,7 +564,9 @@
                 "extra": {
                   "es": "Dos huevitos, barbacoa o queso gratinado +55",
                   "en": "Two eggs, barbacoa or melted cheese +55"
-                }
+                },
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -565,7 +591,9 @@
                 },
                 "tags": [
                   "new"
-                ]
+                ],
+                "destacado": true,
+                "foto": null
               },
               {
                 "n": {
@@ -1039,5 +1067,6 @@
         ]
       }
     ]
-  }
+  },
+  "_notas_fotos": "Fotos de platillos: poner la ruta en el campo 'foto' del platillo (p. ej. 'src/img/platos/chilaquiles.jpg'). Mientras sea null no se muestra ninguna imagen (no se usan fotos genéricas ni de IA)."
 }

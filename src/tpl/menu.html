@@ -5,12 +5,9 @@
   <div class="blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <header class="m-head">
     <div class="wrap nav">
-      <a class="brand" href="/" aria-label="{{ S.nombre }} — inicio"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
-      <a class="home" href="/" data-ev="home_nav">{BI:← Inicio|← Home}</a>
-      <div class="lang" role="group" aria-label="Idioma / Language">
-        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
-        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <a class="brand" href="{{ L }}/" aria-label="{{ S.nombre }} — inicio"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
+      <a class="home" href="{{ L }}/" data-ev="home_nav">{BI:← Inicio|← Home}</a>
+      {{ m.lang_switch() }}
     </div>
   </header>
   <div class="ring" aria-hidden="true">
@@ -20,7 +17,7 @@
   <div class="wrap hero-in">
     <h1 class="sr">{BI:Menú de AM by Mu|AM by Mu menu}</h1>
     <div class="mega" aria-hidden="true">
-      <span lang="es"><span class="l">M</span><span class="l">e</span><span class="l">n</span><span class="l">ú</span></span><span lang="en"><span class="l">M</span><span class="l">e</span><span class="l">n</span><span class="l">u</span></span>
+      <span>{% for ch in ('Menú' if LANG == 'es' else 'Menu') %}<span class="l">{{ ch }}</span>{% endfor %}</span>
       <svg class="mega-glass" viewBox="0 0 200 250">
         <defs><clipPath id="mg"><path d="M38 92h124l-10 118c-1 10-9 18-19 18H67c-10 0-18-8-19-18z"/></clipPath></defs>
         <g clip-path="url(#mg)"><g class="slosh"><path d="M-60 100c15-8 30 8 45 0s30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0 30 8 45 0V260H-60z" fill="#A8C47F"/></g></g>
@@ -36,6 +33,10 @@
     <div class="facts">
       <span class="chip">{{ m.bi(HORARIO_CHIP) }}</span>
       <span class="chip">{BI:Precios en MXN, IVA incluido|Prices in MXN, tax included}</span>
+    </div>
+    <div class="m-actions">
+      <a class="btn btn-green" href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Cómo llegar|Directions}</a>
+      {%- if BR.whatsapp %}<a class="btn btn-cream" href="https://wa.me/{{ BR.whatsapp|digits }}?text={{ BR.whatsapp_texto|urlencode }}" data-ev="whatsapp" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
     </div>
     <div class="m-bl rv">
       <div class="burst"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}</b></div>
@@ -65,15 +66,14 @@
     <p class="tag-line">{BI:¿Te gustó? ♡|Loved it? ♡}</p>
     <div class="row">
       <a class="btn btn-pink" href="{{ BR.resenas_url }}" data-ev="review" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Déjanos tu reseña en Google|Leave us a Google review}</a>
-      <a class="btn btn-cream" href="/" data-ev="home_nav">{BI:Ir al inicio|Go to home}</a>
+      <a class="btn btn-cream" href="{{ L }}/" data-ev="home_nav">{BI:Ir al inicio|Go to home}</a>
       {% if R.instagram %}<a class="btn btn-cream" href="{{ R.instagram }}" data-ev="social_instagram" target="_blank" rel="noopener">@ambymu</a>{% endif %}
-      <a class="btn btn-cream" href="/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}">{BI:Horario y ubicación|Hours &amp; location}</a>
+      <a class="btn btn-cream" href="{{ L }}/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}">{BI:Horario y ubicación|Hours &amp; location}</a>
     </div>
-    <small>{{ S.nombre }} · Calle 38, {{ BR.ciudad }} · {{ m.bi(HORARIO_RESUMEN) }}<br><a href="/" data-ev="home_nav">ambymu.mx</a></small>
+    <small>{{ S.nombre }} · Calle 38, {{ BR.ciudad }} · {{ m.bi(HORARIO_RESUMEN) }}<br><a href="{{ L }}/" data-ev="home_nav">ambymu.mx</a></small>
   </div>
 </footer>
 
-<a class="top" href="#" aria-label="Subir">↑</a>
-{{ m.wa_float(BR) }}
+<a class="top" href="#" aria-label="{BI:Subir|Back to top}">↑</a>
 {% endblock %}
 {% block extra_js %}<script src="/assets/menu.js?v={{ V }}" defer></script>{% endblock %}

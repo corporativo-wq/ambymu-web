@@ -118,7 +118,7 @@ html{overflow-x:clip}
 .m-menu .items.chips .item:hover{transform:rotate(-2deg) translateY(-3px)}
 .js .rv{opacity:0;transform:translateY(24px) rotate(-1deg);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1.2)}
 .js .rv.in{opacity:1;transform:none}
-.swipe-hint{display:none;align-items:center;gap:8px;font-family:var(--hand);font-size:22px;margin:-8px 0 16px;color:var(--hot)}
+.swipe-hint{display:none;align-items:center;gap:8px;font-family:var(--hand);font-size:22px;margin:-8px 0 16px;color:var(--hot-ink)}
 .swipe-hint svg{width:30px;height:16px;animation:nudge 1.4s ease-in-out infinite}
 @keyframes nudge{50%{transform:translateX(8px)}}
 @media(max-width:760px){.swipe-hint{display:flex}}
@@ -137,3 +137,10 @@ html{overflow-x:clip}
 .top.show{opacity:1;transform:none;pointer-events:auto}
 .wa-float{display:inline-flex}
 @media(prefers-reduced-motion:reduce){.blobs i,.mega .l,.mega-glass,.ring .txt{animation:none!important}.js .m-menu .item,.js .rv{opacity:1;transform:none}}
+/* acciones rápidas bajo el hero (Cómo llegar / WhatsApp) */
+.m-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.m-actions .btn{min-height:44px}
+/* móvil: que la primera pantalla llegue a las pestañas y al primer platillo */
+@media(max-width:560px){.mega{font-size:clamp(92px,27vw,300px)}.m-hero{padding-bottom:22px}.m-hero .facts{margin-top:12px}
+.m-bl{padding:12px 14px;gap:12px;margin-top:14px}.m-bl .burst{width:70px;height:70px;font-size:21px}.m-bl strong{font-size:22px}.m-bl p{font-size:13.5px}
+.tilt.rev{display:none}.tilts{padding:10px 0 8px}.ring{top:214px;width:78px;height:78px}.ring img{width:38px}}

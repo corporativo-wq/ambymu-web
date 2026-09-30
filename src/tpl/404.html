@@ -2,15 +2,16 @@
 {% block body %}
 <main class="nf">
   <div class="wrap">
-    <p class="eyebrow" style="color:var(--hot)">Error 404</p>
+    <p class="eyebrow" style="color:var(--hot-ink)">Error 404</p>
     <h1 class="big-title">{BI:Ups,|Oops,} <em>{BI:se enfrió|it got cold}</em></h1>
     <p class="lead" style="margin:18px 0 26px">{BI:Esta página no existe. Pero el café sigue caliente:|This page doesn't exist. But the coffee is still hot:}</p>
     <div class="cta">
-      <a class="btn btn-green" href="/menu" data-ev="menu_nav">{BI:Ver el menú|See the menu}</a>
-      <a class="btn btn-cream" href="/" data-ev="home_nav">{BI:Ir al inicio|Go home}</a>
-      <a class="btn btn-cream" href="/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}">{BI:Horario y ubicación|Hours &amp; location}</a>
+      <a class="btn btn-green" href="{{ L }}/menu" data-ev="menu_nav">{BI:Ver el menú|See the menu}</a>
+      <a class="btn btn-cream" href="{{ L }}/" data-ev="home_nav">{BI:Ir al inicio|Go home}</a>
+      <a class="btn btn-cream" href="{{ L }}/{{ BR.slug }}" data-ev="branch_page" data-branch="{{ BR.slug }}">{BI:Horario y ubicación|Hours &amp; location}</a>
     </div>
+    <p style="margin-top:22px;font-weight:700"><a href="/en/" lang="en">English version →</a></p>
   </div>
 </main>
-<script>/* /menu/ → /menu (QRs viejos) */(function(){var p=location.pathname.replace(/\/+$/,'');var m={'/menu':'/menu','/menu.html':'/menu','/{{ BR.slug }}':'/{{ BR.slug }}'};if(location.pathname!==p&&m[p])location.replace(m[p]+location.search+location.hash)})();</script>
+<script>/* /menu/ → /menu (QRs viejos) */(function(){var p=location.pathname.replace(/\/+$/,'');var m={'/menu':'/menu','/menu.html':'/menu','/{{ BR.slug }}':'/{{ BR.slug }}','/en/menu':'/en/menu','/en/{{ BR.slug }}':'/en/{{ BR.slug }}'};if(location.pathname!==p&&m[p])location.replace(m[p]+location.search+location.hash)})();</script>
 {% endblock %}

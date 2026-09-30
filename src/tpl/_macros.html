@@ -1,8 +1,7 @@
 {#- Macros compartidos. Todo el contenido llega de contenido.json vía build.py -#}
 {%- macro bi(o, tag='span') -%}
 {%- if o is string -%}<{{tag}}>{{ o }}</{{tag}}>
-{%- elif o.es == o.en -%}<{{tag}}>{{ o.es }}</{{tag}}>
-{%- else -%}<{{tag}} lang="es">{{ o.es }}</{{tag}}><{{tag}} lang="en">{{ o.en }}</{{tag}}>{%- endif -%}
+{%- else -%}<{{tag}}>{{ o[LANG] }}</{{tag}}>{%- endif -%}
 {%- endmacro -%}
 
 {%- macro t(es, en) -%}{{ bi({'es':es,'en':en}) }}{%- endmacro -%}
@@ -10,7 +9,7 @@
 {%- macro items(lst) -%}
 {%- for i in lst %}
 <li class="item">
-  <div class="item-top"><h4>{{ bi(i.n) }}</h4><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
+  <div class="item-top"><h3>{{ bi(i.n) }}</h3><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
   {%- if i.d %}<p class="desc">{{ bi(i.d) }}</p>{% elif i.tipo %}<p class="desc">{{ bi(i.tipo) }}</p>{% endif %}
   {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}
   {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}</div>{% endif %}
@@ -28,7 +27,7 @@
 <section class="panel" data-panel="{{ s.id }}" id="menu-{{ s.id }}">
 {%- for b in s.bloques %}
   {%- if loop.first and posters and posters[s.id] %}{{ posters[s.id] }}
-  {%- else %}<h3 class="panel-title">{{ bi(b.titulo) }}</h3>{% endif %}
+  {%- else %}<h2 class="panel-title">{{ bi(b.titulo) }}</h2>{% endif %}
   {%- if b.nota %}<p class="panel-sub">{{ bi(b.nota) }}</p>{% endif %}
   <ul class="items {{ b.layout }}">{{ items(b['items']) }}</ul>
   {%- if b.barra_libre %}
@@ -68,4 +67,8 @@
   <a class="btn btn-green" data-ev="como_llegar" data-branch="{{ br.slug }}" href="{{ br.maps_url }}" target="_blank" rel="noopener">{{ t('Cómo llegar','Directions') }}</a>
   {%- for o in br.pedidos %}<a class="btn btn-cream" data-ev="order_{{ o.id }}" data-branch="{{ br.slug }}" href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nombre }}</a>{% endfor %}
 </div>
+{%- endmacro -%}
+
+{%- macro lang_switch() -%}
+<div class="lang" role="group" aria-label="Idioma / Language"><a href="{{ ALT.es }}" hreflang="es-MX" lang="es"{% if LANG=='es' %} aria-current="true"{% endif %}>ES</a><a href="{{ ALT.en }}" hreflang="en" lang="en"{% if LANG=='en' %} aria-current="true"{% endif %}>EN</a></div>
 {%- endmacro -%}
