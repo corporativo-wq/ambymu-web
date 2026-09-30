@@ -1,4 +1,6 @@
 /* AM by Mu — JS común (idioma, eventos, horario de hoy, cursor). Generado por build.py */
+/* ---- GA4 (gtag directo, sin GTM) ---- */
+(function(){var id='__GA4_ID__';if(!id||id.indexOf('G-')!==0)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',id);var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s)})();
 (function(){
   var root=document.documentElement; root.classList.add('js');
   /* ---- idioma ES/EN ---- */

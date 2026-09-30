@@ -139,7 +139,7 @@ def minjs(s):
     return "\n".join(l.strip() for l in s.splitlines() if l.strip() and not l.strip().startswith("/*") and not l.strip().startswith("//"))
 site_css = recolor(mincss(open(f"{SRC}/css/base.css").read() + open(f"{SRC}/css/cursor.css").read()))
 menu_css = recolor(mincss(open(f"{SRC}/css/menu.css").read()))
-site_js = recolor(minjs(open(f"{SRC}/site.js").read())); menu_js = minjs(open(f"{SRC}/menu.js").read())
+site_js = recolor(minjs(open(f"{SRC}/site.js").read())).replace("__GA4_ID__", S.get("ga4_id") or ""); menu_js = minjs(open(f"{SRC}/menu.js").read())
 open("assets/site.css", "w").write(site_css); open("assets/menu.css", "w").write(menu_css)
 open("assets/site.js", "w").write(site_js); open("assets/menu.js", "w").write(menu_js)
 V = hashlib.md5((site_css + menu_css + site_js + menu_js).encode()).hexdigest()[:8]
