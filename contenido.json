@@ -313,8 +313,8 @@
         "en": "Do you have vegan or gluten-free options?"
       },
       "a": {
-        "es": "Sí: burrito vegano, hamburguesa con Beyond Meat, hotcake de elote sin gluten y leches vegetales para todos los cafés.",
-        "en": "Yes: vegan burrito, Beyond Meat burger, gluten-free sweet corn hotcake and plant-based milk for every coffee."
+        "es": "Sí: flautas ahogadas veganas, hamburguesa con Beyond Meat, hotcake de elote sin gluten y leches vegetales para todos los cafés.",
+        "en": "Yes: vegan flautas ahogadas, Beyond Meat burger, gluten-free sweet corn hotcake and plant-based milk for every coffee."
       }
     },
     {
@@ -425,13 +425,13 @@
               },
               {
                 "n": {
-                  "es": "Burrito vegano",
-                  "en": "Vegan burrito"
+                  "es": "Flautas ahogadas veganas",
+                  "en": "Vegan flautas ahogadas"
                 },
                 "p": 280,
                 "d": {
-                  "es": "Tortilla de harina, carne vegana, setas, salsa de chile morita, cilantro",
-                  "en": "Flour tortilla, plant-based meat, mushrooms, morita chili sauce, cilantro"
+                  "es": "Rellenas de carne vegana, ahogadas en salsa verde de jalapeño, salsa morita o salsa de tomate y habanero tatemado",
+                  "en": "Filled with plant-based meat, drowned in green jalapeño sauce, morita sauce or fire-roasted tomato & habanero sauce"
                 },
                 "tags": [
                   "new",
