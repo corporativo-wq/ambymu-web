@@ -176,3 +176,4 @@ html{overflow-x:clip}
 .extras-menu small{font-weight:500;color:#34523D;font-size:13.5px}
 @media(max-width:760px){.salsa-list{grid-template-columns:1fr}.extras-menu ul{grid-template-columns:1fr}}
 .extras-menu .free{font-family:var(--hand);font-style:normal;font-size:24px;color:var(--hot-ink)}
+.m-menu{overflow-anchor:none}

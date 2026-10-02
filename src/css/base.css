@@ -10,7 +10,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--blush);color:var(--ink);font-family:Jost,Futura,system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:hidden}
+body{background:var(--blush);color:var(--ink);font-family:Jost,Futura,system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:hidden;overflow-x:clip}
 body::after{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:.16;mix-blend-mode:multiply;pointer-events:none;z-index:100}
 img{max-width:100%;display:block}
 a{color:inherit}

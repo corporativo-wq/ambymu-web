@@ -11,7 +11,7 @@
   function reveal(scope){[].forEach.call(scope.querySelectorAll('.item,.rv'),function(el,i){el.classList.remove('in');el.style.transitionDelay=Math.min(i,10)*45+'ms';if(io)io.observe(el);else el.classList.add('in')})}
   function show(t,scroll){cur=t;tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.tab===t)});
     panels.forEach(function(p){var on=p.dataset.panel===t;p.classList.toggle('on',on);if(on)reveal(p)});moveInd();
-    if(scroll){var m=document.getElementById('menu');if(m&&m.getBoundingClientRect().top<0)m.scrollIntoView({behavior:'smooth'})}}
+    if(scroll){var p=document.querySelector('[data-panel="'+t+'"]');if(p){var y=p.getBoundingClientRect().top+scrollY-tabsEl.offsetHeight-14;if(scrollY>y)scrollTo({top:y,behavior:'auto'})}}}
   tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab,true);history.replaceState(null,'','#'+b.dataset.tab)})});
   function step(d){var i=tabs.findIndex(function(t){return t.dataset.tab===cur});var n=tabs[(i+d+tabs.length)%tabs.length].dataset.tab;show(n,true);history.replaceState(null,'','#'+n)}
   var nx=document.getElementById('nextTab');if(nx)nx.addEventListener('click',function(){step(1)});
