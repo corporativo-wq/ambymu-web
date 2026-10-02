@@ -13,7 +13,7 @@
   {%- if i.d %}<p class="desc">{{ bi(i.d) }}</p>{% elif i.tipo %}<p class="desc">{{ bi(i.tipo) }}</p>{% endif %}
   {%- if i.incluye %}<p class="incl"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(i.incluye) }}</p>{% endif %}
   {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}
-  {%- if i.add %}<p class="addon"><b>{{ t('Agrégale:','Add:') }}</b> {% for a in i.add %}{% set x = EXTRAS[a.id if a is mapping else a] %}<span class="ad">{{ (a.n if a is mapping and a.n else x.n)[LANG] }} +${{ x.p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+  {%- if i.add %}<p class="extra addon">{% for a in i.add %}{% set x = EXTRAS[a.id if a is mapping else a] %}<span class="ad">{{ (a.n if a is mapping and a.n else x.n)[LANG] }} +{{ x.p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
   {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}</div>{% endif %}
 </li>
 {%- endfor %}
@@ -29,10 +29,15 @@
 {%- endif %}
 {%- if menu.express %}{% set e = menu.express %}
 <aside class="express" aria-label="{{ e.n }}">
-  <div class="ex-top"><h2>{{ e.n }}</h2><span class="ex-p">${{ e.p }}</span></div>
-  <p class="ex-when">{{ bi(e.cuando) }} · {{ bi(e.nota) }}</p>
-  <ul>{% for o in e.opciones %}<li>{{ bi(o) }}</li>{% endfor %}</ul>
-  <p class="ex-inc"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(e.incluye) }}</p>
+  <div class="burst ex-badge" aria-hidden="true"><svg class="spin"><use href="#burst"/></svg><b>${{ e.p }}<small>{{ e.badge[LANG] }}</small></b></div>
+  <p class="ex-kicker">{{ bi(e.kicker) }}</p>
+  <h2 class="ex-title">{{ e.n }} <span class="ex-price">${{ e.p }}</span></h2>
+  <p class="ex-lead">{{ bi(e.lead) }}</p>
+  <p class="ex-step">{{ t('1 · Elige tu plato','1 · Pick your plate') }}</p>
+  <div class="ex-opts">{% for o in e.opciones %}{% if not loop.first %}<span class="ex-or" aria-hidden="true">{{ t('o','or') }}</span>{% endif %}<div class="ex-opt">{{ bi(o) }}</div>{% endfor %}</div>
+  <p class="ex-step">{{ t('2 · Va incluido','2 · Included') }}</p>
+  <ul class="ex-inc">{% for x in e.incluye_items %}<li>{{ bi(x) }}</li>{% endfor %}</ul>
+  <p class="ex-fine">{{ bi(e.cuando) }} · {{ t('Sin extras ni cambios de plato','No add-ons or plate swaps') }}</p>
 </aside>
 {%- endif %}
 {%- endmacro -%}

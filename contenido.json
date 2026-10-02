@@ -1151,7 +1151,10 @@
           "es": "Queso Oaxaca",
           "en": "Oaxaca cheese"
         },
-        "porcion": null,
+        "porcion": {
+          "es": "35 g",
+          "en": "35 g"
+        },
         "p": 35
       },
       {
@@ -1305,6 +1308,32 @@
       "nota": {
         "es": "Elige uno · sin extras",
         "en": "Pick one · no add-ons"
+      },
+      "kicker": {
+        "es": "Lun–vie · antes de las 11:00",
+        "en": "Mon–Fri · before 11 am"
+      },
+      "lead": {
+        "es": "Desayuno completo, rápido y a buen precio.",
+        "en": "A full breakfast, quick and easy on the wallet."
+      },
+      "incluye_items": [
+        {
+          "es": "Fruta de temporada",
+          "en": "Seasonal fruit"
+        },
+        {
+          "es": "Americano caliente o frío",
+          "en": "Hot or iced americano"
+        },
+        {
+          "es": "o latte, sin costo extra",
+          "en": "or a latte, no extra charge"
+        }
+      ],
+      "badge": {
+        "es": "todo incluido",
+        "en": "all in"
       }
     }
   },
