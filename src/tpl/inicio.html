@@ -66,13 +66,22 @@
   </div>
 </section>
 
-<section class="bottomless" aria-label="{BI:Barra libre de café|Bottomless coffee}">
+<section class="bottomless" aria-label="{BI:Barras libres|Bottomless}">
   <div class="wrap bl-inner">
-    <div>
-      <h2>{BI:Café sin límite|Bottomless coffee}<br>{BI:con tu brunch|with your brunch}</h2>
-      <p>{{ m.bi({'es': BL.incluye.es+'. Por persona, '+BL.duracion.es+' máx. Leches vegetales +'+(BL.leche_vegetal_extra|string)+'.', 'en': BL.incluye.en+'. Per person, '+BL.duracion.en+' max. Plant-based milk +'+(BL.leche_vegetal_extra|string)+'.'}) }}</p>
+    <div class="bl-card">
+      <div class="burst bl-price"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}<small>MXN</small></b></div>
+      <div>
+        <h2>{BI:Café sin límite|Bottomless coffee}</h2>
+        <p>{{ m.bi({'es': 'Con tu brunch. '+BL.incluye.es+'. Por persona, '+BL.duracion.es+' máx. Leches vegetales +'+(BL.leche_vegetal_extra|string)+'.', 'en': 'With your brunch. '+BL.incluye.en+'. Per person, '+BL.duracion.en+' max. Plant-based milk +'+(BL.leche_vegetal_extra|string)+'.'}) }}</p>
+      </div>
     </div>
-    <div class="burst bl-price"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}<small>MXN</small></b></div>
+    <div class="bl-card bl-booze">
+      <div class="burst bl-price"><svg class="spin"><use href="#burst"/></svg><b>${{ BLB.precio }}<small>MXN</small></b></div>
+      <div>
+        <h2>{BI:Barra libre booozy|Bottomless booze}</h2>
+        <p>{{ m.bi({'es': BLB.incluye.es+'. Por persona, '+BLB.duracion.es+'.', 'en': BLB.incluye.en+'. Per person, '+BLB.duracion.en+'.'}) }}</p>
+      </div>
+    </div>
   </div>
 </section>
 

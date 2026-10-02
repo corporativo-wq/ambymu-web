@@ -63,6 +63,19 @@
   {%- if loop.first and posters and posters[s.id] %}{{ posters[s.id] }}
   {%- else %}<h2 class="panel-title">{{ bi(b.titulo) }}</h2>{% endif %}
   {%- if b.nota %}<p class="panel-sub">{{ bi(b.nota) }}</p>{% endif %}
+  {%- if b.info %}{% set f = b.info %}
+  <div class="info info-{{ s.id }}">
+    <h2 class="info-t">{{ bi(f.titulo) }}</h2>
+    <div class="info-chips">{% for c in f.chips %}<span>{{ bi(c) }}</span>{% endfor %}</div>
+    <p class="info-lead">{{ bi(f.lead) }}</p>
+    <ul class="info-pts">{% for x in f.puntos %}<li>{{ bi(x) }}</li>{% endfor %}</ul>
+    {%- if f.cafeina %}
+    <div class="caf" aria-label="{{ t('Nivel de cafeína','Caffeine level') }}"><p class="caf-t">{{ t('Cafeína','Caffeine') }}</p>
+    {% for c in f.cafeina %}<div class="caf-row{% if loop.last %} me{% endif %}"><span>{{ bi(c.n) }}</span><i class="caf-bar"><b style="width:{{ (c.v/3*100)|round|int }}%"></b></i></div>{% endfor %}</div>
+    {%- endif %}
+  </div>
+  <h3 class="block-t">{{ bi(b.titulo) }}</h3>
+  {%- endif %}
   <ul class="items {{ b.layout }}">{{ items(b['items']) }}</ul>
   {%- if b.barra_libre %}
   <div class="bottomless-card"><strong>{{ t('Barra libre de café','Bottomless coffee') }} · ${{ BL.precio }}</strong>

@@ -230,10 +230,10 @@
     ],
     "barra": {
       "texto": {
-        "es": "Barra libre de Aperol spritz, mimosas y affogato carajillo · 1:30 h por persona",
-        "en": "Bottomless Aperol spritz, mimosas & affogato carajillo · 1.5 h per person"
+        "es": "Barra libre de mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo · 1:30 h por persona",
+        "en": "Bottomless orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi & affogato carajillo · 1.5 h per person"
       },
-      "p": 499
+      "p": 399
     }
   },
   "seo": {
@@ -296,12 +296,12 @@
     },
     {
       "q": {
-        "es": "¿Tienen café ilimitado?",
-        "en": "Do you have bottomless coffee?"
+        "es": "¿Tienen barra libre de bebidas?",
+        "en": "Do you have bottomless drinks?"
       },
       "a": {
-        "es": "Sí. Con la compra de un brunch, la barra libre de café cuesta ${barra} por persona (máximo 1:30 h) e incluye espresso, flat white, latte, cappuccino y americano.",
-        "en": "Yes. With any brunch, bottomless coffee is ${barra} MXN per person (1.5 h max): espresso, flat white, latte, cappuccino and americano."
+        "es": "Sí: barra libre booozy de mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo por ${bottomless} por persona (1:30 h), y barra libre de café por ${barra} con tu brunch.",
+        "en": "Yes: bottomless orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi and affogato carajillo for ${bottomless} MXN per person (1.5 h), plus bottomless coffee for ${barra} MXN with your brunch."
       }
     },
     {
@@ -326,12 +326,12 @@
     },
     {
       "q": {
-        "es": "¿Tienen mimosas bottomless?",
-        "en": "Do you have bottomless mimosas?"
+        "es": "¿Tienen barra libre de bebidas?",
+        "en": "Do you have bottomless drinks?"
       },
       "a": {
-        "es": "Sí, mimosas y Aperol spritz bottomless por ${bottomless}.",
-        "en": "Yes, bottomless mimosas and Aperol spritz for ${bottomless} MXN."
+        "es": "Sí: barra libre booozy de mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo por ${bottomless} por persona (1:30 h), y barra libre de café por ${barra} con tu brunch.",
+        "en": "Yes: bottomless orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi and affogato carajillo for ${bottomless} MXN per person (1.5 h), plus bottomless coffee for ${barra} MXN with your brunch."
       }
     }
   ],
@@ -665,67 +665,60 @@
         ]
       },
       {
-        "id": "drinks",
+        "id": "matcha",
         "tab": {
-          "es": "Café y lattes",
-          "en": "Coffee & lattes"
+          "es": "Matcha",
+          "en": "Matcha"
         },
         "bloques": [
           {
             "titulo": {
-              "es": "Café",
-              "en": "Coffee"
-            },
-            "layout": "chips",
-            "items": [
-              {
-                "n": {
-                  "es": "Espresso",
-                  "en": "Espresso"
-                },
-                "p": 40
-              },
-              {
-                "n": {
-                  "es": "Americano",
-                  "en": "Americano"
-                },
-                "p": 40
-              },
-              {
-                "n": {
-                  "es": "Flat white",
-                  "en": "Flat white"
-                },
-                "p": 65
-              },
-              {
-                "n": {
-                  "es": "Cappuccino",
-                  "en": "Cappuccino"
-                },
-                "p": 75
-              },
-              {
-                "n": {
-                  "es": "Latte",
-                  "en": "Latte"
-                },
-                "p": 75
-              }
-            ],
-            "barra_libre": true
-          },
-          {
-            "titulo": {
-              "es": "Lattes am",
-              "en": "Lattes am"
-            },
-            "nota": {
-              "es": "Matcha ceremonial de origen japonés. Sin azúcar añadida.",
-              "en": "Ceremonial matcha of Japanese origin. No added sugar."
+              "es": "Matcha lattes",
+              "en": "Matcha lattes"
             },
             "layout": "two",
+            "info": {
+              "titulo": {
+                "es": "¿Por qué matcha?",
+                "en": "Why matcha?"
+              },
+              "chips": [
+                {
+                  "es": "Uji · Japón",
+                  "en": "Uji · Japan"
+                },
+                {
+                  "es": "Grado ceremonial",
+                  "en": "Ceremonial grade"
+                },
+                {
+                  "es": "Primera cosecha",
+                  "en": "First harvest"
+                },
+                {
+                  "es": "Miel de agave",
+                  "en": "Agave honey"
+                }
+              ],
+              "lead": {
+                "es": "Nuestro matcha viene de Uji, Japón, la región más famosa del matcha. Es grado ceremonial y de primera cosecha: la de mejor calidad.",
+                "en": "Our matcha comes from Uji, Japan, the most famous matcha region. Ceremonial grade, first harvest: the highest quality."
+              },
+              "puntos": [
+                {
+                  "es": "Energía estable y enfocada, sin el bajón del café: la L-teanina suaviza el efecto de la cafeína.",
+                  "en": "Calm, focused energy without the coffee crash: L-theanine smooths out the caffeine."
+                },
+                {
+                  "es": "Lleno de antioxidantes del té verde (catequinas).",
+                  "en": "Packed with green-tea antioxidants (catechins)."
+                },
+                {
+                  "es": "Te tomas la hoja completa molida, no solo una infusión.",
+                  "en": "You drink the whole ground leaf, not just an infusion."
+                }
+              ]
+            },
             "items": [
               {
                 "n": {
@@ -804,6 +797,127 @@
               },
               {
                 "n": {
+                  "es": "Matcha mango",
+                  "en": "Mango matcha"
+                },
+                "p": 145,
+                "d": {
+                  "es": "Matcha ceremonial, leche, concentrado natural de mango de Colima y foam de caramelo",
+                  "en": "Ceremonial matcha, milk, natural Colima mango concentrate and caramel foam"
+                },
+                "tags": [
+                  "new"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Matcha banana",
+                  "en": "Banana matcha"
+                },
+                "p": 145,
+                "d": {
+                  "es": "Matcha ceremonial, leche y puré de banana bread: plátano con mantequilla y canela",
+                  "en": "Ceremonial matcha, milk and banana bread purée: banana with butter and cinnamon"
+                },
+                "tags": [
+                  "new"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Aussie matcha",
+                  "en": "Aussie matcha"
+                },
+                "p": 145,
+                "d": {
+                  "es": "Matcha ceremonial, leche y helado de vainilla",
+                  "en": "Ceremonial matcha, milk and vanilla ice cream"
+                },
+                "tags": [
+                  "new"
+                ]
+              }
+            ],
+            "nota": {
+              "es": "Endulzados naturalmente con miel de agave.",
+              "en": "Naturally sweetened with agave honey."
+            }
+          }
+        ]
+      },
+      {
+        "id": "hojicha",
+        "tab": {
+          "es": "Hojicha",
+          "en": "Hojicha"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Hojicha lattes",
+              "en": "Hojicha lattes"
+            },
+            "layout": "two",
+            "info": {
+              "titulo": {
+                "es": "¿Qué es el hojicha?",
+                "en": "What is hojicha?"
+              },
+              "chips": [
+                {
+                  "es": "Té verde japonés tostado",
+                  "en": "Roasted Japanese green tea"
+                },
+                {
+                  "es": "Poca cafeína",
+                  "en": "Low caffeine"
+                }
+              ],
+              "lead": {
+                "es": "Es té verde japonés tostado: el primo tostadito del matcha. Suave, cálido y sin amargor.",
+                "en": "Roasted Japanese green tea: matcha's toasty cousin. Smooth, cozy and never bitter."
+              },
+              "puntos": [
+                {
+                  "es": "Sabor tostado con notas a caramelo y nuez.",
+                  "en": "Toasty flavor with caramel and nutty notes."
+                },
+                {
+                  "es": "Mucha menos cafeína que el café y el matcha: perfecto para la tarde o si quieres algo ligero.",
+                  "en": "Far less caffeine than coffee or matcha: perfect for the afternoon or a lighter pick."
+                },
+                {
+                  "es": "También tiene los antioxidantes del té verde.",
+                  "en": "Still packed with green-tea antioxidants."
+                }
+              ],
+              "cafeina": [
+                {
+                  "n": {
+                    "es": "Café",
+                    "en": "Coffee"
+                  },
+                  "v": 3
+                },
+                {
+                  "n": {
+                    "es": "Matcha",
+                    "en": "Matcha"
+                  },
+                  "v": 2
+                },
+                {
+                  "n": {
+                    "es": "Hojicha",
+                    "en": "Hojicha"
+                  },
+                  "v": 1
+                }
+              ]
+            },
+            "items": [
+              {
+                "n": {
                   "es": "Hojicha latte",
                   "en": "Hojicha latte"
                 },
@@ -829,70 +943,72 @@
               },
               {
                 "n": {
-                  "es": "Thai tea latte",
-                  "en": "Thai tea latte"
+                  "es": "Dirty hojicha",
+                  "en": "Dirty hojicha"
                 },
-                "p": 125,
+                "p": 135,
                 "d": {
-                  "es": "Té negro tailandés especiado, leche deslactosada y cold foam de dulce de leche",
-                  "en": "Spiced Thai black tea, lactose-free milk, dulce de leche cold foam"
+                  "es": "Hojicha latte con un shot de espresso",
+                  "en": "Hojicha latte with a shot of espresso"
                 },
                 "tags": [
                   "new"
-                ],
-                "signature": true,
-                "capas": [
-                  "#E9C98B",
-                  "#C9621F",
-                  "#D98A4E",
-                  "#F1E3CF"
-                ],
-                "corto": {
-                  "es": "Té negro tailandés especiado y cold foam de dulce de leche.",
-                  "en": "Spiced Thai black tea, dulce de leche cold foam."
-                }
+                ]
               },
               {
                 "n": {
-                  "es": "Salty dulce de leche",
-                  "en": "Salty dulce de leche"
+                  "es": "Hojicha fresa",
+                  "en": "Strawberry hojicha"
                 },
-                "p": 110,
+                "p": 145,
                 "d": {
-                  "es": "Espresso doble, foam de dulce de leche",
-                  "en": "Double espresso, dulce de leche foam"
-                }
+                  "es": "Hojicha, leche de fresa y fondo de mermelada, con cold foam de dulce de leche",
+                  "en": "Hojicha, strawberry milk, strawberry jam base and dulce de leche cold foam"
+                },
+                "tags": [
+                  "new"
+                ]
               },
               {
                 "n": {
-                  "es": "Banana bread latte",
-                  "en": "Banana bread latte"
+                  "es": "Hojicha banana",
+                  "en": "Banana hojicha"
                 },
-                "p": 110,
+                "p": 145,
                 "d": {
-                  "es": "Jarabe de pan de plátano, espresso, foam de pan de plátano",
-                  "en": "Banana bread syrup, espresso, banana bread foam"
-                }
+                  "es": "Hojicha, leche y puré de banana bread: plátano con mantequilla y canela",
+                  "en": "Hojicha, milk and banana bread purée: banana with butter and cinnamon"
+                },
+                "tags": [
+                  "new"
+                ]
               },
               {
                 "n": {
-                  "es": "Aussie iced coffee",
-                  "en": "Aussie iced coffee"
+                  "es": "Aussie hojicha",
+                  "en": "Aussie hojicha"
                 },
-                "p": 110,
+                "p": 145,
                 "d": {
-                  "es": "Helado de vainilla, espresso doble, leche",
-                  "en": "Vanilla ice cream, double espresso, milk"
-                }
+                  "es": "Hojicha, leche y helado de vainilla",
+                  "en": "Hojicha, milk and vanilla ice cream"
+                },
+                "tags": [
+                  "new"
+                ]
               }
-            ]
+            ],
+            "nota": {
+              "es": "Endulzados naturalmente con miel de agave.",
+              "en": "Naturally sweetened with agave honey."
+            }
           }
         ]
       },
       {
         "id": "frescos",
         "tab": {
-          "es": "Frescos",
+          "es": "Refreshers",
           "en": "Refreshers"
         },
         "bloques": [
@@ -921,6 +1037,20 @@
                 "n": {
                   "es": "Matcha orange",
                   "en": "Matcha orange"
+                },
+                "p": 120,
+                "tags": [
+                  "new"
+                ],
+                "tipo": {
+                  "es": "Refresher",
+                  "en": "Refresher"
+                }
+              },
+              {
+                "n": {
+                  "es": "Matcha limo mango",
+                  "en": "Matcha mango lemonade"
                 },
                 "p": 120,
                 "tags": [
@@ -997,6 +1127,127 @@
         ]
       },
       {
+        "id": "drinks",
+        "tab": {
+          "es": "Café",
+          "en": "Coffee"
+        },
+        "bloques": [
+          {
+            "titulo": {
+              "es": "Café",
+              "en": "Coffee"
+            },
+            "layout": "chips",
+            "items": [
+              {
+                "n": {
+                  "es": "Espresso",
+                  "en": "Espresso"
+                },
+                "p": 40
+              },
+              {
+                "n": {
+                  "es": "Americano",
+                  "en": "Americano"
+                },
+                "p": 40
+              },
+              {
+                "n": {
+                  "es": "Flat white",
+                  "en": "Flat white"
+                },
+                "p": 65
+              },
+              {
+                "n": {
+                  "es": "Cappuccino",
+                  "en": "Cappuccino"
+                },
+                "p": 75
+              },
+              {
+                "n": {
+                  "es": "Latte",
+                  "en": "Latte"
+                },
+                "p": 75
+              }
+            ],
+            "barra_libre": true
+          },
+          {
+            "titulo": {
+              "es": "Lattes de café AM",
+              "en": "AM coffee lattes"
+            },
+            "layout": "two",
+            "items": [
+              {
+                "n": {
+                  "es": "Salty dulce de leche",
+                  "en": "Salty dulce de leche"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Espresso doble, foam de dulce de leche",
+                  "en": "Double espresso, dulce de leche foam"
+                }
+              },
+              {
+                "n": {
+                  "es": "Banana bread latte",
+                  "en": "Banana bread latte"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Jarabe de pan de plátano, espresso, foam de pan de plátano",
+                  "en": "Banana bread syrup, espresso, banana bread foam"
+                }
+              },
+              {
+                "n": {
+                  "es": "Aussie iced coffee",
+                  "en": "Aussie iced coffee"
+                },
+                "p": 110,
+                "d": {
+                  "es": "Helado de vainilla, espresso doble, leche",
+                  "en": "Vanilla ice cream, double espresso, milk"
+                }
+              },
+              {
+                "n": {
+                  "es": "Thai tea latte",
+                  "en": "Thai tea latte"
+                },
+                "p": 125,
+                "d": {
+                  "es": "Té negro tailandés especiado, leche deslactosada y cold foam de dulce de leche",
+                  "en": "Spiced Thai black tea, lactose-free milk, dulce de leche cold foam"
+                },
+                "tags": [
+                  "new"
+                ],
+                "signature": true,
+                "capas": [
+                  "#E9C98B",
+                  "#C9621F",
+                  "#D98A4E",
+                  "#F1E3CF"
+                ],
+                "corto": {
+                  "es": "Té negro tailandés especiado y cold foam de dulce de leche.",
+                  "en": "Spiced Thai black tea, dulce de leche cold foam."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "boozy",
         "tab": {
           "es": "Booozy",
@@ -1010,6 +1261,20 @@
             },
             "layout": "two",
             "items": [
+              {
+                "n": {
+                  "es": "Fluffy garibaldi",
+                  "en": "Fluffy garibaldi"
+                },
+                "p": 120,
+                "d": {
+                  "es": "Nuestro cóctel de la casa: jugo de naranja y Campari, batido hasta quedar fluffy. Suave, fresco y delicioso.",
+                  "en": "Our house cocktail: orange juice and Campari, whipped until fluffy. Smooth, fresh and delicious."
+                },
+                "tags": [
+                  "casa"
+                ]
+              },
               {
                 "n": {
                   "es": "Mimosa",
@@ -1033,17 +1298,14 @@
               },
               {
                 "n": {
-                  "es": "Fluffy garibaldi",
-                  "en": "Fluffy garibaldi"
+                  "es": "Barra libre booozy",
+                  "en": "Bottomless booze"
                 },
-                "p": 150
-              },
-              {
-                "n": {
-                  "es": "Mimosa & Spritz bottomless",
-                  "en": "Bottomless mimosa & spritz"
-                },
-                "p": 399
+                "p": 399,
+                "d": {
+                  "es": "Mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo · 1:30 h por persona",
+                  "en": "Orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi & affogato carajillo · 1.5 h per person"
+                }
               }
             ]
           }
@@ -1337,5 +1599,16 @@
       }
     }
   },
-  "_notas_fotos": "Fotos de platillos: poner la ruta en el campo 'foto' del platillo (p. ej. 'src/img/platos/chilaquiles.jpg'). Mientras sea null no se muestra ninguna imagen (no se usan fotos genéricas ni de IA)."
+  "_notas_fotos": "Fotos de platillos: poner la ruta en el campo 'foto' del platillo (p. ej. 'src/img/platos/chilaquiles.jpg'). Mientras sea null no se muestra ninguna imagen (no se usan fotos genéricas ni de IA).",
+  "barra_libre_booze": {
+    "precio": 399,
+    "duracion": {
+      "es": "1:30 h",
+      "en": "1.5 h"
+    },
+    "incluye": {
+      "es": "Mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo",
+      "en": "Orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi and affogato carajillo"
+    }
+  }
 }

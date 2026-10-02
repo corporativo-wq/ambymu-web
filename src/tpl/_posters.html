@@ -18,7 +18,7 @@
 
 <div data-poster="drinks" class="ph ph-cafe rv">
   <div class="ph-text">
-    <p class="hand">{BI:café de especialidad + matcha ceremonial|specialty coffee + ceremonial matcha}</p>
+    <p class="hand">{BI:café de especialidad + lattes AM|specialty coffee + AM lattes}</p>
     <h2 class="ph-title">{BI:Café|Coffee}</h2>
   </div>
   <svg class="ph-art" viewBox="0 0 220 200" aria-hidden="true">
@@ -84,4 +84,34 @@
     <g class="twinkle" stroke="#1E4029" stroke-width="4" stroke-linecap="round"><path d="M40 30v18M31 39h18"/><path d="M180 30v14M173 37h14"/><path d="M110 12v12M104 18h12"/></g>
   </svg>
   <div class="burst ph-burst"><svg class="spin"><use href="#burst"/></svg><b>${{ MINP.pan }}<small>{BI:desde|from}</small></b></div>
+</div>
+
+<div data-poster="matcha" class="ph ph-matcha rv">
+  <div class="ph-text">
+    <p class="hand">{BI:ceremonial · de Uji, Japón|ceremonial · from Uji, Japan}</p>
+    <h2 class="ph-title">Matcha</h2>
+  </div>
+  <svg class="ph-art" viewBox="0 0 220 200" aria-hidden="true">
+    <g class="twinkle" stroke="#F7F0E3" stroke-width="4" stroke-linecap="round"><path d="M40 34v16M32 42h16"/><path d="M188 22v12M182 28h12"/></g>
+    <g class="whisk"><path d="M150 18l-30 70" stroke="#1E4029" stroke-width="10" stroke-linecap="round"/><path d="M126 76c-10 8-16 22-12 30M132 79c-6 10-8 22-2 28M138 82c-2 10 0 22 8 26M120 74c-12 6-22 18-20 28" stroke="#F7F0E3" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <path d="M22 104h176c0 46-36 78-88 78S22 150 22 104z" fill="#F7F0E3" stroke="#1E4029" stroke-width="5" stroke-linejoin="round"/>
+    <ellipse cx="110" cy="104" rx="88" ry="16" fill="#A8C47F" stroke="#1E4029" stroke-width="5"/>
+    <path d="M60 104c14-8 28 8 44 0s30-8 46 2" fill="none" stroke="#F7F0E3" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M70 186h80" stroke="#1E4029" stroke-width="6" stroke-linecap="round"/>
+  </svg>
+  <div class="burst ph-burst"><svg class="spin"><use href="#burst"/></svg><b>{{ COUNT.matcha }}<small>{BI:lattes|lattes}</small></b></div>
+</div>
+<div data-poster="hojicha" class="ph ph-hojicha rv">
+  <div class="ph-text">
+    <p class="hand">{BI:el matcha, pero tostadito|matcha's toasty cousin}</p>
+    <h2 class="ph-title">Hojicha</h2>
+  </div>
+  <svg class="ph-art" viewBox="0 0 220 200" aria-hidden="true">
+    <g fill="none" stroke="#F7F0E3" stroke-width="5" stroke-linecap="round"><path class="steam s1" d="M86 60c-12-14 12-22 0-38"/><path class="steam s2" d="M112 56c-12-14 12-22 0-40"/><path class="steam s3" d="M138 60c-12-14 12-22 0-38"/></g>
+    <path d="M50 76h120l-12 84c-3 18-18 28-34 28h-28c-16 0-31-10-34-28z" fill="#F7F0E3" stroke="#1E4029" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M56 104h108l-6 46c-2 16-14 24-28 24h-40c-14 0-26-8-28-24z" fill="#C8955C"/>
+    <path d="M168 92c26-6 34 26 6 38l-10 4" fill="none" stroke="#1E4029" stroke-width="7" stroke-linecap="round"/>
+    <g class="leaf"><path d="M26 150c10-26 40-30 52-20-8 22-36 32-52 20z" fill="#A8C47F" stroke="#1E4029" stroke-width="4" stroke-linejoin="round"/><path d="M30 148c14-6 28-12 44-16" stroke="#1E4029" stroke-width="3" stroke-linecap="round"/></g>
+  </svg>
+  <div class="burst ph-burst"><svg class="spin"><use href="#burst"/></svg><b>{{ COUNT.hojicha }}<small>{BI:lattes|lattes}</small></b></div>
 </div>

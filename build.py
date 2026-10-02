@@ -53,7 +53,8 @@ EXTRAS = {x["id"]: x for x in MENU.get("extras", [])}
 for x in RC.get("extras", []):
     if "ref" in x: x.update({k: EXTRAS[x["ref"]][k] for k in ("n", "p", "porcion")})
 ALL_ITEMS = [i for s in MENU["secciones"] for b in s["bloques"] for i in b["items"]]
-BOTTOMLESS = next((i["p"] for i in ALL_ITEMS if "bottomless" in i["n"]["es"].lower()), None)
+BLB = C["barra_libre_booze"]; walk_prices(BLB)
+BOTTOMLESS = BLB["precio"]
 
 # ------------------------------------------------------------------ horario
 DIAS = [("lun", 1, "Lunes", "Monday"), ("mar", 2, "Martes", "Tuesday"), ("mie", 3, "Miércoles", "Wednesday"),
@@ -187,8 +188,8 @@ DESTACADOS = [i for i in ALL_ITEMS if i.get("destacado")]
 sec = {s["id"]: s for s in MENU["secciones"]}
 COUNT = {k: sum(len(b["items"]) for b in s["bloques"]) for k, s in sec.items()}
 MINP = {k: min(i["p"] for b in s["bloques"] for i in b["items"]) for k, s in sec.items()}
-G = dict(EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
-         TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}},
+G = dict(BLB=BLB, EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
+         TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}, "casa": {"es": "Cóctel de la casa", "en": "House cocktail"}},
          HORARIO_RESUMEN=HORARIO_RESUMEN, HORARIO_CHIP=HORARIO_CHIP, HORA_CORTA=HORA_CORTA, CERRADO_TXT=CERRADO_TXT,
          DIR_TXT=DIR_TXT, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,
          MAPS_EMBED="https://www.google.com/maps?q=" + quote(f'{S["nombre"]}, {a["calle"]}, {a["colonia"]}, {a["cp"]} {a["ciudad"]}') + "&z=17&output=embed",

@@ -38,10 +38,17 @@
       <a class="btn btn-green" href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Cómo llegar|Directions}</a>
       {%- if BR.whatsapp %}<a class="btn btn-cream" href="https://wa.me/{{ BR.whatsapp|digits }}?text={{ BR.whatsapp_texto|urlencode }}" data-ev="whatsapp" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
     </div>
+    <div class="m-bls">
     <div class="m-bl rv">
       <div class="burst"><svg class="spin"><use href="#burst"/></svg><b>${{ BL.precio }}</b></div>
       <div><strong>{BI:Café sin límite|Bottomless coffee}</strong><p>{{ m.bi({'es':'Con tu brunch. '+BL.incluye.es+' · '+BL.duracion.es+' por persona · leches vegetales +'+(BL.leche_vegetal_extra|string),'en':'With your brunch. '+BL.incluye.en+' · '+BL.duracion.en+' per person · plant milk +'+(BL.leche_vegetal_extra|string)}) }}</p></div>
     </div>
+    <div class="m-bl m-bl-booze rv">
+      <div class="burst"><svg class="spin"><use href="#burst"/></svg><b>${{ BLB.precio }}</b></div>
+      <div><strong>{BI:Barra libre booozy|Bottomless booze}</strong><p>{{ m.bi({'es':BLB.incluye.es+' · '+BLB.duracion.es+' por persona','en':BLB.incluye.en+' · '+BLB.duracion.en+' per person'}) }}</p></div>
+    </div>
+    </div>
+</div>
   </div>
 </section>
 

@@ -282,3 +282,8 @@ footer small a[href^="tel:"]{display:inline-block;padding:10px 0}
 .tag,.btn-pink,.wa-float{background:#C2226A}
 .combo.exp li{color:var(--green)}
 .tag-vegan,.tag-gf{background:var(--matcha)}
+.bl-card{display:flex;align-items:center;gap:22px;flex:1 1 380px}
+.bl-card h2{font-size:clamp(30px,4vw,48px)}
+.bl-card .bl-price{width:120px;height:120px;font-size:32px}
+.bl-booze .bl-price svg{color:var(--green)}.bl-booze .bl-price b{color:var(--pink)}
+@media(max-width:560px){.bl-card{gap:14px}.bl-card .bl-price{width:96px;height:96px;font-size:26px}}
