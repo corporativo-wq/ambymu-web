@@ -9,7 +9,7 @@ playa-del-carmen.html, 404.html, assets/, img/, robots.txt, sitemap.xml, favicon
 import json, re, os, math, hashlib, html, datetime
 from urllib.parse import quote
 from jinja2 import Environment, BaseLoader, TemplateNotFound
-from markupsafe import Markup
+from markupsafe import Markup, escape
 from PIL import Image
 import numpy as np
 
@@ -49,6 +49,9 @@ def walk_prices(o):
         for v in o: walk_prices(v)
 walk_prices(C["menu"]); walk_prices(C["run_club"]); walk_prices(C["barra_libre_cafe"])
 MENU, BL, RC = C["menu"], C["barra_libre_cafe"], C["run_club"]
+EXTRAS = {x["id"]: x for x in MENU.get("extras", [])}
+for x in RC.get("extras", []):
+    if "ref" in x: x.update({k: EXTRAS[x["ref"]][k] for k in ("n", "p", "porcion")})
 ALL_ITEMS = [i for s in MENU["secciones"] for b in s["bloques"] for i in b["items"]]
 BOTTOMLESS = next((i["p"] for i in ALL_ITEMS if "bottomless" in i["n"]["es"].lower()), None)
 
@@ -172,6 +175,7 @@ class Loader(BaseLoader):
         return bi_pass(open(p, encoding="utf-8").read(), self.lg), p, lambda: True
 def make_env(lg):
     env = Environment(loader=Loader(lg), autoescape=True, trim_blocks=False)
+    env.filters["realce"] = lambda s, r: Markup(str(escape(s)).replace(r, f'<b class="am">{r}</b>', 1)) if r else s
     env.filters["digits"] = lambda s: re.sub(r"\D", "", s or "")
     env.filters["tel"] = lambda s: "+" + re.sub(r"\D", "", s or "") if s else ""
     env.filters["urlencode"] = lambda s: quote(s or "")
@@ -183,7 +187,7 @@ DESTACADOS = [i for i in ALL_ITEMS if i.get("destacado")]
 sec = {s["id"]: s for s in MENU["secciones"]}
 COUNT = {k: sum(len(b["items"]) for b in s["bloques"]) for k, s in sec.items()}
 MINP = {k: min(i["p"] for b in s["bloques"] for i in b["items"]) for k, s in sec.items()}
-G = dict(S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
+G = dict(EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
          TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}},
          HORARIO_RESUMEN=HORARIO_RESUMEN, HORARIO_CHIP=HORARIO_CHIP, HORA_CORTA=HORA_CORTA, CERRADO_TXT=CERRADO_TXT,
          DIR_TXT=DIR_TXT, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,

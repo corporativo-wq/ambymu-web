@@ -168,8 +168,8 @@
           "en": "Motuleño chilaquiles"
         },
         "d": {
-          "es": "Plátano macho, jamón, chícharos, frijoles, quesillo, dos huevos",
-          "en": "Fried plantain, ham, peas, beans, quesillo, two eggs"
+          "es": "Plátano macho, jamón, chícharos, frijoles, queso Oaxaca, dos huevos",
+          "en": "Fried plantain, ham, peas, beans, Oaxaca cheese, two eggs"
         }
       }
     ],
@@ -210,25 +210,22 @@
     ],
     "extras": [
       {
-        "n": {
-          "es": "Arrachera",
-          "en": "Skirt steak"
-        },
-        "p": 100
+        "ref": "arrachera"
       },
       {
-        "n": {
-          "es": "Barbacoa",
-          "en": "Barbacoa"
-        },
-        "p": 55
+        "ref": "barbacoa"
       },
       {
-        "n": {
-          "es": "Huevo extra",
-          "en": "Extra egg"
-        },
-        "p": 55
+        "ref": "huevo"
+      },
+      {
+        "ref": "par_huevos"
+      },
+      {
+        "ref": "aguacate"
+      },
+      {
+        "ref": "tocino"
       }
     ],
     "barra": {
@@ -405,12 +402,13 @@
                   "es": "Masa madre, tomate y ajo, aguacate",
                   "en": "Sourdough, tomato & garlic, avocado"
                 },
-                "extra": {
-                  "es": "Dos huevitos +55",
-                  "en": "Two eggs +55"
-                },
                 "destacado": true,
-                "foto": null
+                "foto": null,
+                "add": [
+                  "par_huevos",
+                  "tocino",
+                  "jamon"
+                ]
               },
               {
                 "n": {
@@ -419,9 +417,26 @@
                 },
                 "p": 280,
                 "d": {
-                  "es": "Pan de masa madre, jamón ahumado, quesillo, aguacate, frijoles",
-                  "en": "Sourdough, smoked ham, quesillo, avocado, beans"
-                }
+                  "es": "Pan de masa madre, jamón ahumado, queso Oaxaca, aguacate, frijoles",
+                  "en": "Sourdough, smoked ham, Oaxaca cheese, avocado, beans"
+                },
+                "add": [
+                  "par_huevos"
+                ]
+              },
+              {
+                "n": {
+                  "es": "Barbacoa dip sandwich",
+                  "en": "Barbacoa dip sandwich"
+                },
+                "p": 280,
+                "d": {
+                  "es": "Pan de masa madre, barbacoa, queso Oaxaca, cebolla caramelizada y mayo de chipotle. Con un tarrito de consomé de barbacoa y salsa verde de jalapeño",
+                  "en": "Sourdough, barbacoa, Oaxaca cheese, caramelized onion and chipotle mayo. Served with a cup of barbacoa consommé and green jalapeño salsa"
+                },
+                "tags": [
+                  "new"
+                ]
               },
               {
                 "n": {
@@ -430,8 +445,8 @@
                 },
                 "p": 280,
                 "d": {
-                  "es": "Rellenas de carne vegana, ahogadas en salsa verde de jalapeño, salsa morita o salsa de tomate y habanero tatemado",
-                  "en": "Filled with plant-based meat, drowned in green jalapeño sauce, morita sauce or fire-roasted tomato & habanero sauce"
+                  "es": "Rellenas de carne vegana, ahogadas en salsa a elección: tatemada, morita o verde de jalapeño",
+                  "en": "Filled with plant-based meat, drowned in your choice of fire-roasted, morita or green jalapeño salsa"
                 },
                 "tags": [
                   "new",
@@ -448,10 +463,15 @@
                   "es": "Acompañados de mini chilaquiles y frijoles",
                   "en": "Served with mini chilaquiles and beans"
                 },
-                "extra": {
-                  "es": "Barbacoa, jamón ahumado, queso gratinado o tocino +55",
-                  "en": "Barbacoa, smoked ham, melted cheese or bacon +55"
-                }
+                "incluye": {
+                  "es": "Jamón ahumado o tocino + 1 queso (Oaxaca, gouda o americano) + cebolla, tomate y chile",
+                  "en": "Smoked ham or bacon + 1 cheese (Oaxaca, gouda or American) + onion, tomato and chile"
+                },
+                "add": [
+                  "aguacate",
+                  "barbacoa",
+                  "huevo"
+                ]
               },
               {
                 "n": {
@@ -463,10 +483,11 @@
                   "es": "Salsa roja, salsa verde, cebolla, cilantro",
                   "en": "Eggs in red & green Mexican salsa, onion, cilantro"
                 },
-                "extra": {
-                  "es": "Barbacoa, jamón ahumado, queso gratinado o tocino +55",
-                  "en": "Barbacoa, smoked ham, melted cheese or bacon +55"
-                }
+                "add": [
+                  "barbacoa",
+                  "tocino",
+                  "jamon"
+                ]
               },
               {
                 "n": {
@@ -494,13 +515,13 @@
               },
               {
                 "n": {
-                  "es": "Omelette quesillo",
-                  "en": "Quesillo omelette"
+                  "es": "Omelette de queso Oaxaca",
+                  "en": "Oaxaca cheese omelette"
                 },
                 "p": 270,
                 "d": {
-                  "es": "Jamón ahumado, salsa verde, parmesano, cebollín",
-                  "en": "Smoked ham, green sauce, parmesan, chives"
+                  "es": "Queso Oaxaca, jamón ahumado, salsa verde, parmesano, cebollín",
+                  "en": "Oaxaca cheese, smoked ham, green sauce, parmesan, chives"
                 }
               },
               {
@@ -510,8 +531,8 @@
                 },
                 "p": 270,
                 "d": {
-                  "es": "Jamón ahumado, crema de trufa",
-                  "en": "Smoked ham, truffle cream"
+                  "es": "Queso gouda, jamón ahumado, crema de trufa",
+                  "en": "Gouda cheese, smoked ham, truffle cream"
                 }
               },
               {
@@ -534,7 +555,8 @@
                 "d": {
                   "es": "Jamón, queso, huevo estrellado, salsa de trufa",
                   "en": "Ham, cheese, fried egg, truffle sauce"
-                }
+                },
+                "realce": "AM"
               },
               {
                 "n": {
@@ -558,15 +580,22 @@
                 },
                 "p": 225,
                 "d": {
-                  "es": "Verdes poblanos o rojos morita, frijoles, cebolla, cilantro, quesillo",
-                  "en": "Green poblano or red morita, beans, onion, cilantro, quesillo"
-                },
-                "extra": {
-                  "es": "Dos huevitos, barbacoa o queso gratinado +55",
-                  "en": "Two eggs, barbacoa or melted cheese +55"
+                  "es": "Verdes poblanos o rojos morita, frijoles, cebolla, cilantro, queso Oaxaca",
+                  "en": "Green poblano or red morita, beans, onion, cilantro, Oaxaca cheese"
                 },
                 "destacado": true,
-                "foto": null
+                "foto": null,
+                "add": [
+                  "par_huevos",
+                  "barbacoa",
+                  {
+                    "id": "gouda",
+                    "n": {
+                      "es": "Queso gouda gratinado",
+                      "en": "Melted gouda"
+                    }
+                  }
+                ]
               },
               {
                 "n": {
@@ -586,8 +615,8 @@
                 },
                 "p": 245,
                 "d": {
-                  "es": "Plátano macho, jamón, chícharos, frijoles, quesillo, dos huevos",
-                  "en": "Fried plantain, ham, peas, beans, quesillo, two eggs"
+                  "es": "Plátano macho, jamón, chícharos, frijoles, queso Oaxaca, dos huevos",
+                  "en": "Fried plantain, ham, peas, beans, Oaxaca cheese, two eggs"
                 },
                 "tags": [
                   "new"
@@ -602,8 +631,8 @@
                 },
                 "p": 270,
                 "d": {
-                  "es": "Salsa verde, crema ácida, quesillo, cilantro",
-                  "en": "Green sauce, sour cream, quesillo, cilantro"
+                  "es": "Salsa verde, crema ácida, queso Oaxaca, cilantro",
+                  "en": "Green sauce, sour cream, Oaxaca cheese, cilantro"
                 },
                 "tags": [
                   "new"
@@ -627,8 +656,8 @@
                 },
                 "p": 275,
                 "d": {
-                  "es": "Adobo, barbacoa, quesillo",
-                  "en": "Adobo, barbacoa, quesillo"
+                  "es": "Adobo, barbacoa, queso Oaxaca",
+                  "en": "Adobo, barbacoa, Oaxaca cheese"
                 }
               }
             ]
@@ -1066,7 +1095,218 @@
           }
         ]
       }
-    ]
+    ],
+    "extras": [
+      {
+        "id": "huevo",
+        "n": {
+          "es": "Huevo",
+          "en": "Egg"
+        },
+        "porcion": {
+          "es": "1 pieza",
+          "en": "1 egg"
+        },
+        "p": 35
+      },
+      {
+        "id": "par_huevos",
+        "n": {
+          "es": "Par de huevos",
+          "en": "Two eggs"
+        },
+        "porcion": {
+          "es": "2 piezas",
+          "en": "2 eggs"
+        },
+        "p": 55
+      },
+      {
+        "id": "jamon",
+        "n": {
+          "es": "Jamón ahumado",
+          "en": "Smoked ham"
+        },
+        "porcion": {
+          "es": "35 g",
+          "en": "35 g"
+        },
+        "p": 35
+      },
+      {
+        "id": "tocino",
+        "n": {
+          "es": "Tocino",
+          "en": "Bacon"
+        },
+        "porcion": {
+          "es": "3 rebanadas (50 g)",
+          "en": "3 strips (50 g)"
+        },
+        "p": 35
+      },
+      {
+        "id": "oaxaca",
+        "n": {
+          "es": "Queso Oaxaca",
+          "en": "Oaxaca cheese"
+        },
+        "porcion": null,
+        "p": 35
+      },
+      {
+        "id": "gouda",
+        "n": {
+          "es": "Queso gouda",
+          "en": "Gouda cheese"
+        },
+        "porcion": {
+          "es": "2 rebanadas",
+          "en": "2 slices"
+        },
+        "p": 35
+      },
+      {
+        "id": "americano",
+        "n": {
+          "es": "Queso americano",
+          "en": "American cheese"
+        },
+        "porcion": {
+          "es": "2 rebanadas",
+          "en": "2 slices"
+        },
+        "p": 35
+      },
+      {
+        "id": "aguacate",
+        "n": {
+          "es": "Aguacate",
+          "en": "Avocado"
+        },
+        "porcion": {
+          "es": "½ pieza (120 g)",
+          "en": "½ avocado (120 g)"
+        },
+        "p": 55
+      },
+      {
+        "id": "barbacoa",
+        "n": {
+          "es": "Barbacoa",
+          "en": "Barbacoa"
+        },
+        "porcion": {
+          "es": "50 g",
+          "en": "50 g"
+        },
+        "p": 55
+      },
+      {
+        "id": "arrachera",
+        "n": {
+          "es": "Arrachera Angus",
+          "en": "Angus skirt steak"
+        },
+        "porcion": {
+          "es": "100 g",
+          "en": "100 g"
+        },
+        "p": 100
+      },
+      {
+        "id": "platano",
+        "n": {
+          "es": "Plátano macho",
+          "en": "Fried plantain"
+        },
+        "porcion": {
+          "es": "300 g",
+          "en": "300 g"
+        },
+        "p": 70
+      },
+      {
+        "id": "veg",
+        "n": {
+          "es": "Cebolla, tomate o chile",
+          "en": "Onion, tomato or chile"
+        },
+        "porcion": null,
+        "p": 0
+      }
+    ],
+    "salsas": {
+      "titulo": {
+        "es": "Nuestras salsas",
+        "en": "Our salsas"
+      },
+      "nota": {
+        "es": "Cambia la salsa de cualquier platillo por otra, sin costo.",
+        "en": "Swap the salsa on any dish, free of charge."
+      },
+      "lista": [
+        {
+          "n": {
+            "es": "Verde poblana",
+            "en": "Green poblano"
+          },
+          "d": {
+            "es": "Cremosa, de chiles poblanos.",
+            "en": "Creamy, made with poblano peppers."
+          }
+        },
+        {
+          "n": {
+            "es": "Morita",
+            "en": "Morita"
+          },
+          "d": {
+            "es": "Densa, roja, deliciosa y vegana.",
+            "en": "Thick, red, delicious and vegan."
+          }
+        },
+        {
+          "n": {
+            "es": "Tatemada",
+            "en": "Fire-roasted"
+          },
+          "d": {
+            "es": "Ahumada y ligera, de tomates, chiles y habanero. Lo nuevo.",
+            "en": "Smoky and light, with tomatoes, chiles and habanero. Our newest."
+          },
+          "tags": [
+            "new"
+          ]
+        }
+      ]
+    },
+    "express": {
+      "n": "AM Express",
+      "p": 149,
+      "cuando": {
+        "es": "Lunes a viernes, hasta las 11:00",
+        "en": "Monday to Friday, until 11 am"
+      },
+      "opciones": [
+        {
+          "es": "2 huevos revueltos o estrellados u omelette de 2 huevos, con frijoles y tu salsa favorita",
+          "en": "2 scrambled or fried eggs or a 2-egg omelette, with beans and your favorite salsa"
+        },
+        {
+          "es": "Croissant de jamón y queso",
+          "en": "Ham & cheese croissant"
+        }
+      ],
+      "incluye": {
+        "es": "Fruta de temporada y un americano, caliente o frío. Cámbialo por latte sin costo.",
+        "en": "Seasonal fruit and an americano, hot or iced. Swap it for a latte at no charge."
+      },
+      "nota": {
+        "es": "Elige uno · sin extras",
+        "en": "Pick one · no add-ons"
+      }
+    }
   },
   "_notas_fotos": "Fotos de platillos: poner la ruta en el campo 'foto' del platillo (p. ej. 'src/img/platos/chilaquiles.jpg'). Mientras sea null no se muestra ninguna imagen (no se usan fotos genéricas ni de IA)."
 }

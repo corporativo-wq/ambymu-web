@@ -9,12 +9,41 @@
 {%- macro items(lst) -%}
 {%- for i in lst %}
 <li class="item">
-  <div class="item-top"><h3>{{ bi(i.n) }}</h3><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
+  <div class="item-top"><h3><span>{{ i.n[LANG]|realce(i.realce) }}</span></h3><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
   {%- if i.d %}<p class="desc">{{ bi(i.d) }}</p>{% elif i.tipo %}<p class="desc">{{ bi(i.tipo) }}</p>{% endif %}
+  {%- if i.incluye %}<p class="incl"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(i.incluye) }}</p>{% endif %}
   {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}
+  {%- if i.add %}<p class="addon"><b>{{ t('Agrégale:','Add:') }}</b> {% for a in i.add %}{% set x = EXTRAS[a.id if a is mapping else a] %}<span class="ad">{{ (a.n if a is mapping and a.n else x.n)[LANG] }} +${{ x.p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
   {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}</div>{% endif %}
 </li>
 {%- endfor %}
+{%- endmacro -%}
+
+{%- macro menu_intro(menu) -%}
+{%- if menu.salsas %}
+<section class="salsas" aria-labelledby="salsas-t">
+  <h2 class="panel-title" id="salsas-t">{{ bi(menu.salsas.titulo) }}</h2>
+  <p class="panel-sub">{{ bi(menu.salsas.nota) }}</p>
+  <ul class="salsa-list">{% for x in menu.salsas.lista %}<li><strong>{{ bi(x.n) }}</strong>{% if x.tags %}{% for tg in x.tags %} <span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}{% endif %}<p>{{ bi(x.d) }}</p></li>{% endfor %}</ul>
+</section>
+{%- endif %}
+{%- if menu.express %}{% set e = menu.express %}
+<aside class="express" aria-label="{{ e.n }}">
+  <div class="ex-top"><h2>{{ e.n }}</h2><span class="ex-p">${{ e.p }}</span></div>
+  <p class="ex-when">{{ bi(e.cuando) }} · {{ bi(e.nota) }}</p>
+  <ul>{% for o in e.opciones %}<li>{{ bi(o) }}</li>{% endfor %}</ul>
+  <p class="ex-inc"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(e.incluye) }}</p>
+</aside>
+{%- endif %}
+{%- endmacro -%}
+
+{%- macro extras_block(menu) -%}
+{%- if menu.extras %}
+<div class="extras-menu">
+  <h2 class="panel-title">{{ t('Extras','Add-ons') }}</h2>
+  <ul>{% for x in menu.extras %}<li><span class="xn">{{ bi(x.n) }}{% if x.porcion %} <small>{{ x.porcion[LANG] }}</small>{% endif %}</span><span class="dots" aria-hidden="true"></span><span class="price">{% if x.p %}+${{ x.p }}{% else %}<em class="free">{{ t('Sin costo','Free') }}</em>{% endif %}</span></li>{% endfor %}</ul>
+</div>
+{%- endif %}
 {%- endmacro -%}
 
 {%- macro menu_panels(menu, posters=None) -%}
@@ -35,6 +64,7 @@
     <p>{{ bi({'es':'En la compra de brunch. Por persona, '+BL.duracion.es+' máx. '+BL.incluye.es+'. Leches vegetales +'+(BL.leche_vegetal_extra|string)+' por café.','en':'With any brunch purchase. Per person, '+BL.duracion.en+' max. '+BL.incluye.en+'. Plant-based milk +'+(BL.leche_vegetal_extra|string)+' per coffee.'}) }}</p></div>
   {%- endif %}
 {%- endfor %}
+{%- if s.id == 'brunch' %}{{ extras_block(menu) }}{% endif %}
 </section>
 {%- endfor %}
 {%- endmacro -%}

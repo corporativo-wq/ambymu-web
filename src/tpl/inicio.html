@@ -148,7 +148,7 @@
       {%- endfor %}
       </div>
       <div class="run-foot">
-        <div class="extras"><h4>Extras</h4><table>{% for x in RC.extras %}<tr><td>{{ m.bi(x.n) }}</td><td>+{{ x.p }}</td></tr>{% endfor %}</table></div>
+        <div class="extras"><h4>Extras</h4><table>{% for x in RC.extras %}<tr><td>{{ m.bi(x.n) }}{% if x.porcion %} <small>{{ x.porcion[LANG] }}</small>{% endif %}</td><td>+{{ x.p }}</td></tr>{% endfor %}</table></div>
         <div class="extras"><h4>Keep the runner's high</h4><p style="font-weight:600;margin-top:6px">{{ m.bi(RC.barra.texto) }} — <strong style="font-family:var(--poster);font-size:22px;font-weight:400">${{ RC.barra.p }}</strong></p></div>
       </div>
     </div>
