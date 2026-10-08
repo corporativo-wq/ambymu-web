@@ -1077,17 +1077,17 @@
               },
               {
                 "n": {
-                  "es": "Espresso ginger beer",
-                  "en": "Espresso ginger beer"
+                  "es": "Mango fizz",
+                  "en": "Mango fizz"
                 },
                 "p": 100,
+                "d": {
+                  "es": "Té tailandés, compota de mango, dash de limón, hielo, agua mineral",
+                  "en": "Thai tea, mango compote, dash of lime, ice, sparkling water"
+                },
                 "tags": [
                   "new"
-                ],
-                "tipo": {
-                  "es": "Refresher",
-                  "en": "Refresher"
-                }
+                ]
               },
               {
                 "n": {
@@ -1098,6 +1098,10 @@
                 "tipo": {
                   "es": "Jugo",
                   "en": "Juice"
+                },
+                "d": {
+                  "es": "Jugo de naranja fluffy",
+                  "en": "Aerated orange juice"
                 }
               },
               {
