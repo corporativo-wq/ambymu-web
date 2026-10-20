@@ -165,7 +165,8 @@ open("assets/site.js", "w").write(site_js); open("assets/menu.js", "w").write(me
 V = hashlib.md5((site_css + menu_css + site_js + menu_js).encode()).hexdigest()[:8]
 
 # ------------------------------------------------------------------ plantillas
-PIXEL = open(f"{SRC}/tpl/_meta_pixel.html", encoding="utf-8").read()  # código de Meta, se inserta sin modificar
+PIXEL = open(f"{SRC}/tpl/_meta_pixel.html", encoding="utf-8").read()
+FB_VERIF = open(f"{SRC}/tpl/_fb_domain_verification.html", encoding="utf-8").read()  # meta de Meta, tal cual  # código de Meta, se inserta sin modificar
 BI = re.compile(r"\{BI:([^|}]*)\|([^}]*)\}")
 def bi_pass(t, lg):  # {BI:es|en} → solo el texto del idioma que se está generando
     return BI.sub(lambda m: m.group(1) if lg == "es" else m.group(2), t)
@@ -223,6 +224,8 @@ for lg in ("es", "en"):
         htmltxt = env.get_template(tpl).render(page=page, POSTERS=POSTERS, ALT=alt, **GL)
         htmltxt = recolor(re.sub(r">\s+<", "> <", re.sub(r"\n\s*", "\n", htmltxt)))
         htmltxt = htmltxt.replace("</head>", PIXEL + "</head>", 1)  # Meta Pixel tal cual (sin minificar ni recolorear)
+        if outp == "index.html":  # verificación de dominio de Meta: solo en la página de inicio (raíz), tal cual
+            htmltxt = htmltxt.replace("</head>", FB_VERIF + "</head>", 1)
         open(outp, "w", encoding="utf-8").write(htmltxt); sizes[outp] = len(htmltxt.encode())
 
 today = datetime.date.today().isoformat()
