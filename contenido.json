@@ -158,8 +158,8 @@
           "en": "Upside-down tacos"
         },
         "d": {
-          "es": "Barbacoa de res, salsa verde, cebolla, cilantro",
-          "en": "Beef barbacoa, green sauce, onion, cilantro"
+          "es": "Barbacoa de res, salsa verde, cebolla, cilantro, consomé",
+          "en": "Beef barbacoa, green sauce, onion, cilantro, consommé"
         }
       },
       {
@@ -496,8 +496,8 @@
                 },
                 "p": 265,
                 "d": {
-                  "es": "Al estilo yucateco",
-                  "en": "Yucatán style"
+                  "es": "Tres huevos, tostada untada con frijolitos, plátano macho, chícharos, jamón ahumado, queso Oaxaca",
+                  "en": "Three eggs, tostada spread with refried beans, fried plantain, peas, smoked ham, Oaxaca cheese"
                 }
               },
               {
@@ -515,24 +515,24 @@
               },
               {
                 "n": {
-                  "es": "Omelette de queso Oaxaca",
-                  "en": "Oaxaca cheese omelette"
+                  "es": "Omelette poblano",
+                  "en": "Poblano omelette"
                 },
                 "p": 270,
                 "d": {
-                  "es": "Queso Oaxaca, jamón ahumado, salsa verde, parmesano, cebollín",
-                  "en": "Oaxaca cheese, smoked ham, green sauce, parmesan, chives"
+                  "es": "Queso Oaxaca, jamón ahumado, salsa verde cremosa. Con parmesano y cebollín encima",
+                  "en": "Oaxaca cheese, smoked ham, creamy green sauce. Topped with parmesan and chives"
                 }
               },
               {
                 "n": {
-                  "es": "Omelette gouda",
-                  "en": "Gouda omelette"
+                  "es": "Truffle omelette",
+                  "en": "Truffle omelette"
                 },
                 "p": 270,
                 "d": {
-                  "es": "Queso gouda, jamón ahumado, crema de trufa",
-                  "en": "Gouda cheese, smoked ham, truffle cream"
+                  "es": "Queso gouda, jamón ahumado, crema de trufa. Con parmesano y cebollín encima",
+                  "en": "Gouda cheese, smoked ham, truffle cream. Topped with parmesan and chives"
                 }
               },
               {
@@ -553,8 +553,8 @@
                 },
                 "p": 285,
                 "d": {
-                  "es": "Jamón, queso, huevo estrellado, salsa de trufa",
-                  "en": "Ham, cheese, fried egg, truffle sauce"
+                  "es": "Jamón, queso, huevo estrellado, crema de trufa",
+                  "en": "Ham, cheese, fried egg, truffle cream"
                 },
                 "realce": "AM"
               },
@@ -645,8 +645,8 @@
                 },
                 "p": 250,
                 "d": {
-                  "es": "Barbacoa de res, salsa verde, cebolla, cilantro",
-                  "en": "Beef barbacoa, green sauce, onion, cilantro"
+                  "es": "Barbacoa de res, salsa verde, cebolla, cilantro, consomé",
+                  "en": "Beef barbacoa, green sauce, onion, cilantro, consommé"
                 }
               },
               {
@@ -1031,6 +1031,10 @@
                 "tipo": {
                   "es": "Refresher",
                   "en": "Refresher"
+                },
+                "d": {
+                  "es": "Matcha ceremonial, jugo de limón verde, oleo saccharum de fresa, agua mineral",
+                  "en": "Ceremonial matcha, lime juice, strawberry oleo saccharum, sparkling water"
                 }
               },
               {
@@ -1045,6 +1049,10 @@
                 "tipo": {
                   "es": "Refresher",
                   "en": "Refresher"
+                },
+                "d": {
+                  "es": "Matcha ceremonial, jugo de naranja aireado",
+                  "en": "Ceremonial matcha, aerated orange juice"
                 }
               },
               {
@@ -1059,6 +1067,10 @@
                 "tipo": {
                   "es": "Refresher",
                   "en": "Refresher"
+                },
+                "d": {
+                  "es": "Matcha ceremonial, jugo de limón verde, compota de mango de Colima, agua mineral",
+                  "en": "Ceremonial matcha, lime juice, Colima mango compote, sparkling water"
                 }
               },
               {
@@ -1073,6 +1085,10 @@
                 "tipo": {
                   "es": "Refresher",
                   "en": "Refresher"
+                },
+                "d": {
+                  "es": "Doble espresso, hielo, agua tónica",
+                  "en": "Double espresso, ice, tonic water"
                 }
               },
               {
@@ -1100,8 +1116,8 @@
                   "en": "Juice"
                 },
                 "d": {
-                  "es": "Jugo de naranja fluffy",
-                  "en": "Aerated orange juice"
+                  "es": "Jugo de naranja fluffy aireado",
+                  "en": "Fluffy aerated orange juice"
                 }
               },
               {
@@ -1113,6 +1129,10 @@
                 "tipo": {
                   "es": "Jugo",
                   "en": "Juice"
+                },
+                "d": {
+                  "es": "Jugo de toronja aireado",
+                  "en": "Aerated grapefruit juice"
                 }
               },
               {
@@ -1124,6 +1144,10 @@
                 "tipo": {
                   "es": "Jugo",
                   "en": "Juice"
+                },
+                "d": {
+                  "es": "Chaya, apio, pepino, piña",
+                  "en": "Chaya, celery, cucumber, pineapple"
                 }
               }
             ]
