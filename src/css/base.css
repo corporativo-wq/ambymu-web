@@ -287,3 +287,44 @@ footer small a[href^="tel:"]{display:inline-block;padding:10px 0}
 .bl-card .bl-price{width:120px;height:120px;font-size:32px}
 .bl-booze .bl-price svg{color:var(--green)}.bl-booze .bl-price b{color:var(--pink)}
 @media(max-width:560px){.bl-card{gap:14px}.bl-card .bl-price{width:96px;height:96px;font-size:26px}}
+
+/* nuevos platillos con video (inicio: sección .drop · menú: .drop-strip) */
+.drop{background:var(--green);color:var(--cream);position:relative;overflow:hidden;padding:0 0 96px}
+.drop::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:120px;border-radius:50%;background:radial-gradient(circle,rgba(236,90,152,.35),transparent 68%);pointer-events:none}
+.drop-tick{background:var(--hot);color:var(--cream);overflow:hidden;white-space:nowrap;font-family:var(--poster);font-size:17px;letter-spacing:.08em;text-transform:uppercase;padding:8px 0;transform:rotate(-1.6deg);margin:18px -20px 0;border-block:2.5px solid var(--green)}
+.drop-tick .ticker-track span::after{color:var(--green)}
+.drop-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;padding-top:76px;position:relative}
+.drop .eyebrow{color:var(--matcha)}
+.drop h2{margin:14px 0 20px}
+.drop .h-poster{color:var(--cream);font-size:clamp(70px,10vw,140px)}
+.drop .h-groovy{color:var(--pink);-webkit-text-stroke:0;text-shadow:5px 5px 0 var(--hot)}
+.drop .lead{margin-bottom:28px;color:var(--cream)}
+.drop .btn-pink{box-shadow:4px 4px 0 var(--cream);border-color:var(--cream)}
+.drop-cards{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.drop-card{position:relative;background:var(--cream);color:var(--green);border:3px solid var(--green);border-radius:30px;padding:10px 10px 16px;box-shadow:8px 8px 0 var(--hot);transform:rotate(-2.4deg);transition:transform .35s cubic-bezier(.2,.9,.3,1.3)}
+.drop-card.dc-2{transform:rotate(2.2deg);margin-top:54px;box-shadow:8px 8px 0 var(--matcha)}
+.drop-card:hover{transform:rotate(0) translateY(-4px)}
+.drop-media{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:var(--green) center/cover}
+.drop-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.drop-play{position:absolute;left:50%;top:50%;width:66px;height:66px;margin:-33px 0 0 -33px;border-radius:50%;border:3px solid var(--green);background:var(--pink);color:var(--green);display:grid;place-items:center;cursor:pointer;box-shadow:4px 4px 0 var(--green);transition:opacity .3s,transform .2s;z-index:2}
+.drop-play svg{width:30px;height:30px;margin-left:4px}
+.drop-play:hover{transform:scale(1.06)}
+.drop-card.is-playing .drop-play{opacity:0;pointer-events:none}
+.drop-new{width:78px;height:78px;right:-14px;top:-18px;font-size:15px;color:var(--hot)}
+.drop-new b{color:#fff}
+.drop-txt{padding:14px 8px 0;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start}
+.drop-txt h3{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.02}
+.drop-txt p{grid-column:1/-1;font-size:14.5px;font-weight:500;line-height:1.35;color:#34523D}
+.drop-p{font-family:var(--poster);font-size:26px;line-height:1;background:var(--green);color:var(--pink);border-radius:99px;padding:5px 12px 4px;grid-row:1;grid-column:2}
+@media(max-width:860px){.drop{padding-bottom:70px}.drop-grid{grid-template-columns:1fr;gap:40px;padding-top:56px}.drop-cards{gap:16px}.drop-card{border-radius:24px;padding:7px 7px 12px;box-shadow:6px 6px 0 var(--hot)}.drop-card.dc-2{margin-top:36px;box-shadow:6px 6px 0 var(--matcha)}.drop-media{border-radius:18px}.drop-txt{grid-template-columns:1fr;padding:10px 4px 0}.drop-txt h3{font-size:18px}.drop-txt p{font-size:13px}.drop-p{grid-row:auto;grid-column:auto;justify-self:start;font-size:21px}.drop-new{width:62px;height:62px;font-size:12px;right:-10px;top:-14px}.drop-play{width:56px;height:56px;margin:-28px 0 0 -28px}}
+/* menú: tira de videos dentro de Brunch */
+.drop-strip{background:var(--green);border-radius:30px;padding:22px 20px 28px;margin:0 0 30px;box-shadow:6px 6px 0 var(--hot);border:2.5px solid var(--green)}
+.drop-strip-t{font-family:var(--hand);font-size:27px;line-height:1;color:var(--cream);margin:0 0 18px;transform:rotate(-1.5deg)}
+.drop-strip-t span{font-family:var(--poster);font-size:.95em;text-transform:uppercase;background:var(--hot);color:#fff;border-radius:8px;padding:2px 9px 1px;margin-right:4px;display:inline-block;transform:rotate(-2deg)}
+.drop-strip .drop-cards{max-width:560px}
+.drop-sm{box-shadow:6px 6px 0 var(--hot)}
+.drop-sm.dc-2{margin-top:30px;box-shadow:6px 6px 0 var(--matcha)}
+.drop-sm .drop-txt{grid-template-columns:1fr}
+.drop-sm .drop-txt h3{font-size:18px}
+.drop-sm .drop-p{grid-row:auto;grid-column:auto;justify-self:start;font-size:21px}
+@media(prefers-reduced-motion:reduce){.drop-card,.drop-card.dc-2{transform:none}}

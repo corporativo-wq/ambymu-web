@@ -5,6 +5,7 @@
     <a class="brand" href="{{ L }}/" aria-label="{{ S.nombre }}"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
     <nav>
       <a href="{{ L }}/menu" data-ev="menu_nav">{BI:Menú|Menu}</a>
+      {%- if VIDEOS %}<a class="hide-m" href="#pain-perdu">{BI:Nuevos|New}</a>{% endif %}
       <a class="hide-m" href="#matcha">Matcha</a>
       {%- if RC.activo %}<a class="hide-m" href="#runclub">Run Club</a>{% endif %}
       <a href="#visitanos">{BI:Visítanos|Visit us}</a>
@@ -41,6 +42,21 @@
     </div>
   </div>
 </section>
+
+{%- if VIDEOS %}
+<section class="drop" id="pain-perdu" aria-labelledby="drop-t">
+  <div class="drop-tick" aria-hidden="true"><div class="ticker-track">{% for _ in range(6) %}<span>{BI:Nuevo|New}</span><span>Pain perdu</span>{% for i in VIDEOS %}<span>{{ i.n.es|replace('Pain perdu ','') }}</span>{% endfor %}{% endfor %}</div></div>
+  <div class="wrap drop-grid">
+    <div class="drop-head">
+      <p class="eyebrow">{BI:Recién salidos del sartén|Fresh off the griddle}</p>
+      <h2 id="drop-t"><span class="h-poster">Pain</span><span class="h-poster">perdu</span><span class="h-groovy">{BI:×2 nuevos|×2 new}</span></h2>
+      <p class="lead">{BI:Dos nuevas formas de pedir nuestro pan francés. Dale play, se te va a antojar.|Two new takes on our French toast. Hit play and try not to crave it.}</p>
+      <a class="btn btn-pink" href="{{ L }}/menu#brunch" data-ev="menu_nav">{BI:Pídelo hoy · ver menú →|Order it today · see menu →}</a>
+    </div>
+    <div class="drop-cards">{% for i in VIDEOS %}{{ m.drop_card(i, loop.index) }}{% endfor %}</div>
+  </div>
+</section>
+{%- endif %}
 
 <section class="energy" id="matcha">
   <div class="wrap">

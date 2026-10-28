@@ -394,6 +394,46 @@
               },
               {
                 "n": {
+                  "es": "Pain perdu blueberry & crème",
+                  "en": "Pain perdu blueberry & crème"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Crème fraîche, compota de blueberries, helado de vainilla, crujiente de almendra",
+                  "en": "Crème fraîche, blueberry compote, vanilla ice cream, almond crunch"
+                },
+                "tags": [
+                  "new"
+                ],
+                "destacado": true,
+                "foto": null,
+                "video": {
+                  "mp4": "video/pp-blueberry.mp4",
+                  "poster": "video/pp-blueberry.webp"
+                }
+              },
+              {
+                "n": {
+                  "es": "Pain perdu banana brûlée",
+                  "en": "Pain perdu banana brûlée"
+                },
+                "p": 275,
+                "d": {
+                  "es": "Tres mitades de banana brûlée, helado de vainilla, crumble de cacahuate y tocino, glaseado de maple",
+                  "en": "Three brûléed banana halves, vanilla ice cream, peanut & bacon crumble, maple glaze"
+                },
+                "tags": [
+                  "new"
+                ],
+                "destacado": true,
+                "foto": null,
+                "video": {
+                  "mp4": "video/pp-banana.mp4",
+                  "poster": "video/pp-banana.webp"
+                }
+              },
+              {
+                "n": {
                   "es": "Burrata toast",
                   "en": "Burrata toast"
                 },
@@ -816,7 +856,7 @@
                 },
                 "p": 145,
                 "d": {
-                  "es": "Matcha ceremonial, leche y puré de banana bread: plátano con mantequilla y canela",
+                  "es": "Matcha ceremonial, leche y puré de banana bread: banana con mantequilla y canela",
                   "en": "Ceremonial matcha, milk and banana bread purée: banana with butter and cinnamon"
                 },
                 "tags": [
@@ -976,7 +1016,7 @@
                 },
                 "p": 145,
                 "d": {
-                  "es": "Hojicha, leche y puré de banana bread: plátano con mantequilla y canela",
+                  "es": "Hojicha, leche y puré de banana bread: banana con mantequilla y canela",
                   "en": "Hojicha, milk and banana bread purée: banana with butter and cinnamon"
                 },
                 "tags": [
@@ -1231,7 +1271,7 @@
                 },
                 "p": 110,
                 "d": {
-                  "es": "Jarabe de pan de plátano, espresso, foam de pan de plátano",
+                  "es": "Jarabe de pan de banana, espresso, foam de pan de banana",
                   "en": "Banana bread syrup, espresso, banana bread foam"
                 }
               },

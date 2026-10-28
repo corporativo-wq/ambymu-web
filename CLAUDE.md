@@ -14,6 +14,7 @@ Publica con **GitHub Pages** desde `main` (raíz). Los HTML de la raíz se GENER
 ## Estructura
 - `src/tpl/` plantillas Jinja (`inicio`, `menu`, `sucursal`, `404`, `_base`, `_macros`, `_posters`). `{BI:es|en}` = texto bilingüe.
 - Idiomas: el build genera español en la raíz (`/`, `/menu`, `/playa-del-carmen`) e inglés en `/en/` con hreflang y sitemap con alternates. El selector ES/EN son enlaces (sin redirección automática).
+- Videos de platillos: campo `video` del platillo (`mp4`, `webm` opcional, `poster`; H.264 basta para Safari, Chrome y Firefox) con archivos ya optimizados en `video/` (540×960, ~9 s, sin audio, ~1 MB; no se generan). Salen en la sección «Nuevos» del inicio y en la tira de videos de su sección del menú; se cargan solo al verse.
 - Fotos de platillos: campo `foto` del platillo en `contenido.json` (solo fotos reales; null = sin imagen). Destacados de la home: `destacado: true`.
 - Tipografías en `assets/fonts/` (Fontsource, OFL, subconjunto latino); no se generan, se editan ahí.
 - `src/css/` estilos (se escriben con los hex por defecto; el build los sustituye por los de `contenido.json`).

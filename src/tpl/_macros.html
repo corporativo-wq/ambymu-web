@@ -62,6 +62,11 @@
 {%- for b in s.bloques %}
   {%- if loop.first and posters and posters[s.id] %}{{ posters[s.id] }}
   {%- else %}<h2 class="panel-title">{{ bi(b.titulo) }}</h2>{% endif %}
+  {%- if loop.first %}{% set vids = (s.bloques|map(attribute='items')|sum(start=[]))|selectattr('video')|list %}{% if vids %}
+  <div class="drop-strip">
+    <p class="drop-strip-t"><span>{{ t('Nuevos','New') }}</span> {{ t('pain perdu · dale play','pain perdu · hit play') }}</p>
+    <div class="drop-cards">{% for i in vids %}{{ drop_card(i, loop.index, True) }}{% endfor %}</div>
+  </div>{% endif %}{% endif %}
   {%- if b.nota %}<p class="panel-sub">{{ bi(b.nota) }}</p>{% endif %}
   {%- if b.info %}{% set f = b.info %}
   <div class="info info-{{ s.id }}">
@@ -119,4 +124,19 @@
 
 {%- macro lang_switch() -%}
 <div class="lang" role="group" aria-label="Idioma / Language"><a href="{{ ALT.es }}" hreflang="es-MX" lang="es"{% if LANG=='es' %} aria-current="true"{% endif %}>ES</a><a href="{{ ALT.en }}" hreflang="en" lang="en"{% if LANG=='en' %} aria-current="true"{% endif %}>EN</a></div>
+{%- endmacro -%}
+
+{%- macro drop_card(i, idx=0, compact=False) -%}
+<article class="drop-card{% if compact %} drop-sm{% endif %} dc-{{ idx }}">
+  <div class="drop-media">
+    <video class="drop-vid" muted loop playsinline preload="none" poster="/{{ i.video.poster }}" width="540" height="960" aria-label="{{ 'Video de ' if LANG == 'es' else 'Video of ' }}{{ i.n[LANG] }}"><source data-src="/{{ i.video.mp4 }}" type="video/mp4">{% if i.video.webm %}<source data-src="/{{ i.video.webm }}" type="video/webm">{% endif %}</video>
+    <button class="drop-play" type="button" aria-label="{{ 'Reproducir video' if LANG == 'es' else 'Play video' }}"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
+  </div>
+  <div class="burst drop-new"><svg class="spin"><use href="#burst"/></svg><b>{{ t('NUEVO','NEW') }}</b></div>
+  <div class="drop-txt">
+    <h3>{{ i.n[LANG] }}</h3>
+    {%- if not compact %}<p>{{ bi(i.d) }}</p>{% endif %}
+    <span class="drop-p">${{ i.p }}</span>
+  </div>
+</article>
 {%- endmacro -%}

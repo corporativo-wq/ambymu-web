@@ -187,13 +187,17 @@ f = M["tipografias"]
 FONTS_URL = "https://fonts.googleapis.com/css2?family=" + f["poster"].replace(" ", "+") + "&family=" + f["groovy"].replace(" ", "+") + "&family=" + f["mano"].replace(" ", "+") + ":wght@700&family=" + f["texto"].replace(" ", "+") + ":wght@400;500;600;700;800&display=swap"
 SIGNATURES = [i for i in ALL_ITEMS if i.get("signature")]
 DESTACADOS = [i for i in ALL_ITEMS if i.get("destacado")]
+VIDEOS = [i for i in ALL_ITEMS if i.get("video")]  # platillos con video corto (video/*.mp4 + póster .webp, ya optimizados; no se generan)
+for i in VIDEOS:
+    for k in [k for k in ("mp4", "webm", "poster") if i["video"].get(k)]:
+        assert os.path.exists(i["video"][k]), f"Falta {i['video'][k]} (video de {i['n']['es']})"
 sec = {s["id"]: s for s in MENU["secciones"]}
 COUNT = {k: sum(len(b["items"]) for b in s["bloques"]) for k, s in sec.items()}
 MINP = {k: min(i["p"] for b in s["bloques"] for i in b["items"]) for k, s in sec.items()}
 G = dict(BLB=BLB, EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
          TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}, "casa": {"es": "Cóctel de la casa", "en": "House cocktail"}},
          HORARIO_RESUMEN=HORARIO_RESUMEN, HORARIO_CHIP=HORARIO_CHIP, HORA_CORTA=HORA_CORTA, CERRADO_TXT=CERRADO_TXT,
-         DIR_TXT=DIR_TXT, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,
+         DIR_TXT=DIR_TXT, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, VIDEOS=VIDEOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,
          MAPS_EMBED="https://www.google.com/maps?q=" + quote(f'{S["nombre"]}, {a["calle"]}, {a["colonia"]}, {a["cp"]} {a["ciudad"]}') + "&z=17&output=embed",
          BURST=open(f"{SRC}/burst.txt").read().strip(), SPIKY=open(f"{SRC}/burst_spiky.txt").read().strip())
 SLUG = "/" + BR["slug"]
@@ -244,5 +248,5 @@ open("robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {D}/sitemap.xm
 open("CNAME", "w").write(D.split("//")[1] + "\n")
 open(".nojekyll", "w").write("")
 for k, v in sizes.items(): print(f"{k:28s} {v/1024:6.1f} KB")
-for k in ["assets/site.css", "assets/menu.css", "assets/site.js", "assets/menu.js", "img/hero.webp", "img/hero-2x.webp", "img/logo-green.webp", "img/logo-pink.webp", "og.jpg"]:
+for k in ["assets/site.css", "assets/menu.css", "assets/site.js", "assets/menu.js", "img/hero.webp", "img/hero-2x.webp", "img/logo-green.webp", "img/logo-pink.webp", "og.jpg"] + [i["video"][k] for i in VIDEOS for k in ("mp4", "webm", "poster") if i["video"].get(k)]:
     print(f"{k:28s} {os.path.getsize(k)/1024:6.1f} KB")
