@@ -21,7 +21,11 @@ jobs:
         env: { SHEET_CSV_URL: "${{ secrets.SHEET_CSV_URL }}" }
         run: python3 tools/sheet_to_contenido.py --csv-url "$SHEET_CSV_URL" | tee /tmp/cambios.txt
       - name: Regenerar HTML, sitemap y JSON-LD
-        run: python3 build.py
+        run: |
+          python3 build.py
+          # Pillow regenera imágenes con bytes distintos: se conservan las del repo para que el PR solo traiga cambios del menú
+          git checkout -- img favicon.png apple-touch-icon.png og.jpg
+          rm -f .nojekyll
       - name: Abrir / actualizar Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
