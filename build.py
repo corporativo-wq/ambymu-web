@@ -52,6 +52,8 @@ MENU, BL, RC = C["menu"], C["barra_libre_cafe"], C["run_club"]
 EXTRAS = {x["id"]: x for x in MENU.get("extras", [])}
 for x in RC.get("extras", []):
     if "ref" in x: x.update({k: EXTRAS[x["ref"]][k] for k in ("n", "p", "porcion")})
+for _s in MENU["secciones"]:  # "disponible": false (desde la hoja) quita el platillo del sitio sin borrarlo de los datos
+    for _b in _s["bloques"]: _b["items"] = [i for i in _b["items"] if i.get("disponible", True)]
 ALL_ITEMS = [i for s in MENU["secciones"] for b in s["bloques"] for i in b["items"]]
 BLB = C["barra_libre_booze"]; walk_prices(BLB)
 BOTTOMLESS = BLB["precio"]
@@ -81,8 +83,26 @@ OPENING = [{"@type": "OpeningHoursSpecification", "dayOfWeek": [EN_DAY[k] for k,
 a = BR["direccion"]
 DIR_TXT = f'{a["calle"]}, {a["colonia"]}, {a["cp"]} {a["ciudad"]}, Q.R.'
 
-# ------------------------------------------------------------------ FAQ con precios vivos
-FAQ = json.loads(json.dumps(C["faq"]).replace("${barra}", f"${BL['precio']}").replace("${bottomless}", f"${BOTTOMLESS}"))
+# ------------------------------------------------------------------ textos y FAQ con datos vivos (precios, horario, WhatsApp, delivery)
+def _dias_es(lst): return lst[0] if len(lst) == 1 else ", ".join(lst[:-1]) + " y " + lst[-1]
+_cerr_es = _dias_es([e.lower() for e, _ in closed]) if closed else ""
+_cerr_en = _dias_es([n for _, n in closed]).replace(" y ", " and ") if closed else ""
+_h0, _h1 = main_h[0].lstrip("0"), main_h[1].lstrip("0")
+HORARIO_TEXTO = {"es": f"de {_h0} a {_h1}" + (f" todos los días menos el {_cerr_es}" if closed else " todos los días"),
+                 "en": f"{int(main_h[0][:2])} am to {int(main_h[1][:2]) - 12} pm" + (f" every day except {_cerr_en}" if closed else " every day")}
+DELIV = BR.get("delivery") or {"activo": False}
+VARS = {"${barra}": f"${BL['precio']}", "${bottomless}": f"${BOTTOMLESS}", "${express}": f"${MENU['express']['p']}",
+        "${whatsapp}": BR.get("whatsapp") or BR.get("telefono") or "",
+        "${horario_texto_es}": HORARIO_TEXTO["es"], "${horario_texto_en}": HORARIO_TEXTO["en"],
+        "${horario_faq_es}": ("Todos los días menos el " + _cerr_es if closed else "Todos los días") + f", de {_h0} a {_h1}. El menú completo de desayunos y brunch se sirve todo el día.",
+        "${horario_faq_en}": ("Every day except " + _cerr_en if closed else "Every day") + f", {HORARIO_TEXTO['en'].split(' every')[0]}. The full breakfast and brunch menu is served all day.",
+        "${delivery_es}": (DELIV.get("texto") or {}).get("es", ""), "${delivery_en}": (DELIV.get("texto") or {}).get("en", "")}
+def fill(o):
+    t = json.dumps(o, ensure_ascii=False)
+    for k, v in VARS.items(): t = t.replace(k, json.dumps(v, ensure_ascii=False)[1:-1])
+    assert "${" not in t, re.findall(r"\$\{[^}]*\}", t)
+    return json.loads(t)
+FAQ = fill(C["faq"]); C["textos"] = fill(C["textos"])
 
 # ------------------------------------------------------------------ JSON-LD
 ORG = {"@type": "Organization", "@id": D + "/#org", "name": S["nombre"], "url": D + "/", "logo": D + "/favicon.png",
@@ -96,17 +116,25 @@ REST = {"@type": "Restaurant", "@id": D + "/#restaurant", "name": S["nombre"], "
         "geo": {"@type": "GeoCoordinates", "latitude": BR["geo"]["lat"], "longitude": BR["geo"]["lng"]},
         "hasMap": BR["maps_url"], "openingHoursSpecification": OPENING,
         "menu": D + "/menu", "hasMenu": {"@id": D + "/menu#menu"},
-        "acceptsReservations": bool(BR.get("reservas")),
+        "acceptsReservations": bool((BR.get("reservas") or {}).get("activo")) if isinstance(BR.get("reservas"), dict) else bool(BR.get("reservas")),
+        **({"foundingDate": BR["desde"]["fecha"]} if BR.get("desde") else {}),
         "sameAs": [v for v in C["redes"].values() if v], "brand": {"@id": D + "/#org"}}
 if BR.get("telefono"): REST["telephone"] = BR["telefono"]
+DIETS = {"vegan": "https://schema.org/VeganDiet", "veg": "https://schema.org/VegetarianDiet", "gf": "https://schema.org/GlutenFreeDiet"}
+def diet(i):
+    d = [DIETS[t] for t in ("vegan", "veg", "gf") if t in (i.get("tags") or [])]
+    if "vegan" in (i.get("tags") or []) and DIETS["veg"] not in d: d.insert(1, DIETS["veg"])
+    return d[0] if len(d) == 1 else d
+MEAT = {"jamon", "tocino", "barbacoa", "arrachera"}  # extras con carne: si un platillo vegetariano los ofrece, se aclara "versión base"
+for i in ALL_ITEMS:
+    i["veg_base"] = "veg" in (i.get("tags") or []) and any((a["id"] if isinstance(a, dict) else a) in MEAT for a in (i.get("add") or []))
 def msec(s, lg="es"):
     out = []
     for b in s["bloques"]:
         out.append({"@type": "MenuSection", "name": b["titulo"][lg], "hasMenuItem": [
             {"@type": "MenuItem", "name": i["n"][lg], **({"description": i["d"][lg]} if i.get("d") else {}),
              "offers": {"@type": "Offer", "price": str(i["p"]), "priceCurrency": P["moneda"]},
-             **({"suitableForDiet": "https://schema.org/VeganDiet"} if "vegan" in (i.get("tags") or []) else {}),
-             **({"suitableForDiet": "https://schema.org/GlutenFreeDiet"} if "gf" in (i.get("tags") or []) else {})}
+             **({"suitableForDiet": diet(i)} if diet(i) else {})}
             for i in b["items"]]})
     return out
 def MENU_LD(lg):
@@ -159,7 +187,7 @@ for _, _, fn in FONT_FACES: assert os.path.exists(f"assets/fonts/{fn}"), fn  # l
 FONT_CSS = "".join(f'@font-face{{font-family:"{fam}";font-style:normal;font-weight:{w};font-display:swap;src:url(/assets/fonts/{fn}) format("woff2")}}' for fam, w, fn in FONT_FACES)
 site_css = FONT_CSS + recolor(mincss(open(f"{SRC}/css/base.css").read() + open(f"{SRC}/css/cursor.css").read()))
 menu_css = recolor(mincss(open(f"{SRC}/css/menu.css").read()))
-site_js = recolor(minjs(open(f"{SRC}/site.js").read())).replace("__GA4_ID__", S.get("ga4_id") or ""); menu_js = minjs(open(f"{SRC}/menu.js").read())
+site_js = recolor(minjs(open(f"{SRC}/site.js").read())); menu_js = minjs(open(f"{SRC}/menu.js").read())
 open("assets/site.css", "w").write(site_css); open("assets/menu.css", "w").write(menu_css)
 open("assets/site.js", "w").write(site_js); open("assets/menu.js", "w").write(menu_js)
 V = hashlib.md5((site_css + menu_css + site_js + menu_js).encode()).hexdigest()[:8]
@@ -195,9 +223,9 @@ sec = {s["id"]: s for s in MENU["secciones"]}
 COUNT = {k: sum(len(b["items"]) for b in s["bloques"]) for k, s in sec.items()}
 MINP = {k: min(i["p"] for b in s["bloques"] for i in b["items"]) for k, s in sec.items()}
 G = dict(BLB=BLB, EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, RC=RC, MENU=MENU, TX=C["textos"], FAQ=FAQ, DIAS=DIAS,
-         TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}, "casa": {"es": "Cóctel de la casa", "en": "House cocktail"}},
+         TAGS={"new": {"es": "Nuevo", "en": "New"}, "vegan": {"es": "Vegano", "en": "Vegan"}, "gf": {"es": "Sin gluten", "en": "Gluten free"}, "veg": {"es": "Vegetariano", "en": "Vegetarian"}, "veg_base": {"es": "Vegetariano (sin extras de carne)", "en": "Vegetarian (without meat add-ons)"}, "casa": {"es": "Cóctel de la casa", "en": "House cocktail"}},
          HORARIO_RESUMEN=HORARIO_RESUMEN, HORARIO_CHIP=HORARIO_CHIP, HORA_CORTA=HORA_CORTA, CERRADO_TXT=CERRADO_TXT,
-         DIR_TXT=DIR_TXT, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, VIDEOS=VIDEOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,
+         DIR_TXT=DIR_TXT, GA4=S.get("ga4_id") or "", HORARIO_TEXTO=HORARIO_TEXTO, DELIV=DELIV, SIGNATURES=SIGNATURES, DESTACADOS=DESTACADOS, VIDEOS=VIDEOS, COUNT=COUNT, MINP=MINP, BOTTOMLESS=BOTTOMLESS, V=V, FONTS_URL=FONTS_URL,
          MAPS_EMBED="https://www.google.com/maps?q=" + quote(f'{S["nombre"]}, {a["calle"]}, {a["colonia"]}, {a["cp"]} {a["ciudad"]}') + "&z=17&output=embed",
          BURST=open(f"{SRC}/burst.txt").read().strip(), SPIKY=open(f"{SRC}/burst_spiky.txt").read().strip())
 SLUG = "/" + BR["slug"]
@@ -244,7 +272,51 @@ for u, c, p in urls:
     rows.append(f"<url><loc>{D}{u}</loc><lastmod>{today}</lastmod><changefreq>{c}</changefreq><priority>{p}</priority>{al}</url>")
     rows.append(f"<url><loc>{D}{en}</loc><lastmod>{today}</lastmod><changefreq>{c}</changefreq><priority>{p}</priority>{al}</url>")
 open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n")
-open("robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {D}/sitemap.xml\n")
+open("robots.txt", "w").write(f"""# {D.split('//')[1]} — política de rastreo (Estándar SEO GMBH 2.0, punto 13)
+# Búsqueda: permitidos
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
+Allow: /
+
+# Entrenamiento de modelos: permitidos
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
+# Resto de agentes
+User-agent: *
+Allow: /
+
+Sitemap: {D}/sitemap.xml
+""")
+# /menu/ (con diagonal, QRs y enlaces viejos) → /menu: página estática con meta refresh 0 + canonical (Estándar SEO 2.0, OF 3)
+def redirect_page(dest):
+    return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{S["nombre"]}</title>'
+            f'<meta http-equiv="refresh" content="0;url={dest}"><link rel="canonical" href="{dest}">'
+            f'<meta name="robots" content="noindex,follow"><meta name="viewport" content="width=device-width, initial-scale=1">'
+            f'<script>location.replace("{dest}"+location.search+location.hash)</script></head>'
+            f'<body style="font-family:system-ui,sans-serif;padding:24px"><p><a href="{dest}">{dest}</a></p></body></html>')
+for folder, dest in (("menu", D + "/menu"), ("en/menu", D + "/en/menu")):
+    os.makedirs(folder, exist_ok=True); open(folder + "/index.html", "w", encoding="utf-8").write(redirect_page(dest))
+# llms.txt (OP-C 32): se genera solo, desde los mismos datos
+_ll = [f"# {S['nombre']}", "", f"> {C['textos']['desayunos']['parrafos'][0]['es']}", "",
+       f"- Dirección: {DIR_TXT}", f"- Teléfono / WhatsApp (reservaciones): {BR.get('whatsapp') or BR.get('telefono')}",
+       f"- Horario: {HORARIO_TEXTO['es']}", f"- Servicio a domicilio: {(DELIV.get('texto') or {}).get('es', '')}" if not DELIV.get("activo") else "- Servicio a domicilio: sí",
+       f"- Estacionamiento: {(BR.get('estacionamiento') or {}).get('es', '')}", "- Pet friendly: sí" if BR.get("pet_friendly") else "",
+       "", "## Páginas", f"- [Inicio]({D}/): desayunos y brunch en Playa del Carmen", f"- [Menú con precios]({D}/menu): {len(ALL_ITEMS)} platillos y bebidas",
+       f"- [Sucursal Calle 38]({D}/{BR['slug']}): horario por día, cómo llegar y preguntas frecuentes", f"- [English]({D}/en/)", "",
+       "## Preguntas frecuentes"] + [f"- {f['q']['es']} {f['a']['es']}" for f in FAQ]
+open("llms.txt", "w", encoding="utf-8").write("\n".join(x for x in _ll if x is not None) + "\n")
 open("CNAME", "w").write(D.split("//")[1] + "\n")
 open(".nojekyll", "w").write("")
 for k, v in sizes.items(): print(f"{k:28s} {v/1024:6.1f} KB")
