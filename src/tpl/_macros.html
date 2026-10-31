@@ -14,7 +14,7 @@
   {%- if i.incluye %}<p class="incl"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(i.incluye) }}</p>{% endif %}
   {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}
   {%- if i.add %}<p class="extra addon">{% for a in i.add %}{% set x = EXTRAS[a.id if a is mapping else a] %}<span class="ad">{{ (a.n if a is mapping and a.n else x.n)[LANG] }} +{{ x.p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
-  {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS[tg]) }}</span>{% endfor %}</div>{% endif %}
+  {%- if i.tags %}<div class="tags">{% for tg in i.tags %}<span class="tag tag-{{ tg }}">{{ bi(TAGS['veg_base' if tg == 'veg' and i.veg_base else tg]) }}</span>{% endfor %}</div>{% endif %}
 </li>
 {%- endfor %}
 {%- endmacro -%}
@@ -118,7 +118,7 @@
   {%- if br.whatsapp %}<a class="btn btn-pink" data-ev="whatsapp" data-branch="{{ br.slug }}" href="https://wa.me/{{ br.whatsapp|digits }}?text={{ br.whatsapp_texto|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
   {%- if br.telefono %}<a class="btn btn-cream" data-ev="phone" data-branch="{{ br.slug }}" href="tel:{{ br.telefono|tel }}">{{ t('Llamar','Call') }}</a>{% endif %}
   <a class="btn btn-green" data-ev="como_llegar" data-branch="{{ br.slug }}" href="{{ br.maps_url }}" target="_blank" rel="noopener">{{ t('Cómo llegar','Directions') }}</a>
-  {%- for o in br.pedidos %}<a class="btn btn-cream" data-ev="order_{{ o.id }}" data-branch="{{ br.slug }}" href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nombre }}</a>{% endfor %}
+  {%- for o in (br.pedidos if DELIV.activo else []) %}<a class="btn btn-cream" data-ev="order_{{ o.id }}" data-branch="{{ br.slug }}" href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nombre }}</a>{% endfor %}
 </div>
 {%- endmacro -%}
 
@@ -139,4 +139,54 @@
     <span class="drop-p">${{ i.p }}</span>
   </div>
 </article>
+{%- endmacro -%}
+
+{%- macro map_card(br) -%}
+<div class="map map-card">
+  <svg class="map-art" viewBox="0 0 480 400" role="img" aria-label="{{ 'Croquis: Calle 38 entre 5ta Avenida y Calle Flamingos, Zazil-Ha' if LANG == 'es' else 'Sketch: Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha' }}">
+    <rect width="480" height="400" fill="#F6B0C8"/>
+    <g fill="#F7F0E3"><rect x="0" y="150" width="480" height="44"/><rect x="118" y="0" width="40" height="400"/><rect x="330" y="0" width="40" height="400"/></g>
+    <g fill="none" stroke="#1E4029" stroke-width="2.5" stroke-dasharray="10 9" opacity=".55"><path d="M0 172h480M138 0v400M350 0v400"/></g>
+    <rect x="0" y="0" width="480" height="400" fill="none" stroke="#1E4029" stroke-width="5"/>
+    <g font-family="Anton, Impact, sans-serif" font-size="17" letter-spacing="1.5" fill="#1E4029">
+      <text x="14" y="142">CALLE 38</text>
+      <text transform="translate(110 380) rotate(-90)">{{ '5TA AVENIDA' if LANG == 'es' else '5TH AVENUE' }}</text>
+      <text transform="translate(392 380) rotate(-90)">CALLE FLAMINGOS</text>
+      <text x="390" y="40" font-size="14">ZAZIL-HA</text>
+    </g>
+    <g transform="translate(240 120)">
+      <path d="M0 52C-14 30-34 16-34-6a34 34 0 0 1 68 0C34 16 14 30 0 52z" fill="#EC5A98" stroke="#1E4029" stroke-width="4"/>
+      <circle cx="0" cy="-6" r="17" fill="#F7F0E3" stroke="#1E4029" stroke-width="3.5"/>
+      <text x="0" y="0" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="15" fill="#1E4029">AM</text>
+    </g>
+    <g fill="#1E4029" opacity=".35"><circle cx="60" cy="60" r="16"/><circle cx="440" cy="300" r="20"/><circle cx="230" cy="320" r="14"/><circle cx="60" cy="300" r="18"/></g>
+  </svg>
+  <div class="map-actions">
+    <button class="btn btn-cream map-load" type="button" data-src="{{ MAPS_EMBED }}" data-title="{{ ('Mapa ' if LANG == 'es' else 'Map ') ~ S.nombre }}">{{ t('Ver el mapa','Show map') }}</button>
+    <a class="btn btn-green" href="{{ br.maps_url }}" data-ev="como_llegar" data-branch="{{ br.slug }}" target="_blank" rel="noopener">{{ t('Cómo llegar en Google Maps','Directions on Google Maps') }}</a>
+  </div>
+</div>
+{%- endmacro -%}
+
+{%- macro desayunos(intro=None) -%}
+<section class="desayunos" id="desayunos" aria-labelledby="des-t">
+  <div class="wrap des-grid">
+    <div class="des-head">
+      <p class="eyebrow">{{ t('Desayunar en AM','Breakfast at AM') }}</p>
+      <h2 id="des-t">{{ bi(TX.desayunos.titulo) }}</h2>
+      <ul class="des-facts">
+        <li><b>{{ t('Horario','Hours') }}</b> {{ HORARIO_TEXTO[LANG] }}</li>
+        <li><b>{{ t('Desde','Since') }}</b> {{ BR.desde.texto[LANG] }}</li>
+        <li><b>{{ t('Estacionamiento','Parking') }}</b> {{ BR.estacionamiento[LANG] }}</li>
+        {%- if BR.pet_friendly %}<li><b>Pet friendly</b> {{ t('Tu perro es bienvenido','Your dog is welcome') }}</li>{% endif %}
+        <li><b>{{ t('A domicilio','Delivery') }}</b> {% if DELIV.activo %}{{ t('Sí','Yes') }}{% else %}{{ DELIV.texto[LANG] }}{% endif %}</li>
+      </ul>
+    </div>
+    <div class="des-body">
+      {%- if intro %}<p class="des-intro">{{ bi(intro) }}</p>{% endif %}
+      {%- for p in TX.desayunos.parrafos %}<p>{{ bi(p) }}</p>{% endfor %}
+      <div class="cta"><a class="btn btn-green" href="{{ L }}/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{{ t('Ver el menú completo','See the full menu') }}</a></div>
+    </div>
+  </div>
+</section>
 {%- endmacro -%}

@@ -91,12 +91,20 @@
         ]
       },
       "pedidos": [],
-      "reservas": false,
+      "reservas": {
+        "activo": true,
+        "via": {
+          "es": "WhatsApp",
+          "en": "WhatsApp"
+        }
+      },
       "atributos": {
         "es": [
           "Café ilimitado",
           "Matcha ceremonial",
           "Opciones veganas",
+          "Opciones vegetarianas",
+          "Pet friendly",
           "Sin gluten",
           "Terraza",
           "Sillas para bebé",
@@ -108,6 +116,8 @@
           "Bottomless coffee",
           "Ceremonial matcha",
           "Vegan options",
+          "Vegetarian options",
+          "Pet friendly",
           "Gluten free",
           "Outdoor seating",
           "High chairs",
@@ -120,7 +130,31 @@
         "es": "A media cuadra de la 5ta Avenida, en Zazil-Ha.",
         "en": "Half a block from 5th Avenue, in Zazil-Ha."
       },
-      "calificacion_google": 4.8
+      "calificacion_google": 4.8,
+      "delivery": {
+        "activo": false,
+        "texto": {
+          "es": "Por ahora no tenemos servicio a domicilio; muy pronto.",
+          "en": "We don't offer delivery yet; coming soon."
+        },
+        "_ayuda": "Para activarlo: activo = true y agrega los botones en 'pedidos' (id, nombre, url)."
+      },
+      "desde": {
+        "fecha": "2026-01",
+        "texto": {
+          "es": "enero de 2026",
+          "en": "January 2026"
+        }
+      },
+      "estacionamiento": {
+        "es": "Estacionamiento abundante en la calle, con parquímetro.",
+        "en": "Plenty of street parking (metered)."
+      },
+      "pet_friendly": true,
+      "factura": {
+        "es": "Pídela al capitán de la sucursal.",
+        "en": "Ask the captain at the restaurant."
+      }
     }
   ],
   "barra_libre_cafe": {
@@ -239,32 +273,44 @@
   "seo": {
     "inicio": {
       "title": {
-        "es": "AM by Mu | Brunch y barra de café en Playa del Carmen · Calle 38",
-        "en": "AM by Mu | Brunch & coffee bar in Playa del Carmen · Calle 38"
+        "es": "Desayunos y brunch en Playa del Carmen | AM by Mu",
+        "en": "Breakfast & brunch in Playa del Carmen | AM by Mu"
       },
       "description": {
-        "es": "Brunch y barra de café en Calle 38, Playa del Carmen: matcha ceremonial, café ilimitado con tu brunch, chilaquiles y mimosas. 8:00–15:00, martes cerrado.",
-        "en": "Brunch and coffee bar on Calle 38, Playa del Carmen: ceremonial matcha, bottomless coffee with brunch, chilaquiles and mimosas. 8 am–3 pm, closed Tue."
+        "es": "Desayunos y brunch en Calle 38, Playa del Carmen: chilaquiles, pain perdu, burrata toast, matcha y café. 8:00–15:00, martes cerrado. Pet friendly.",
+        "en": "Breakfast and brunch on Calle 38, Playa del Carmen: chilaquiles, pain perdu, burrata toast, matcha and coffee. 8 am–3 pm, closed Tue. Pet friendly."
+      },
+      "h1": {
+        "es": "Desayunos, brunch y café en Playa del Carmen",
+        "en": "Breakfast, brunch & coffee in Playa del Carmen"
       }
     },
     "menu": {
       "title": {
-        "es": "Menú AM by Mu | Brunch, café y matcha · Playa del Carmen",
-        "en": "AM by Mu menu | Brunch, coffee & matcha · Playa del Carmen"
+        "es": "Menú de AM by Mu | Desayunos, brunch y café",
+        "en": "AM by Mu menu | Breakfast, brunch & coffee"
       },
       "description": {
-        "es": "Menú completo de AM by Mu con precios: brunch, chilaquiles, eggs & steak, lattes de matcha ceremonial, café de especialidad, jugos y mimosas bottomless.",
-        "en": "Full AM by Mu menu with prices: brunch, chilaquiles, eggs & steak, ceremonial matcha lattes, specialty coffee, fresh drinks and bottomless mimosas."
+        "es": "Menú completo de AM by Mu con precios: desayunos, chilaquiles, pain perdu, eggs & steak, matcha ceremonial, café de especialidad, jugos y mimosas.",
+        "en": "Full AM by Mu menu with prices: breakfast, chilaquiles, pain perdu, eggs & steak, ceremonial matcha, specialty coffee, fresh drinks and mimosas."
+      },
+      "h1": {
+        "es": "Menú de AM by Mu",
+        "en": "AM by Mu menu"
       }
     },
     "sucursal": {
       "title": {
-        "es": "AM by Mu Calle 38, Playa del Carmen | Horario, cómo llegar",
-        "en": "AM by Mu Calle 38, Playa del Carmen | Hours & directions"
+        "es": "Desayunos en Playa del Carmen, Calle 38 | AM by Mu",
+        "en": "Breakfast in Playa del Carmen, Calle 38 | AM by Mu"
       },
       "description": {
-        "es": "AM by Mu en Calle 38 entre 5ta Avenida y Calle Flamingos, Zazil-Ha, Playa del Carmen. Horario día por día, cómo llegar y preguntas frecuentes.",
-        "en": "AM by Mu on Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha, Playa del Carmen. Daily hours, directions and FAQ."
+        "es": "AM by Mu en Calle 38, Zazil-Ha: desayunos de 8:00 a 15:00, martes cerrado. Estacionamiento en la calle, pet friendly. Horario, cómo llegar y preguntas.",
+        "en": "AM by Mu on Calle 38, Zazil-Ha: breakfast 8 am–3 pm, closed Tuesday. Street parking, pet friendly. Hours, directions and FAQ."
+      },
+      "h1": {
+        "es": "AM by Mu Calle 38 · Desayunos en Playa del Carmen",
+        "en": "AM by Mu Calle 38 · Breakfast in Playa del Carmen"
       }
     },
     "og_imagen": "/og.jpg"
@@ -281,17 +327,119 @@
     "matcha": {
       "es": "Matcha ceremonial de origen japonés, sin azúcar añadida. Capas, cold foams y toppings que se ven tan bien como saben.",
       "en": "Ceremonial matcha of Japanese origin, no added sugar. Layers, cold foams and toppings that look as good as they taste."
+    },
+    "desayunos": {
+      "titulo": {
+        "es": "Desayunos en Playa del Carmen, en la Calle 38",
+        "en": "Breakfast in Playa del Carmen, on Calle 38"
+      },
+      "parrafos": [
+        {
+          "es": "Desde enero de 2026, AM by Mu sirve desayunos y brunch en la Calle 38 de Playa del Carmen, entre la 5ta Avenida y Calle Flamingos. Abrimos ${horario_texto_es}, y el menú completo se sirve todo el día.",
+          "en": "Since January 2026, AM by Mu has been serving breakfast and brunch on Calle 38 in Playa del Carmen, between 5th Avenue and Calle Flamingos. We're open ${horario_texto_en}, and the full menu is served all day."
+        },
+        {
+          "es": "Para desayunar hay chilaquiles verdes poblanos o rojos morita, chilaquiles motuleños, huevitos al gusto o ahogados, eggs & steak con arrachera Angus, omelettes, burrata toast en pan de masa madre y tres pain perdu: el clásico con caramelo salado, el blueberry & crème y el banana brûlée. Entre semana, antes de las 11:00, el AM Express es un desayuno completo por ${express}.",
+          "en": "For breakfast there are green poblano or red morita chilaquiles, motuleño-style chilaquiles, eggs your way or ahogados, eggs & steak with Angus skirt steak, omelettes, burrata toast on sourdough and three pain perdu: the classic with salted caramel, blueberry & crème and banana brûlée. On weekdays before 11 am, AM Express is a full breakfast for ${express}."
+        },
+        {
+          "es": "Para acompañar: café de especialidad con barra libre de ${barra} con tu brunch, lattes de matcha ceremonial de Uji, hojicha, jugos y mimosas.",
+          "en": "To go with it: specialty coffee, bottomless for ${barra} with your brunch, ceremonial Uji matcha lattes, hojicha, fresh juices and mimosas."
+        },
+        {
+          "es": "Hay opciones vegetarianas —chilaquiles, huevitos ahogados, hotcake de elote, pain perdu y burrata toast— y una vegana: las flautas ahogadas rellenas de carne vegana. Y somos pet friendly: tu perro es bienvenido.",
+          "en": "There are vegetarian options —chilaquiles, huevos ahogados, sweet corn hotcake, pain perdu and burrata toast— and a vegan one: flautas ahogadas filled with plant-based meat. We're pet friendly, too: your dog is welcome."
+        },
+        {
+          "es": "Estamos a media cuadra de la 5ta Avenida, en Zazil-Ha, con estacionamiento abundante en la calle (con parquímetro). Ven solo con tu laptop, con amigos, en familia —hay terraza y sillas para bebé— o después de correr con el Run Club.",
+          "en": "We're half a block from 5th Avenue, in Zazil-Ha, with plenty of metered street parking. Come solo with your laptop, with friends, with the family —there's a terrace and high chairs— or after a run with the Run Club."
+        }
+      ],
+      "sucursal_intro": {
+        "es": "AM by Mu Calle 38 es nuestra casa en Playa del Carmen: desayunos y brunch ${horario_texto_es}, a media cuadra de la 5ta Avenida.",
+        "en": "AM by Mu Calle 38 is our home in Playa del Carmen: breakfast and brunch ${horario_texto_en}, half a block from 5th Avenue."
+      }
     }
   },
   "faq": [
     {
       "q": {
-        "es": "¿Cuál es el horario de AM by Mu?",
-        "en": "What are your opening hours?"
+        "es": "¿A qué hora sirven desayunos?",
+        "en": "What time do you serve breakfast?"
       },
       "a": {
-        "es": "Abrimos de 8:00 a 15:00 todos los días excepto martes, que cerramos.",
-        "en": "We're open 8 am to 3 pm every day except Tuesday."
+        "es": "${horario_faq_es}",
+        "en": "${horario_faq_en}"
+      }
+    },
+    {
+      "q": {
+        "es": "¿Aceptan reservaciones?",
+        "en": "Do you take reservations?"
+      },
+      "a": {
+        "es": "Sí, por WhatsApp al ${whatsapp}.",
+        "en": "Yes, on WhatsApp at ${whatsapp}."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen servicio a domicilio?",
+        "en": "Do you deliver?"
+      },
+      "a": {
+        "es": "${delivery_es}",
+        "en": "${delivery_en}"
+      }
+    },
+    {
+      "q": {
+        "es": "¿Hay estacionamiento?",
+        "en": "Is there parking?"
+      },
+      "a": {
+        "es": "Sí, hay estacionamiento abundante en la calle, con parquímetro.",
+        "en": "Yes, there's plenty of metered street parking."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Puedo llevar a mi mascota?",
+        "en": "Can I bring my pet?"
+      },
+      "a": {
+        "es": "Sí, somos pet friendly.",
+        "en": "Yes, we're pet friendly."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen opciones vegetarianas y veganas?",
+        "en": "Do you have vegetarian and vegan options?"
+      },
+      "a": {
+        "es": "Sí. Para veganos, las flautas ahogadas rellenas de carne vegana. Vegetarianos: chilaquiles, huevitos ahogados, hotcake de elote, pain perdu, burrata toast, croissants y bowl de fruta. Y si buscas sin gluten, el hotcake de elote es para ti.",
+        "en": "Yes. For vegans, the flautas ahogadas filled with plant-based meat. Vegetarian: chilaquiles, huevos ahogados, sweet corn hotcake, pain perdu, burrata toast, croissants and the fruit bowl. Gluten-free? Try our corn hotcake."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Cómo pido mi factura?",
+        "en": "How do I get an invoice (factura)?"
+      },
+      "a": {
+        "es": "Pídela al capitán de la sucursal.",
+        "en": "Ask the captain at the restaurant."
+      }
+    },
+    {
+      "q": {
+        "es": "¿Tienen opciones sin gluten?",
+        "en": "Do you have gluten-free options?"
+      },
+      "a": {
+        "es": "Sí: el hotcake de elote es sin gluten. Además, todos los cafés pueden llevar leche vegetal.",
+        "en": "Yes: the sweet corn hotcake is gluten free, and every coffee can be made with plant-based milk."
       }
     },
     {
@@ -302,16 +450,6 @@
       "a": {
         "es": "Sí: barra libre booozy de mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo por ${bottomless} por persona (1:30 h), y barra libre de café por ${barra} con tu brunch.",
         "en": "Yes: bottomless orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi and affogato carajillo for ${bottomless} MXN per person (1.5 h), plus bottomless coffee for ${barra} MXN with your brunch."
-      }
-    },
-    {
-      "q": {
-        "es": "¿Tienen opciones veganas o sin gluten?",
-        "en": "Do you have vegan or gluten-free options?"
-      },
-      "a": {
-        "es": "Sí: flautas ahogadas veganas, hamburguesa con Beyond Meat, hotcake de elote sin gluten y leches vegetales para todos los cafés.",
-        "en": "Yes: vegan flautas ahogadas, Beyond Meat burger, gluten-free sweet corn hotcake and plant-based milk for every coffee."
       }
     },
     {
@@ -320,18 +458,8 @@
         "en": "Where are you?"
       },
       "a": {
-        "es": "En Calle 38 entre 5ta Avenida y Calle Flamingos, colonia Zazil-Ha, Playa del Carmen.",
-        "en": "Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha, Playa del Carmen."
-      }
-    },
-    {
-      "q": {
-        "es": "¿Tienen barra libre de bebidas?",
-        "en": "Do you have bottomless drinks?"
-      },
-      "a": {
-        "es": "Sí: barra libre booozy de mimosas de naranja y toronja, Aperol spritz, Fluffy garibaldi y affogato carajillo por ${bottomless} por persona (1:30 h), y barra libre de café por ${barra} con tu brunch.",
-        "en": "Yes: bottomless orange & grapefruit mimosas, Aperol spritz, Fluffy garibaldi and affogato carajillo for ${bottomless} MXN per person (1.5 h), plus bottomless coffee for ${barra} MXN with your brunch."
+        "es": "En Calle 38 entre 5ta Avenida y Calle Flamingos, colonia Zazil-Ha, Playa del Carmen, a media cuadra de la 5ta Avenida.",
+        "en": "Calle 38 between 5th Avenue and Calle Flamingos, Zazil-Ha, Playa del Carmen, half a block from 5th Avenue."
       }
     }
   ],
@@ -352,6 +480,7 @@
             "layout": "two",
             "items": [
               {
+                "id": "bowl-de-fruta",
                 "n": {
                   "es": "Bowl de fruta",
                   "en": "Fruit bowl"
@@ -360,9 +489,13 @@
                 "d": {
                   "es": "Fruta de temporada, yogurt, granola",
                   "en": "Seasonal fruit, yogurt, granola"
-                }
+                },
+                "tags": [
+                  "veg"
+                ]
               },
               {
+                "id": "hotcake-de-elote",
                 "n": {
                   "es": "Hotcake de elote",
                   "en": "Sweet corn hotcake"
@@ -374,12 +507,14 @@
                 },
                 "tags": [
                   "new",
-                  "gf"
+                  "gf",
+                  "veg"
                 ],
                 "destacado": true,
                 "foto": null
               },
               {
+                "id": "pain-perdu",
                 "n": {
                   "es": "Pain perdu",
                   "en": "Pain perdu"
@@ -390,9 +525,13 @@
                   "en": "French toast, salted caramel, ice cream"
                 },
                 "destacado": true,
-                "foto": null
+                "foto": null,
+                "tags": [
+                  "veg"
+                ]
               },
               {
+                "id": "pain-perdu-blueberry-creme",
                 "n": {
                   "es": "Pain perdu blueberry & crème",
                   "en": "Pain perdu blueberry & crème"
@@ -403,7 +542,8 @@
                   "en": "Crème fraîche, blueberry compote, vanilla ice cream, almond crunch"
                 },
                 "tags": [
-                  "new"
+                  "new",
+                  "veg"
                 ],
                 "destacado": true,
                 "foto": null,
@@ -413,6 +553,7 @@
                 }
               },
               {
+                "id": "pain-perdu-banana-brulee",
                 "n": {
                   "es": "Pain perdu banana brûlée",
                   "en": "Pain perdu banana brûlée"
@@ -433,6 +574,7 @@
                 }
               },
               {
+                "id": "burrata-toast",
                 "n": {
                   "es": "Burrata toast",
                   "en": "Burrata toast"
@@ -448,9 +590,13 @@
                   "par_huevos",
                   "tocino",
                   "jamon"
+                ],
+                "tags": [
+                  "veg"
                 ]
               },
               {
+                "id": "el-sandwich",
                 "n": {
                   "es": "El sándwich",
                   "en": "The sandwich"
@@ -465,6 +611,7 @@
                 ]
               },
               {
+                "id": "barbacoa-dip-sandwich",
                 "n": {
                   "es": "Barbacoa dip sandwich",
                   "en": "Barbacoa dip sandwich"
@@ -479,6 +626,7 @@
                 ]
               },
               {
+                "id": "flautas-ahogadas-veganas",
                 "n": {
                   "es": "Flautas ahogadas veganas",
                   "en": "Vegan flautas ahogadas"
@@ -494,6 +642,7 @@
                 ]
               },
               {
+                "id": "huevitos-al-gusto",
                 "n": {
                   "es": "Huevitos al gusto",
                   "en": "Eggs your way"
@@ -514,6 +663,7 @@
                 ]
               },
               {
+                "id": "huevitos-ahogados",
                 "n": {
                   "es": "Huevitos ahogados",
                   "en": "Huevos ahogados"
@@ -527,9 +677,13 @@
                   "barbacoa",
                   "tocino",
                   "jamon"
+                ],
+                "tags": [
+                  "veg"
                 ]
               },
               {
+                "id": "huevitos-motulenos",
                 "n": {
                   "es": "Huevitos motuleños",
                   "en": "Eggs motuleños"
@@ -541,6 +695,7 @@
                 }
               },
               {
+                "id": "eggs-steak",
                 "n": {
                   "es": "Eggs & Steak",
                   "en": "Eggs & Steak"
@@ -554,6 +709,7 @@
                 "foto": null
               },
               {
+                "id": "omelette-poblano",
                 "n": {
                   "es": "Omelette poblano",
                   "en": "Poblano omelette"
@@ -565,6 +721,7 @@
                 }
               },
               {
+                "id": "truffle-omelette",
                 "n": {
                   "es": "Truffle omelette",
                   "en": "Truffle omelette"
@@ -576,6 +733,7 @@
                 }
               },
               {
+                "id": "roll-de-croissant",
                 "n": {
                   "es": "Roll de croissant",
                   "en": "Croissant roll"
@@ -587,6 +745,7 @@
                 }
               },
               {
+                "id": "roll-croque-amadame",
                 "n": {
                   "es": "Roll croque AMadame",
                   "en": "Roll croque AMadame"
@@ -599,6 +758,7 @@
                 "realce": "AM"
               },
               {
+                "id": "a-m-cheese-burger",
                 "n": {
                   "es": "A.M. cheese burger",
                   "en": "A.M. cheeseburger"
@@ -614,6 +774,7 @@
                 }
               },
               {
+                "id": "chilaquiles",
                 "n": {
                   "es": "Chilaquiles",
                   "en": "Chilaquiles"
@@ -635,9 +796,13 @@
                       "en": "Melted gouda"
                     }
                   }
+                ],
+                "tags": [
+                  "veg"
                 ]
               },
               {
+                "id": "chilaquiles-rancheros",
                 "n": {
                   "es": "Chilaquiles rancheros",
                   "en": "Ranchero chilaquiles"
@@ -649,6 +814,7 @@
                 }
               },
               {
+                "id": "chilaquiles-motulenos",
                 "n": {
                   "es": "Chilaquiles motuleños",
                   "en": "Motuleño-style chilaquiles"
@@ -665,6 +831,7 @@
                 "foto": null
               },
               {
+                "id": "flautas-de-barbacoa",
                 "n": {
                   "es": "Flautas de barbacoa",
                   "en": "Barbacoa flautas"
@@ -679,6 +846,7 @@
                 ]
               },
               {
+                "id": "tacos-volteados",
                 "n": {
                   "es": "Tacos volteados",
                   "en": "Upside-down barbacoa tacos"
@@ -690,6 +858,7 @@
                 }
               },
               {
+                "id": "par-de-quesadillotas",
                 "n": {
                   "es": "Par de quesadillotas",
                   "en": "Two big quesadillas"
@@ -761,6 +930,7 @@
             },
             "items": [
               {
+                "id": "matcha-latte-am",
                 "n": {
                   "es": "Matcha latte AM",
                   "en": "Matcha latte AM"
@@ -786,6 +956,7 @@
                 }
               },
               {
+                "id": "pink-matcha",
                 "n": {
                   "es": "Pink matcha",
                   "en": "Pink matcha"
@@ -811,6 +982,7 @@
                 }
               },
               {
+                "id": "matcha-taro",
                 "n": {
                   "es": "Matcha taro",
                   "en": "Matcha taro"
@@ -836,6 +1008,7 @@
                 }
               },
               {
+                "id": "matcha-mango",
                 "n": {
                   "es": "Matcha mango",
                   "en": "Mango matcha"
@@ -850,6 +1023,7 @@
                 ]
               },
               {
+                "id": "matcha-banana",
                 "n": {
                   "es": "Matcha banana",
                   "en": "Banana matcha"
@@ -864,6 +1038,7 @@
                 ]
               },
               {
+                "id": "aussie-matcha",
                 "n": {
                   "es": "Aussie matcha",
                   "en": "Aussie matcha"
@@ -957,6 +1132,7 @@
             },
             "items": [
               {
+                "id": "hojicha-latte",
                 "n": {
                   "es": "Hojicha latte",
                   "en": "Hojicha latte"
@@ -982,6 +1158,7 @@
                 }
               },
               {
+                "id": "dirty-hojicha",
                 "n": {
                   "es": "Dirty hojicha",
                   "en": "Dirty hojicha"
@@ -996,6 +1173,7 @@
                 ]
               },
               {
+                "id": "hojicha-fresa",
                 "n": {
                   "es": "Hojicha fresa",
                   "en": "Strawberry hojicha"
@@ -1010,6 +1188,7 @@
                 ]
               },
               {
+                "id": "hojicha-banana",
                 "n": {
                   "es": "Hojicha banana",
                   "en": "Banana hojicha"
@@ -1024,6 +1203,7 @@
                 ]
               },
               {
+                "id": "aussie-hojicha",
                 "n": {
                   "es": "Aussie hojicha",
                   "en": "Aussie hojicha"
@@ -1060,6 +1240,7 @@
             "layout": "two",
             "items": [
               {
+                "id": "matcha-limo-fresa",
                 "n": {
                   "es": "Matcha limo fresa",
                   "en": "Matcha strawberry lemonade"
@@ -1078,6 +1259,7 @@
                 }
               },
               {
+                "id": "matcha-orange",
                 "n": {
                   "es": "Matcha orange",
                   "en": "Matcha orange"
@@ -1096,6 +1278,7 @@
                 }
               },
               {
+                "id": "matcha-limo-mango",
                 "n": {
                   "es": "Matcha limo mango",
                   "en": "Matcha mango lemonade"
@@ -1114,6 +1297,7 @@
                 }
               },
               {
+                "id": "espresso-tonic",
                 "n": {
                   "es": "Espresso tonic",
                   "en": "Espresso tonic"
@@ -1132,6 +1316,7 @@
                 }
               },
               {
+                "id": "mango-fizz",
                 "n": {
                   "es": "Mango fizz",
                   "en": "Mango fizz"
@@ -1146,6 +1331,7 @@
                 ]
               },
               {
+                "id": "fluffy-orange",
                 "n": {
                   "es": "Fluffy orange",
                   "en": "Fluffy orange"
@@ -1161,6 +1347,7 @@
                 }
               },
               {
+                "id": "fluffy-toronja",
                 "n": {
                   "es": "Fluffy toronja",
                   "en": "Fluffy grapefruit"
@@ -1176,6 +1363,7 @@
                 }
               },
               {
+                "id": "fresh-verde",
                 "n": {
                   "es": "Fresh verde",
                   "en": "Fresh green"
@@ -1209,6 +1397,7 @@
             "layout": "chips",
             "items": [
               {
+                "id": "espresso",
                 "n": {
                   "es": "Espresso",
                   "en": "Espresso"
@@ -1216,6 +1405,7 @@
                 "p": 40
               },
               {
+                "id": "americano",
                 "n": {
                   "es": "Americano",
                   "en": "Americano"
@@ -1223,6 +1413,7 @@
                 "p": 40
               },
               {
+                "id": "flat-white",
                 "n": {
                   "es": "Flat white",
                   "en": "Flat white"
@@ -1230,6 +1421,7 @@
                 "p": 65
               },
               {
+                "id": "cappuccino",
                 "n": {
                   "es": "Cappuccino",
                   "en": "Cappuccino"
@@ -1237,6 +1429,7 @@
                 "p": 75
               },
               {
+                "id": "latte",
                 "n": {
                   "es": "Latte",
                   "en": "Latte"
@@ -1254,6 +1447,7 @@
             "layout": "two",
             "items": [
               {
+                "id": "salty-dulce-de-leche",
                 "n": {
                   "es": "Salty dulce de leche",
                   "en": "Salty dulce de leche"
@@ -1265,6 +1459,7 @@
                 }
               },
               {
+                "id": "banana-bread-latte",
                 "n": {
                   "es": "Banana bread latte",
                   "en": "Banana bread latte"
@@ -1276,6 +1471,7 @@
                 }
               },
               {
+                "id": "aussie-iced-coffee",
                 "n": {
                   "es": "Aussie iced coffee",
                   "en": "Aussie iced coffee"
@@ -1287,6 +1483,7 @@
                 }
               },
               {
+                "id": "thai-tea-latte",
                 "n": {
                   "es": "Thai tea latte",
                   "en": "Thai tea latte"
@@ -1330,6 +1527,7 @@
             "layout": "two",
             "items": [
               {
+                "id": "fluffy-garibaldi",
                 "n": {
                   "es": "Fluffy garibaldi",
                   "en": "Fluffy garibaldi"
@@ -1344,6 +1542,7 @@
                 ]
               },
               {
+                "id": "mimosa",
                 "n": {
                   "es": "Mimosa",
                   "en": "Mimosa"
@@ -1351,6 +1550,7 @@
                 "p": 90
               },
               {
+                "id": "aperol-spritz",
                 "n": {
                   "es": "Aperol spritz",
                   "en": "Aperol spritz"
@@ -1358,6 +1558,7 @@
                 "p": 150
               },
               {
+                "id": "affogato-carajillo",
                 "n": {
                   "es": "Affogato carajillo",
                   "en": "Affogato carajillo"
@@ -1365,6 +1566,7 @@
                 "p": 150
               },
               {
+                "id": "barra-libre-booozy",
                 "n": {
                   "es": "Barra libre booozy",
                   "en": "Bottomless booze"
@@ -1394,27 +1596,40 @@
             "layout": "two",
             "items": [
               {
+                "id": "croissant-natural",
                 "n": {
                   "es": "Croissant natural",
                   "en": "Plain croissant"
                 },
-                "p": 50
+                "p": 50,
+                "tags": [
+                  "veg"
+                ]
               },
               {
+                "id": "croissant-brulee",
                 "n": {
                   "es": "Croissant brûlée",
                   "en": "Croissant brûlée"
                 },
-                "p": 60
+                "p": 60,
+                "tags": [
+                  "veg"
+                ]
               },
               {
+                "id": "croissant-salty-dulce-de-leche",
                 "n": {
                   "es": "Croissant salty dulce de leche",
                   "en": "Salty dulce de leche croissant"
                 },
-                "p": 60
+                "p": 60,
+                "tags": [
+                  "veg"
+                ]
               },
               {
+                "id": "croissant-miel-jamon-y-queso",
                 "n": {
                   "es": "Croissant miel, jamón y queso",
                   "en": "Honey, ham & cheese croissant"
