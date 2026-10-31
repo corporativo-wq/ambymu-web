@@ -4,7 +4,7 @@
   <div class="wrap nav">
     <a class="brand" href="{{ L }}/" aria-label="{{ S.nombre }}"><img src="/img/logo-green.webp" alt="{{ S.nombre }}" width="43" height="46"></a>
     <nav>
-      <a href="{{ L }}/menu" data-ev="menu_nav">{BI:Menú|Menu}</a>
+      <a href="{{ L }}/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Menú|Menu}</a>
       {%- if VIDEOS %}<a class="hide-m" href="#pain-perdu">{BI:Nuevos|New}</a>{% endif %}
       <a class="hide-m" href="#matcha">Matcha</a>
       {%- if RC.activo %}<a class="hide-m" href="#runclub">Run Club</a>{% endif %}
@@ -24,7 +24,7 @@
       <p class="hero-title" aria-hidden="true"><span class="h-poster">{BI:Buenas|Good}</span><span class="h-poster">{BI:mañanas|mornings}</span><span class="h-groovy">{BI:con actitud|only}</span></p>
       <p class="lead">{{ m.bi(TX.hero_lead) }}</p>
       <div class="cta">
-        <a class="btn btn-green" href="{{ L }}/menu" data-ev="menu_nav">{BI:Ver el menú|See the menu}</a>
+        <a class="btn btn-green" href="{{ L }}/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Ver el menú|See the menu}</a>
         <a class="btn btn-cream" href="{{ BR.maps_url }}" data-ev="como_llegar" data-branch="{{ BR.slug }}" target="_blank" rel="noopener">{BI:Cómo llegar|Directions}</a>
       </div>
       <div class="facts">
@@ -48,7 +48,7 @@
       <p class="eyebrow">{BI:Recién salidos del sartén|Fresh off the griddle}</p>
       <h2 id="drop-t"><span class="h-poster">Pain</span><span class="h-poster">perdu</span><span class="h-groovy">{BI:×2 nuevos|×2 new}</span></h2>
       <p class="lead">{BI:Dos nuevas formas de pedir nuestro pan francés. Dale play, se te va a antojar.|Two new takes on our French toast. Hit play and try not to crave it.}</p>
-      <a class="btn btn-pink" href="{{ L }}/menu#brunch" data-ev="menu_nav">{BI:Pídelo hoy · ver menú →|Order it today · see menu →}</a>
+      <a class="btn btn-pink" href="{{ L }}/menu#brunch" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Pídelo hoy · ver menú →|Order it today · see menu →}</a>
     </div>
     <div class="drop-cards">{% for i in VIDEOS %}{{ m.drop_card(i, loop.index) }}{% endfor %}</div>
   </div>
@@ -118,7 +118,7 @@
       <p class="hand">{BI:¿Ya estás en la mesa?|Already at your table?}</p>
       <h2>{BI:Todo el menú,|The full menu,}<br>{BI:sin vueltas|no fuss}</h2>
     </div>
-    <a class="btn btn-green mc-btn" href="{{ L }}/menu" data-ev="menu_nav">{BI:Ver menú completo →|See the full menu →}</a>
+    <a class="btn btn-green mc-btn" href="{{ L }}/menu" data-ev="menu_nav" data-branch="{{ BR.slug }}">{BI:Ver menú completo →|See the full menu →}</a>
   </div>
 </section>
 
