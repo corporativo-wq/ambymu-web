@@ -9,7 +9,7 @@
 {%- macro items(lst) -%}
 {%- for i in lst %}
 <li class="item">
-  <div class="item-top"><h3><span>{{ i.n[LANG]|realce(i.realce) }}</span></h3><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
+  <div class="item-top"><h3><span translate="no">{{ i.n[LANG]|realce(i.realce) }}</span></h3><span class="dots" aria-hidden="true"></span><span class="price">${{ i.p }}</span></div>
   {%- if i.d %}<p class="desc">{{ bi(i.d) }}</p>{% elif i.tipo %}<p class="desc">{{ bi(i.tipo) }}</p>{% endif %}
   {%- if i.incluye %}<p class="incl"><b>{{ t('Incluye:','Includes:') }}</b> {{ bi(i.incluye) }}</p>{% endif %}
   {%- if i.extra %}<p class="extra">{{ bi(i.extra) }}</p>{% endif %}

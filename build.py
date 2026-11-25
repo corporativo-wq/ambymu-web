@@ -230,6 +230,20 @@ G = dict(BLB=BLB, EXTRAS=EXTRAS, S=S, SEO=SEO, M=M, R=C["redes"], BR=BR, BL=BL, 
          BURST=open(f"{SRC}/burst.txt").read().strip(), SPIKY=open(f"{SRC}/burst_spiky.txt").read().strip())
 SLUG = "/" + BR["slug"]
 REST_MIN = {"@id": D + "/#restaurant", "@type": "Restaurant", "name": S["nombre"]}
+
+PRICE_RE = re.compile(r"\+?\$\d[\d,]*(?:\.\d+)?")
+def no_traducir_precios(h):
+    """Envuelve cada precio visible ($230, +$35) en translate="no": el traductor del navegador no lo cambia a "230 dólares"."""
+    head, sep, body = h.partition("<body")
+    parts = re.split(r"(<[^>]+>)", body); skip = False
+    for k, x in enumerate(parts):
+        if x.startswith("<"):
+            t = x[1:].split()[0].lower().rstrip(">") if len(x) > 2 else ""
+            if t in ("script", "style", "title", "textarea"): skip = True
+            elif t in ("/script", "/style", "/title", "/textarea"): skip = False
+        elif not skip and "$" in x:
+            parts[k] = PRICE_RE.sub(lambda m: f'<span translate="no">{m.group(0)}</span>', x)
+    return head + sep + "".join(parts)
 sizes = {}
 for lg in ("es", "en"):
     env = make_env(lg); L = "" if lg == "es" else "/en"
@@ -255,6 +269,7 @@ for lg in ("es", "en"):
         os.makedirs(os.path.dirname(outp) or ".", exist_ok=True)
         htmltxt = env.get_template(tpl).render(page=page, POSTERS=POSTERS, ALT=alt, **GL)
         htmltxt = recolor(re.sub(r">\s+<", "> <", re.sub(r"\n\s*", "\n", htmltxt)))
+        htmltxt = no_traducir_precios(htmltxt)
         htmltxt = htmltxt.replace("</head>", PIXEL + "</head>", 1)  # Meta Pixel tal cual (sin minificar ni recolorear)
         if outp == "index.html":  # verificación de dominio de Meta: solo en la página de inicio (raíz), tal cual
             htmltxt = htmltxt.replace("</head>", FB_VERIF + "</head>", 1)
